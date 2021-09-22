@@ -1,0 +1,51 @@
+{
+    "TestScenario.Offline": {
+        "count": 1409100,
+        "good_items": 0,
+        "mean": 339.7049993557808,
+        "percentiles": {
+            "50.0": 339.06036546,
+            "80.0": 541.82542676,
+            "90.0": 609.590646273,
+            "95.0": 643.481901225,
+            "99.0": 670.44292174,
+            "99.9": 676.701658598
+        },
+        "qps": 2080.9326327527397,
+        "took": 677.1483025550842,
+        "total_items": 1409100
+    },
+    "args": {
+        "accuracy": false,
+        "backend": "tvm2",
+        "cache": 0,
+        "count": null,
+        "data_format": "NCHW",
+        "dataset": "imagenet_pytorch",
+        "dataset_list": null,
+        "dataset_path": "/home/grigori/datasets/imagenet-2012-val",
+        "debug": false,
+        "find_peak_performance": false,
+        "inputs": null,
+        "max_batchsize": 32,
+        "max_latency": null,
+        "mlperf_conf": "/home/grigori/CK/local/venv/mlperf-inference/CK/local/env/3132509666a9478e/inference/mlperf.conf",
+        "model": "/home/grigori/CK/local/venv/mlperf-inference/CK/local/env/7092b4fc5b918ecc/resnet50_INT8bit_quantized.pt",
+        "model_name": "resnet50",
+        "output": "/home/grigori/CK/local/venv/mlperf-inference/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-tvm-pytorch-cpu/tmp",
+        "outputs": [
+            "ArgMax:0"
+        ],
+        "profile": "resnet50-onnxruntime",
+        "qps": 2100,
+        "samples_per_query": null,
+        "scenario": "Offline",
+        "threads": 80,
+        "time": 610,
+        "user_conf": "user.conf"
+    },
+    "cmdline": "Namespace(accuracy=False, backend='tvm2', cache=0, count=None, data_format='NCHW', dataset='imagenet_pytorch', dataset_list=None, dataset_path='/home/grigori/datasets/imagenet-2012-val', debug=False, find_peak_performance=False, inputs=None, max_batchsize=32, max_latency=None, mlperf_conf='/home/grigori/CK/local/venv/mlperf-inference/CK/local/env/3132509666a9478e/inference/mlperf.conf', model='/home/grigori/CK/local/venv/mlperf-inference/CK/local/env/7092b4fc5b918ecc/resnet50_INT8bit_quantized.pt', model_name='resnet50', output='/home/grigori/CK/local/venv/mlperf-inference/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-tvm-pytorch-cpu/tmp', outputs=['ArgMax:0'], profile='resnet50-onnxruntime', qps=2100, samples_per_query=None, scenario='Offline', threads=80, time=610, user_conf='user.conf')",
+    "runtime": "tvm",
+    "time": 1629061112,
+    "version": "N/A : TODO"
+}

@@ -1,0 +1,1 @@
+Please refer to closed/FuriosaAI/code/ssd-mobilenet/run-ssd-mobilenet.sh

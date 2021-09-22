@@ -1,0 +1,54 @@
+{
+    "TestScenario.Offline": {
+        "accuracy": 76.456,
+        "count": 1563,
+        "good_items": 38228,
+        "mean": 3.429852021785402,
+        "percentiles": {
+            "50.0": 3.9267780780792236,
+            "80.0": 4.789679288864136,
+            "90.0": 5.02903528213501,
+            "95.0": 5.174104928970336,
+            "99.0": 5.492500939369201,
+            "99.9": 5.62837659072876
+        },
+        "qps": 316.13707171598895,
+        "took": 4.944057941436768,
+        "total_items": 50000
+    },
+    "args": {
+        "accuracy": true,
+        "backend": "tensorflow",
+        "cache": 0,
+        "count": null,
+        "data_format": "NHWC",
+        "dataset": "imagenet",
+        "dataset_list": null,
+        "dataset_path": "/home/grigori/datasets/imagenet-2012-val",
+        "debug": false,
+        "find_peak_performance": false,
+        "inputs": [
+            "input_tensor:0"
+        ],
+        "max_batchsize": 32,
+        "max_latency": null,
+        "mlperf_conf": "/home/grigori/CK/local/venv/mlperf-inference/CK/local/env/3132509666a9478e/inference/mlperf.conf",
+        "model": "/home/grigori/CK/local/venv/mlperf-inference/CK/local/env/2a99dac0e5c35872/resnet50_v1.pb",
+        "model_name": "resnet50",
+        "output": "/home/grigori/CK/local/venv/mlperf-inference/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-tensorflow-cpu/tmp",
+        "outputs": [
+            "ArgMax:0"
+        ],
+        "profile": "resnet50-tf",
+        "qps": null,
+        "samples_per_query": null,
+        "scenario": "Offline",
+        "threads": 80,
+        "time": null,
+        "user_conf": "user.conf"
+    },
+    "cmdline": "Namespace(accuracy=True, backend='tensorflow', cache=0, count=None, data_format='NHWC', dataset='imagenet', dataset_list=None, dataset_path='/home/grigori/datasets/imagenet-2012-val', debug=False, find_peak_performance=False, inputs=['input_tensor:0'], max_batchsize=32, max_latency=None, mlperf_conf='/home/grigori/CK/local/venv/mlperf-inference/CK/local/env/3132509666a9478e/inference/mlperf.conf', model='/home/grigori/CK/local/venv/mlperf-inference/CK/local/env/2a99dac0e5c35872/resnet50_v1.pb', model_name='resnet50', output='/home/grigori/CK/local/venv/mlperf-inference/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-tensorflow-cpu/tmp', outputs=['ArgMax:0'], profile='resnet50-tf', qps=None, samples_per_query=None, scenario='Offline', threads=80, time=None, user_conf='user.conf')",
+    "runtime": "tensorflow",
+    "time": 1629086453,
+    "version": "2.6.0/v2.6.0-rc2-32-g919f693420e"
+}

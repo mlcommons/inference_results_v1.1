@@ -1,0 +1,24 @@
+{
+  "action": "benchmark",
+  "module_uoa": "b0ac08fe1d3c2615",
+  "data_uoa": "image-classification-tflite-loadgen",
+  "cmd_key": "default",
+  "env": {
+    "CK_LOADGEN_MODE": "PerformanceOnly",
+    "CK_LOADGEN_SCENARIO": "SingleStream",
+    "CK_LOADGEN_TARGET_LATENCY": "11",
+    "CK_LOADGEN_BUFFER_SIZE": "1024",
+    "EXTRA_OPS": ""
+  },
+  "record_deps": "ck-deps.json",
+  "repetitions": 1,
+  "no_state_check": "yes",
+  "clean": "no",
+  "quiet": "",
+  "skip_stat_analysis": "yes",
+  "skip_print_timers": "yes",
+  "skip_print_stats": "yes",
+  "out": "con",
+  "dep_add_tags.images": "preprocessed,using-opencv",
+  "dep_add_tags.weights": "efficientnet,lite0,non-quantized"
+}

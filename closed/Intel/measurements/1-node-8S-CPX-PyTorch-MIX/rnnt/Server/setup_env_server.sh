@@ -1,0 +1,2 @@
+export TCMALLOC_DIR=$CONDA_PREFIX/lib
+export KMP_BLOCKTIME=1

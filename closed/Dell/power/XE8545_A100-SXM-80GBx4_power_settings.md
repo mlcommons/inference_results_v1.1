@@ -1,0 +1,118 @@
+# Boot/BIOS Firmware Settings
+
+  - Set "WorkloadProfile = NotAvailable" in BIOS
+  - Set "LogicalProc = Enabled" in BIOS
+  - Set "ProcVirtualization = Enabled" in BIOS
+  - Set "L1StreamHwPrefetcher = Enabled" in BIOS
+  - Set "L2StreamHwPrefetcher = Enabled" in BIOS
+  - Set "L1StridePrefetcher = Enabled" in BIOS
+  - Set "L1RegionPrefetcher = Enabled" in BIOS
+  - Set "L2UpDownPrefetcher = Enabled" in BIOS
+  - Set "MadtCoreEnumeration = Linear" in BIOS
+  - Set "NumaNodesPerSocket = 4" in BIOS
+  - Set "CcxAsNumaDomain = Disabled" in BIOS
+  - Set "Sme = Disabled" in BIOS
+  - Set "ProcCcds = All" in BIOS
+  - Set "CcdCores = All" in BIOS
+  - Set "ControlledTurbo = Disabled" in BIOS
+  - Set "OptimizerMode = Auto" in BIOS
+  - Set "EmbSata = AhciMode" in BIOS
+  - Set "SecurityFreezeLock = Enabled" in BIOS
+  - Set "WriteCache = Disabled" in BIOS
+  - Set "BiosNvmeDriver = DellQualifiedDrives" in BIOS
+  - Set "BootMode = Uefi" in BIOS
+  - Set "BootSeqRetry = Enabled" in BIOS
+  - Set "GenericUsbBoot = Disabled" in BIOS
+  - Set "HddPlaceholder = Disabled" in BIOS
+  - Set "SysPrepClean = None" in BIOS
+  - Set "UsbPorts = AllOn" in BIOS
+  - Set "UsbManagedPort = On" in BIOS
+  - Set "EmbNic1Nic2 = Enabled" in BIOS
+  - Set "EmbVideo = Enabled" in BIOS
+  - Set "PcieSocket0Nbio3LclkFreq = Auto" in BIOS
+  - Set "PcieSocket0Nbio2LclkFreq = Auto" in BIOS
+  - Set "PcieSocket0Nbio1LclkFreq = Auto" in BIOS
+  - Set "PcieSocket0Nbio0LclkFreq = Auto" in BIOS
+  - Set "PcieSocket1Nbio3LclkFreq = Auto" in BIOS
+  - Set "PcieSocket1Nbio2LclkFreq = Auto" in BIOS
+  - Set "PcieSocket1Nbio1LclkFreq = Auto" in BIOS
+  - Set "PcieSocket1Nbio0LclkFreq = Auto" in BIOS
+  - Set "PciePreferredIoBus = Disabled" in BIOS
+  - Set "PcieEnhancedPreferredIo = Disabled" in BIOS
+  - Set "SriovGlobalEnable = Enabled" in BIOS
+  - Set "OsWatchdogTimer = Disabled" in BIOS
+  - Set "DellAutoDiscovery = PlatformDefault" in BIOS
+  - Set "Slot2 = Enabled" in BIOS
+  - Set "Slot6 = Enabled" in BIOS
+  - Set "Slot7 = Enabled" in BIOS
+  - Set "Slot8 = Enabled" in BIOS
+  - Set "SerialComm = OnNoConRedir" in BIOS
+  - Set "SerialPortAddress = Com1" in BIOS
+  - Set "FailSafeBaud = 115200" in BIOS
+  - Set "ConTermType = Vt100Vt220" in BIOS
+  - Set "RedirAfterBoot = Enabled" in BIOS
+  - Set "SysProfile = PerfOptimized" in BIOS
+  - Set "PasswordStatus = Unlocked" in BIOS
+  - Set "TpmSecurity = Off" in BIOS
+  - Set "PwrButton = Enabled" in BIOS
+  - Set "AcPwrRcvry = Last" in BIOS
+  - Set "AcPwrRcvryDelay = Immediate" in BIOS
+  - Set "AcPwrRcvryUserDelay = 60" in BIOS
+  - Set "UefiVariableAccess = Standard" in BIOS
+  - Set "SecureBoot = Disabled" in BIOS
+  - Set "SecureBootPolicy = Standard" in BIOS
+  - Set "SecureBootMode = DeployedMode" in BIOS
+  - Set "RedundantOsLocation = None" in BIOS
+  - Set "MemTest = Disabled" in BIOS
+  - Set "DramRefreshDelay = Minimum" in BIOS
+  - Set "MemOpMode = OptimizerMode" in BIOS
+  - Set "MemoryInterleaving = Auto" in BIOS
+  - Set "CorrEccSmi = Enabled" in BIOS
+  - Set "OppSrefEn = Disabled" in BIOS
+  - Set "CECriticalSEL = Enabled" in BIOS
+  - Set "DimmSlot00 = Enabled" in BIOS
+  - Set "DimmSlot01 = Enabled" in BIOS
+  - Set "DimmSlot02 = Enabled" in BIOS
+  - Set "DimmSlot03 = Enabled" in BIOS
+  - Set "DimmSlot04 = Enabled" in BIOS
+  - Set "DimmSlot05 = Enabled" in BIOS
+  - Set "DimmSlot06 = Enabled" in BIOS
+  - Set "DimmSlot07 = Enabled" in BIOS
+  - Set "DimmSlot08 = Enabled" in BIOS
+  - Set "DimmSlot09 = Enabled" in BIOS
+  - Set "DimmSlot10 = Enabled" in BIOS
+  - Set "DimmSlot11 = Enabled" in BIOS
+  - Set "DimmSlot12 = Enabled" in BIOS
+  - Set "DimmSlot13 = Enabled" in BIOS
+  - Set "DimmSlot14 = Enabled" in BIOS
+  - Set "DimmSlot15 = Enabled" in BIOS
+  - Set "DimmSlot16 = Enabled" in BIOS
+  - Set "DimmSlot17 = Enabled" in BIOS
+  - Set "DimmSlot18 = Enabled" in BIOS
+  - Set "DimmSlot19 = Enabled" in BIOS
+  - Set "DimmSlot20 = Enabled" in BIOS
+  - Set "DimmSlot21 = Enabled" in BIOS
+  - Set "DimmSlot22 = Enabled" in BIOS
+  - Set "DimmSlot23 = Enabled" in BIOS
+  - Set "DimmSlot24 = Enabled" in BIOS
+  - Set "DimmSlot25 = Enabled" in BIOS
+  - Set "DimmSlot26 = Enabled" in BIOS
+  - Set "DimmSlot27 = Enabled" in BIOS
+  - Set "DimmSlot28 = Enabled" in BIOS
+  - Set "DimmSlot29 = Enabled" in BIOS
+  - Set "DimmSlot30 = Enabled" in BIOS
+  - Set "DimmSlot31 = Enabled" in BIOS
+  - Set "ErrPrompt = Disabled" in BIOS
+  - Set "ForceInt10 = Disabled" in BIOS
+  - Set "DellWyseP25BIOSAccess = Enabled" in BIOS  - 
+
+# Management Firmware Settings
+  
+  - Set "Thermal Profile Optimization" = "Default Thermal Profile Settings (Maximum Performance)" in iDRAC
+
+# Power Management  Settings  (command line or other)
+  
+  - nvidia-smi -ac 1593,1410 
+  - Benchmark started via ssh
+  - echo always | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+

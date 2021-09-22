@@ -1,0 +1,23 @@
+{
+    "import_path": "ssd-resnet34/pytorch-cpu",
+
+    "backend-params": {
+        "use_jit": true,
+        "model_path":"/root/mlperf_data/coco/data/ssd-resnet34.pth",
+	"inputs": "image",
+        "outputs": "bboxes,labels,scores",
+	"configuration_file": "ssd-resnet34/pytorch-cpu/int8-configuration.json"
+    },
+
+    "dataset-params": {
+        "data_path": "/root/mlperf_data/coco",
+        "annotations_file": "/root/mlperf_data/coco/annotations/instances_val2017.json",
+        "total_sample_count": 5000,
+        "dims": [1200, 1200, 3]
+    },
+    
+    "enqueue-params": {
+	"batch_size": 1
+    }
+    
+}

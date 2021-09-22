@@ -1,0 +1,52 @@
+{
+    "TestScenario.Offline": {
+        "accuracy": 76.456,
+        "count": 1563,
+        "good_items": 38228,
+        "mean": 4.008492010644972,
+        "percentiles": {
+            "50.0": 3.9763948917388916,
+            "80.0": 4.80770788192749,
+            "90.0": 4.889100027084351,
+            "95.0": 4.917488718032836,
+            "99.0": 4.9754122066497795,
+            "99.9": 5.021908689498902
+        },
+        "qps": 364.9863870936277,
+        "took": 4.282351493835449,
+        "total_items": 50000
+    },
+    "args": {
+        "accuracy": true,
+        "backend": "onnxruntime",
+        "cache": 0,
+        "count": null,
+        "data_format": "NCHW",
+        "dataset": "imagenet",
+        "dataset_list": null,
+        "dataset_path": "/home/ubuntu/datasets/imagenet-2012-val",
+        "debug": false,
+        "find_peak_performance": false,
+        "inputs": null,
+        "max_batchsize": 32,
+        "max_latency": null,
+        "mlperf_conf": "/home/ubuntu/CK/local/venv/mlperf-inference/CK/local/env/7204e56654583b16/inference/mlperf.conf",
+        "model": "/home/ubuntu/CK/local/venv/mlperf-inference/CK/local/env/5e498390d6e12c05/resnet50_v1.onnx",
+        "model_name": "resnet50",
+        "output": "/home/ubuntu/CK/local/venv/mlperf-inference/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-onnx-cpu/tmp",
+        "outputs": [
+            "ArgMax:0"
+        ],
+        "profile": "resnet50-onnxruntime",
+        "qps": null,
+        "samples_per_query": null,
+        "scenario": "Offline",
+        "threads": 24,
+        "time": null,
+        "user_conf": "user.conf"
+    },
+    "cmdline": "Namespace(accuracy=True, backend='onnxruntime', cache=0, count=None, data_format='NCHW', dataset='imagenet', dataset_list=None, dataset_path='/home/ubuntu/datasets/imagenet-2012-val', debug=False, find_peak_performance=False, inputs=None, max_batchsize=32, max_latency=None, mlperf_conf='/home/ubuntu/CK/local/venv/mlperf-inference/CK/local/env/7204e56654583b16/inference/mlperf.conf', model='/home/ubuntu/CK/local/venv/mlperf-inference/CK/local/env/5e498390d6e12c05/resnet50_v1.onnx', model_name='resnet50', output='/home/ubuntu/CK/local/venv/mlperf-inference/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-onnx-cpu/tmp', outputs=['ArgMax:0'], profile='resnet50-onnxruntime', qps=None, samples_per_query=None, scenario='Offline', threads=24, time=None, user_conf='user.conf')",
+    "runtime": "onnxruntime",
+    "time": 1629086373,
+    "version": "1.8.1"
+}

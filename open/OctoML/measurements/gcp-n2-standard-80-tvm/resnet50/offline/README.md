@@ -1,0 +1,156 @@
+# Reproducibility report: benchmarking
+
+First, you must prepare your system based on the "Reproducibility report: system setup".
+
+
+## Install PyTorch model (Resnet50; int8; quantized)
+
+Install MLPerf model:
+
+```bash
+ck install package --tags=model,image-classification,mlperf,pytorch,v1.5-int8-quantized
+```
+
+## Install CK workflow Python dependencies
+
+```bash
+ck run program:mlperf-inference-bench-image-classification-tvm-pytorch-cpu \
+     --cmd_key=install-python-requirements
+```
+
+More information about this model: 
+[ [CK meta.json](https://github.com/mlcommons/ck-mlops/blob/main/package/ml-model-mlperf-resnet50-pytorch/.cm/meta.json) ]
+
+
+## Run Offline scenario
+
+### Accuracy
+
+```bash
+time ck benchmark program:mlperf-inference-bench-image-classification-tvm-pytorch-cpu \
+     --repetitions=1 --skip_print_timers --skip_print_stats --skip_stat_analysis \
+     --cmd_key=accuracy-offline \
+     --env.MLPERF_BACKEND=tvm2 \
+     --env.MLPERF_TVM_EXECUTOR=graph \
+     --env.MLPERF_TVM_TARGET="llvm" \
+     --env.MLPERF_TVM_USE_DNNL=YES \
+     --env.TVM_BATCH_SIZE=1 \
+     --env.TVM_BIND_THREADS=0 \
+     --env.OMP_NUM_THREADS=1 \
+     --env.TVM_NUM_THREADS=1 \
+     --env.EXTRA_OPS="" \
+     --print_files=accuracy.txt
+```
+
+### Performance
+
+```bash
+
+time ck benchmark program:mlperf-inference-bench-image-classification-tvm-pytorch-cpu \
+     --repetitions=1 --skip_print_timers --skip_print_stats --skip_stat_analysis \
+     --cmd_key=performance-offline \
+     --env.MLPERF_BACKEND=tvm2 \
+     --env.MLPERF_TVM_EXECUTOR=graph \
+     --env.MLPERF_TVM_TARGET="llvm -mcpu=cascadelake" \
+     --env.MLPERF_TVM_USE_DNNL=YES \
+     --env.TVM_BATCH_SIZE=1 \
+     --env.TVM_BIND_THREADS=0 \
+     --env.OMP_NUM_THREADS=1 \
+     --env.TVM_NUM_THREADS=1 \
+     --env.EXTRA_OPS="--qps 900 --time 610" \
+     --print_files=mlperf_log_summary.txt
+
+```
+
+
+*Add --no_clean flag to avoid recompiling TVM model*
+
+
+
+
+
+
+## Prepare your submission
+
+One can use the [end-to-end MLPerf submission and visualization workflow](https://github.com/mlcommons/ck-mlops/tree/main/module/bench.mlperf.inference)
+(collaboration between MLCommons, OctoML and the cTuning foundation) to prepare the above submission as follows:
+
+```bash
+
+ck activate venv:mlperf-inference
+
+ck pull repo:ck-mlperf-inference
+
+ck install package --tags=mlperf,inference,results,dummy
+
+ck set kernel --var.mlperf_inference_version=1.1
+ck set kernel --var.mlperf_inference_submitter=OctoML
+ck set kernel --var.mlperf_inference_division=open
+
+ck add bench.mlperf.system:gcp-n2-standard-80-tvm --base=1-node-2s-clx-tf-int8
+ck set kernel --var.mlperf_inference_system=gcp-n2-standard-80-tvm
+
+ck run bench.mlperf.inference  --framework=tvm-pytorch --model=resnet50 --scenario=offline --mode=prereq
+
+ck run bench.mlperf.inference  --framework=tvm-pytorch --model=resnet50 --scenario=offline --mode=accuracy \
+     --skip_system_ext \
+     --env.MLPERF_BACKEND=tvm2 \
+     --env.MLPERF_TVM_EXECUTOR=graph \
+     --env.MLPERF_TVM_TARGET="llvm -mcpu=cascadelake" \
+     --env.MLPERF_TVM_USE_DNNL=YES \
+     --env.TVM_BATCH_SIZE=1 \
+     --env.TVM_BIND_THREADS=0 \
+     --env.OMP_NUM_THREADS=1 \
+     --env.TVM_NUM_THREADS=1 \
+     --env.EXTRA_OPS=""
+
+ck run bench.mlperf.inference  --framework=tvm-pytorch --model=resnet50 --scenario=offline --mode=performance \
+     --clean \
+     --skip_system_ext \
+     --env.MLPERF_BACKEND=tvm2 \
+     --env.MLPERF_TVM_EXECUTOR=graph \
+     --env.MLPERF_TVM_TARGET="llvm -mcpu=cascadelake" \
+     --env.MLPERF_TVM_USE_DNNL=YES \
+     --env.TVM_BATCH_SIZE=1 \
+     --env.TVM_BIND_THREADS=0 \
+     --env.OMP_NUM_THREADS=1 \
+     --env.TVM_NUM_THREADS=1 \
+     --env.EXTRA_OPS="--qps 2100 --time 610"
+```
+
+You should truncate your accuracy files before submitting results:
+```bash
+ck run program:mlperf-inference-submission --cmd_key=truncate_accuracy_log --env.CK_MLPERF_SUBMITTER=OctoML
+```
+
+Check the submission by the MLPerf submission checker:
+```bash
+ck run program:mlperf-inference-submission --cmd_key=check
+```
+
+Pack results:
+```
+ck zip bench.mlperf.system
+```
+
+
+
+## Visualize MLPerf results
+
+* [Prototype of a local dashboard for the MLPerf inference benchmark](https://github.com/mlcommons/ck-mlops/blob/main/module/bench.mlperf.inference/README.results.md)
+
+
+
+
+
+## Resources
+
+Our on-going collaboration with MLCommons to make 
+the MLPerf&trade; inference benchmark more customizable, portable and easy to use:
+
+* [MLCommons working groups](https://mlcommons.org/en/groups)
+* [Open-source CK framework](https://github.com/mlcommons/ck) and [MLCube](https://github.com/mlcommons/mlcube)
+  * [ML/AI packages from the community, OctoML and the cTuning foundation](https://github.com/mlcommons/ck-mlops/tree/main/package)
+  * [ML/AI workflows from the community, OctoML and the cTuning foundation](https://github.com/mlcommons/ck-mlops/tree/main/program)
+* [Documentation for the CK-powered MLPerf automation suite](https://github.com/mlcommons/ck/tree/master/docs/mlperf-automation)
+* [Prototype of the end-to-end submission workflow for the MLPerf inference benchmark](https://github.com/mlcommons/ck-mlops/tree/main/module/bench.mlperf.inference)

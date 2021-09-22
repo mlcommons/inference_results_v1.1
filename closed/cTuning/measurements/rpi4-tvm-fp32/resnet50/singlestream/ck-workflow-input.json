@@ -1,0 +1,23 @@
+{
+  "action": "benchmark",
+  "module_uoa": "b0ac08fe1d3c2615",
+  "data_uoa": "mlperf-inference-bench-image-classification-tvm-onnx-cpu",
+  "cmd_key": "performance-singlestream",
+  "env": {
+    "MLPERF_BACKEND": "tvm",
+    "MLPERF_TVM_EXECUTOR": "graph",
+    "MLPERF_TVM_TARGET": "llvm",
+    "OMP_NUM_THREADS": "4",
+    "TVM_NUM_THREADS": "4",
+    "EXTRA_OPS": "--threads 1 --max-batchsize 1 --count 1024"
+  },
+  "record_deps": "ck-deps.json",
+  "repetitions": 1,
+  "no_state_check": "yes",
+  "clean": "no",
+  "quiet": "",
+  "skip_stat_analysis": "yes",
+  "skip_print_timers": "yes",
+  "skip_print_stats": "yes",
+  "out": "con"
+}

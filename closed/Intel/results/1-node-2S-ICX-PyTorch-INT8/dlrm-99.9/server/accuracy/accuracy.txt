@@ -1,0 +1,26 @@
+{
+    "TestScenario.Server": {
+        "accuracy": 96.60856526322044,
+        "count": 8739,
+        "good_items": 86114285,
+        "mean": 0.016668990815391065,
+        "percentiles": {
+            "50.0": 0.016308307647705078,
+            "80.0": 0.01715226173400879,
+            "90.0": 0.018223333358764648,
+            "95.0": 0.01895153522491455,
+            "99.0": 0.021940212249755862,
+            "99.9": 0.030657313346862936
+        },
+        "qps": 109.434869315294,
+        "roc_auc": 80.21599672162321,
+        "took": 79.855717420578,
+        "total_items": 89137319
+    },
+    "cmdline": "Namespace(accuracy=True, backend='pytorch-native', cache=0, config='./mlperf.conf', count_queries=None, count_samples=None, data_sub_sample_rate=0.0, dataset='terabyte', dataset_path='/root/mlperf_data/dlrm/dataset/terabyte_input', duration=None, enable_profiling=False, find_peak_performance=False, inputs=['continuous and categorical features'], int8_configuration_dir='int8_configure.json', max_batchsize=10200, max_ind_range=40000000, max_latency=None, model='dlrm', model_path='/root/mlperf_data/dlrm/dlrm_pytorch/python/model/dlrm_terabyte.pytorch', numpy_rand_seed=123, output='/opt/workdir/intel_inference_datacenter_v1-1/closed/Intel/code/dlrm/pytorch-cpu/output/pytorch-cpu/dlrm/Server/accuracy', outputs=['probability'], profile='dlrm-terabyte-pytorch', samples_per_query_multistream=None, samples_per_query_offline=2048, samples_to_aggregate_fix=None, samples_to_aggregate_max=None, samples_to_aggregate_min=None, samples_to_aggregate_quantile_file='../tools/dist_quantile.txt', samples_to_aggregate_trace_file='dlrm_trace_of_aggregated_samples.txt', scenario='Server', target_qps=None, test_num_workers=0, threads=1, use_bf16=False, use_gpu=False, use_int8=True, use_ipex=True, user_config='./user.conf')",
+    "runtime": "pytorch-native-dlrm",
+    "time": 1628474657,
+    "version": "1.7.0a0+e85d494"
+}
+AUC=80.21599672162321
+hash=3946d4a382bda4583a246d5db9a553418d1584acb280f136e3356586a9f69cfd

@@ -1,0 +1,620 @@
+diff --git a/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/output/int8_configure.json b/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/output/int8_configure.json
+index 5defedb..9bf912d 100644
+--- a/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/output/int8_configure.json
++++ b/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/output/int8_configure.json
+@@ -8,7 +8,7 @@
+             8.556900024414062
+         ],
+         "outputs_scale": [
+-            8.357013702392578
++            18.148048400878906
+         ],
+         "inputs_zero_point": [
+             128
+@@ -30,10 +30,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            8.357013702392578
++            18.148048400878906
+         ],
+         "outputs_scale": [
+-            16.566802978515625
++            21.222719192504883
+         ],
+         "inputs_zero_point": [
+             128
+@@ -55,10 +55,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            16.566802978515625
++            21.222719192504883
+         ],
+         "outputs_scale": [
+-            25.050329208374023
++            36.91157913208008
+         ],
+         "inputs_zero_point": [
+             128
+@@ -80,10 +80,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            25.050329208374023
++            36.91157913208008
+         ],
+         "outputs_scale": [
+-            25.050329208374023
++            33.75658416748047
+         ],
+         "inputs_zero_point": [
+             128
+@@ -105,10 +105,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            25.050329208374023
++            33.75658416748047
+         ],
+         "outputs_scale": [
+-            24.18439483642578
++            76.70947265625
+         ],
+         "inputs_zero_point": [
+             128
+@@ -130,10 +130,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            24.18439483642578
++            76.70947265625
+         ],
+         "outputs_scale": [
+-            29.01119613647461
++            83.64733123779297
+         ],
+         "inputs_zero_point": [
+             128
+@@ -155,10 +155,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            29.01119613647461
++            83.64733123779297
+         ],
+         "outputs_scale": [
+-            34.23401641845703
++            105.0468978881836
+         ],
+         "inputs_zero_point": [
+             128
+@@ -180,10 +180,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            34.23401641845703
++            105.0468978881836
+         ],
+         "outputs_scale": [
+-            35.30814743041992
++            43.54103469848633
+         ],
+         "inputs_zero_point": [
+             128
+@@ -205,10 +205,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            35.30814743041992
++            43.54103469848633
+         ],
+         "outputs_scale": [
+-            10.125483512878418
++            10.629852294921875
+         ],
+         "inputs_zero_point": [
+             128
+diff --git a/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/python/backend_pytorch_native.py b/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/python/backend_pytorch_native.py
+index c4aeed9..85fa4b9 100644
+--- a/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/python/backend_pytorch_native.py
++++ b/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/python/backend_pytorch_native.py
+@@ -7,6 +7,7 @@ import backend
+ import torch.nn as nn
+ from dlrm_model import DLRM_Net, model_util
+ import numpy as np
++import json
+ 
+ class BackendPytorchNative(backend.Backend):
+     def __init__(self, m_spa, ln_emb, ln_bot, ln_top, device, use_gpu=False, use_ipex=False, use_bf16=False, mini_batch_size=1, random_init=False):
+@@ -117,12 +118,49 @@ class BackendPytorchNative(backend.Backend):
+                     )
+             else:
+                 # when targeting inference on CPU
+-                ld_model = torch.load(model_path, map_location=torch.device('cpu'))
+-                # debug print
+-                # print(ld_model)
+-                dlrm.load_state_dict(ld_model["state_dict"])
++                ld_model = torch.load(model_path)
++                state_dict = ld_model
++                dlrm.load_state_dict(state_dict)
++
+         if self.use_ipex:
+-            dlrm = model_util(dlrm, self.use_bf16, self.device)
++            top_l2_weight = state_dict["top_l.2.weight"]
++            top_l4_weight = state_dict["top_l.4.weight"]
++            top_l2_bias = state_dict["top_l.2.bias"]
++            top_l4_bias = state_dict["top_l.4.bias"]
++            
++            scale_dict = {}
++            top_l2_w_scale = [127.5 / top_l2_weight.abs().max().item()]
++            top_l4_w_scale = [127.5 / top_l4_weight.abs().max().item()]
++            
++            scale_dict['top_l2_w_scale'] = top_l2_w_scale
++            scale_dict['top_l4_w_scale'] = top_l4_w_scale
++
++            top_l2_weight_quant = torch.quantize_per_tensor(top_l2_weight, 1.0/top_l2_w_scale[0], 0, torch.qint8).int_repr()
++            top_l4_weight_quant = torch.quantize_per_tensor(top_l4_weight, 1.0/top_l4_w_scale[0], 0, torch.qint8).int_repr()
++
++            json_file = open('int8_configure.json')
++            configure = json.load(json_file)
++            json_file.close()
++            bot_l2_id = 1
++            top_l2_id = 5
++            top_l4_id = 6
++            top_l6_id = 7
++            top_l8_id = 8
++
++            top_l2_i_scale = configure[top_l2_id]['inputs_scale'][0]
++            top_l4_i_scale = configure[top_l4_id]['inputs_scale'][0]
++
++            top_l2_bias_quant = torch.quantize_per_tensor(top_l2_bias, 1.0/top_l2_i_scale/top_l2_w_scale[0], 0, torch.qint32).int_repr()
++            top_l4_bias_quant = torch.quantize_per_tensor(top_l4_bias, 1.0/top_l4_i_scale/top_l4_w_scale[0], 0, torch.qint32).int_repr()
++
++            dlrm = model_util(dlrm, scale_dict, self.use_bf16, self.device)
++            print(dlrm)
++
++            dlrm.top_l[1].weight.data.copy_(top_l2_weight_quant)
++            dlrm.top_l[2].weight.data.copy_(top_l4_weight_quant)
++
++            dlrm.top_l[1].bias.data.copy_(top_l2_bias_quant)
++            dlrm.top_l[2].bias.data.copy_(top_l4_bias_quant)
+         self.model = dlrm
+ 
+         # find inputs from the model if not passed in by config
+diff --git a/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/python/model/dlrm_model.py b/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/python/model/dlrm_model.py
+index 24a806b..87f12ad 100644
+--- a/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/python/model/dlrm_model.py
++++ b/closed/Intel/calibration/dlrm-99.9/pytorch-cpu/python/model/dlrm_model.py
+@@ -242,19 +242,33 @@ class DLRM_Net(nn.Module):
+ 
+         return z
+ 
+-def fuse_model(layers):
++
++def fuse_model(layers, scale_dict, top=True):
+     fuse_layers = nn.ModuleList()
+     list_length = len(layers)
+     linear_length = list_length // 2
+     for i in range(0, list_length, 2):
+         if isinstance(layers[i], nn.Linear):
+-            if isinstance(layers[i+1], nn.ReLU):
+-                LL = ipex.LinearRelu(int(layers[i].in_features), int(layers[i].out_features), bias=True)
+-                LL.weight.data = layers[i].weight.data.requires_grad_(False)
+-                LL.bias.data = layers[i].bias.data.requires_grad_(False)
+-                fuse_layers.append(LL)
++            if (i in [2, 4] and top):# or (i==2 and (not top)):
++                if isinstance(layers[i+1], nn.ReLU):
++                    LL = ipex.IpexSparseLinear(int(layers[i].in_features), int(layers[i].out_features), 4, 16, scale_dict['top_l'+str(i)+'_w_scale'], quantized=True, bias=True, relu=True)
++                    LL.weight.data = LL.weight.data.requires_grad_(False)
++                    LL.bias.data = LL.bias.data.requires_grad_(False)
++                    fuse_layers.append(LL)
++                else:
++                    LL = ipex.IpexSparseLinear(int(layers[i].in_features), int(layers[i].out_features), 4, 16, scale_dict['top_l'+str(i)+'_w_scale'], quantized=True, bias=True, relu=False)
++                    LL.weight.data = layers[i].weight.data.requires_grad_(False)
++                    LL.bias.data = layers[i].bias.data.requires_grad_(False)
++                    fuse_layers.append(LL)                   
++
+             else:
+-                fuse_layers.append(layers[i])
++                if isinstance(layers[i+1], nn.ReLU):
++                    LL = ipex.LinearRelu(int(layers[i].in_features), int(layers[i].out_features), bias=True)
++                    LL.weight.data = layers[i].weight.data.requires_grad_(False)
++                    LL.bias.data = layers[i].bias.data.requires_grad_(False)
++                    fuse_layers.append(LL)
++                else:
++                    fuse_layers.append(layers[i])
+ 
+         if isinstance(layers[i+1], nn.ReLU):
+             continue
+@@ -265,9 +279,9 @@ def fuse_model(layers):
+             assert False, "Unexpected operators"
+     return torch.nn.Sequential(*fuse_layers)
+ 
+-def model_util(model, use_bf16, device):
++def model_util(model, scale_dict, use_bf16, device):
+     if use_bf16:
+       model = model.to(torch.bfloat16)
+-    model.bot_l = fuse_model(model.bot_l)
+-    model.top_l = fuse_model(model.top_l)
++    model.bot_l = fuse_model(model.bot_l, scale_dict, top=False)
++    model.top_l = fuse_model(model.top_l, scale_dict)
+     return model.cpu().share_memory().to(device)
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch-cpu/README.md b/closed/Intel/code/dlrm-99.9/pytorch-cpu/README.md
+index 3cc5a69..d180423 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch-cpu/README.md
++++ b/closed/Intel/code/dlrm-99.9/pytorch-cpu/README.md
+@@ -48,7 +48,13 @@
+ (2) Prepare pre-trained DLRM model
+ ```
+    cd dlrm_pytorch/python/model
+-   wget https://dlrm.s3-us-west-1.amazonaws.com/models/tb00_40M.pt -O dlrm_terabyte.pytorch
++   wget ***sparse_dlrm_model.bin -O dlrm_terabyte.pytorch
++```
++
++(3) Download customize ipex
++```
++   wget torch_ipex-1.2.0-cp37-cp37m-linux_x86_64.whl
++   pip install torch_ipex-1.2.0-cp37-cp37m-linux_x86_64.whl
+ ```
+ ### 4. Run command for server and offline mode
+ 
+@@ -75,30 +81,22 @@
+    # server-performance-mode
+    sudo ./run_clean.sh
+    source ./setup_env_server.sh
+-   ./run_main.sh server           #run for DLRM fp32 model
+    ./run_main.sh server int8      #run for DLRM int8 model
+-   ./run_main.sh server bf16      #run for DLRM bf16 model
+ 
+    # server-accuracy-mode
+    sudo ./run_clean.sh
+    source ./setup_env_server.sh
+-   ./run_main.sh server accuracy           #run for DLRM fp32 model
+    ./run_main.sh server accuracy int8      #run for DLRM int8 model
+-   ./run_main.sh server accuracy bf16      #run for DLRM bf16 model
+ 
+    # offline-performance-mode
+    sudo ./run_clean.sh
+    source ./setup_env_offline.sh
+-   ./run_main.sh offline           #run for DLRM fp32 model
+    ./run_main.sh offline int8      #run for DLRM int8 model
+-   ./run_main.sh offline bf16      #run for DLRM bf16 model
+ 
+    # offline-accuracy-mode
+    sudo ./run_clean.sh
+    source ./setup_env_offline.sh
+-   ./run_main.sh offline accuracy           #run for DLRM fp32 model
+    ./run_main.sh offline accuracy int8      #run for DLRM int8 model
+-   ./run_main.sh offline accuracy bf16      #run for DLRM bf16 model
+ 
+    for int8 calibration scripts, please look into Intel/calibration/dlrm/pytorch-cpu/ directory.
+    for int8 execution, calibration result is in int8_configure.json which is copied from that output.
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch-cpu/int8_configure.json b/closed/Intel/code/dlrm-99.9/pytorch-cpu/int8_configure.json
+index 5defedb..9bf912d 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch-cpu/int8_configure.json
++++ b/closed/Intel/code/dlrm-99.9/pytorch-cpu/int8_configure.json
+@@ -8,7 +8,7 @@
+             8.556900024414062
+         ],
+         "outputs_scale": [
+-            8.357013702392578
++            18.148048400878906
+         ],
+         "inputs_zero_point": [
+             128
+@@ -30,10 +30,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            8.357013702392578
++            18.148048400878906
+         ],
+         "outputs_scale": [
+-            16.566802978515625
++            21.222719192504883
+         ],
+         "inputs_zero_point": [
+             128
+@@ -55,10 +55,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            16.566802978515625
++            21.222719192504883
+         ],
+         "outputs_scale": [
+-            25.050329208374023
++            36.91157913208008
+         ],
+         "inputs_zero_point": [
+             128
+@@ -80,10 +80,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            25.050329208374023
++            36.91157913208008
+         ],
+         "outputs_scale": [
+-            25.050329208374023
++            33.75658416748047
+         ],
+         "inputs_zero_point": [
+             128
+@@ -105,10 +105,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            25.050329208374023
++            33.75658416748047
+         ],
+         "outputs_scale": [
+-            24.18439483642578
++            76.70947265625
+         ],
+         "inputs_zero_point": [
+             128
+@@ -130,10 +130,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            24.18439483642578
++            76.70947265625
+         ],
+         "outputs_scale": [
+-            29.01119613647461
++            83.64733123779297
+         ],
+         "inputs_zero_point": [
+             128
+@@ -155,10 +155,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            29.01119613647461
++            83.64733123779297
+         ],
+         "outputs_scale": [
+-            34.23401641845703
++            105.0468978881836
+         ],
+         "inputs_zero_point": [
+             128
+@@ -180,10 +180,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            34.23401641845703
++            105.0468978881836
+         ],
+         "outputs_scale": [
+-            35.30814743041992
++            43.54103469848633
+         ],
+         "inputs_zero_point": [
+             128
+@@ -205,10 +205,10 @@
+         "algorithm": "min_max",
+         "weight_granularity": "per_channel",
+         "inputs_scale": [
+-            35.30814743041992
++            43.54103469848633
+         ],
+         "outputs_scale": [
+-            10.125483512878418
++            10.629852294921875
+         ],
+         "inputs_zero_point": [
+             128
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch-cpu/prepare_env.sh b/closed/Intel/code/dlrm-99.9/pytorch-cpu/prepare_env.sh
+index 34cdd7a..c103fe2 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch-cpu/prepare_env.sh
++++ b/closed/Intel/code/dlrm-99.9/pytorch-cpu/prepare_env.sh
+@@ -57,7 +57,4 @@
+   git apply xpu-1.7.patch
+   python setup.py install
+ 
+-  # install Intel Extension for PyTorch
+-  cd ${WORKDIR}/ipex-cpu-dev
+-  python setup.py install
+   cd ..
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch-cpu/python/backend_pytorch_native.py b/closed/Intel/code/dlrm-99.9/pytorch-cpu/python/backend_pytorch_native.py
+index c4aeed9..85fa4b9 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch-cpu/python/backend_pytorch_native.py
++++ b/closed/Intel/code/dlrm-99.9/pytorch-cpu/python/backend_pytorch_native.py
+@@ -7,6 +7,7 @@ import backend
+ import torch.nn as nn
+ from dlrm_model import DLRM_Net, model_util
+ import numpy as np
++import json
+ 
+ class BackendPytorchNative(backend.Backend):
+     def __init__(self, m_spa, ln_emb, ln_bot, ln_top, device, use_gpu=False, use_ipex=False, use_bf16=False, mini_batch_size=1, random_init=False):
+@@ -117,12 +118,49 @@ class BackendPytorchNative(backend.Backend):
+                     )
+             else:
+                 # when targeting inference on CPU
+-                ld_model = torch.load(model_path, map_location=torch.device('cpu'))
+-                # debug print
+-                # print(ld_model)
+-                dlrm.load_state_dict(ld_model["state_dict"])
++                ld_model = torch.load(model_path)
++                state_dict = ld_model
++                dlrm.load_state_dict(state_dict)
++
+         if self.use_ipex:
+-            dlrm = model_util(dlrm, self.use_bf16, self.device)
++            top_l2_weight = state_dict["top_l.2.weight"]
++            top_l4_weight = state_dict["top_l.4.weight"]
++            top_l2_bias = state_dict["top_l.2.bias"]
++            top_l4_bias = state_dict["top_l.4.bias"]
++            
++            scale_dict = {}
++            top_l2_w_scale = [127.5 / top_l2_weight.abs().max().item()]
++            top_l4_w_scale = [127.5 / top_l4_weight.abs().max().item()]
++            
++            scale_dict['top_l2_w_scale'] = top_l2_w_scale
++            scale_dict['top_l4_w_scale'] = top_l4_w_scale
++
++            top_l2_weight_quant = torch.quantize_per_tensor(top_l2_weight, 1.0/top_l2_w_scale[0], 0, torch.qint8).int_repr()
++            top_l4_weight_quant = torch.quantize_per_tensor(top_l4_weight, 1.0/top_l4_w_scale[0], 0, torch.qint8).int_repr()
++
++            json_file = open('int8_configure.json')
++            configure = json.load(json_file)
++            json_file.close()
++            bot_l2_id = 1
++            top_l2_id = 5
++            top_l4_id = 6
++            top_l6_id = 7
++            top_l8_id = 8
++
++            top_l2_i_scale = configure[top_l2_id]['inputs_scale'][0]
++            top_l4_i_scale = configure[top_l4_id]['inputs_scale'][0]
++
++            top_l2_bias_quant = torch.quantize_per_tensor(top_l2_bias, 1.0/top_l2_i_scale/top_l2_w_scale[0], 0, torch.qint32).int_repr()
++            top_l4_bias_quant = torch.quantize_per_tensor(top_l4_bias, 1.0/top_l4_i_scale/top_l4_w_scale[0], 0, torch.qint32).int_repr()
++
++            dlrm = model_util(dlrm, scale_dict, self.use_bf16, self.device)
++            print(dlrm)
++
++            dlrm.top_l[1].weight.data.copy_(top_l2_weight_quant)
++            dlrm.top_l[2].weight.data.copy_(top_l4_weight_quant)
++
++            dlrm.top_l[1].bias.data.copy_(top_l2_bias_quant)
++            dlrm.top_l[2].bias.data.copy_(top_l4_bias_quant)
+         self.model = dlrm
+ 
+         # find inputs from the model if not passed in by config
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch-cpu/python/model/dlrm_model.py b/closed/Intel/code/dlrm-99.9/pytorch-cpu/python/model/dlrm_model.py
+index 24a806b..87f12ad 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch-cpu/python/model/dlrm_model.py
++++ b/closed/Intel/code/dlrm-99.9/pytorch-cpu/python/model/dlrm_model.py
+@@ -242,19 +242,33 @@ class DLRM_Net(nn.Module):
+ 
+         return z
+ 
+-def fuse_model(layers):
++
++def fuse_model(layers, scale_dict, top=True):
+     fuse_layers = nn.ModuleList()
+     list_length = len(layers)
+     linear_length = list_length // 2
+     for i in range(0, list_length, 2):
+         if isinstance(layers[i], nn.Linear):
+-            if isinstance(layers[i+1], nn.ReLU):
+-                LL = ipex.LinearRelu(int(layers[i].in_features), int(layers[i].out_features), bias=True)
+-                LL.weight.data = layers[i].weight.data.requires_grad_(False)
+-                LL.bias.data = layers[i].bias.data.requires_grad_(False)
+-                fuse_layers.append(LL)
++            if (i in [2, 4] and top):# or (i==2 and (not top)):
++                if isinstance(layers[i+1], nn.ReLU):
++                    LL = ipex.IpexSparseLinear(int(layers[i].in_features), int(layers[i].out_features), 4, 16, scale_dict['top_l'+str(i)+'_w_scale'], quantized=True, bias=True, relu=True)
++                    LL.weight.data = LL.weight.data.requires_grad_(False)
++                    LL.bias.data = LL.bias.data.requires_grad_(False)
++                    fuse_layers.append(LL)
++                else:
++                    LL = ipex.IpexSparseLinear(int(layers[i].in_features), int(layers[i].out_features), 4, 16, scale_dict['top_l'+str(i)+'_w_scale'], quantized=True, bias=True, relu=False)
++                    LL.weight.data = layers[i].weight.data.requires_grad_(False)
++                    LL.bias.data = layers[i].bias.data.requires_grad_(False)
++                    fuse_layers.append(LL)                   
++
+             else:
+-                fuse_layers.append(layers[i])
++                if isinstance(layers[i+1], nn.ReLU):
++                    LL = ipex.LinearRelu(int(layers[i].in_features), int(layers[i].out_features), bias=True)
++                    LL.weight.data = layers[i].weight.data.requires_grad_(False)
++                    LL.bias.data = layers[i].bias.data.requires_grad_(False)
++                    fuse_layers.append(LL)
++                else:
++                    fuse_layers.append(layers[i])
+ 
+         if isinstance(layers[i+1], nn.ReLU):
+             continue
+@@ -265,9 +279,9 @@ def fuse_model(layers):
+             assert False, "Unexpected operators"
+     return torch.nn.Sequential(*fuse_layers)
+ 
+-def model_util(model, use_bf16, device):
++def model_util(model, scale_dict, use_bf16, device):
+     if use_bf16:
+       model = model.to(torch.bfloat16)
+-    model.bot_l = fuse_model(model.bot_l)
+-    model.top_l = fuse_model(model.top_l)
++    model.bot_l = fuse_model(model.bot_l, scale_dict, top=False)
++    model.top_l = fuse_model(model.top_l, scale_dict)
+     return model.cpu().share_memory().to(device)
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf b/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf
+index 044515e..350ecdc 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf
++++ b/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf
+@@ -1,2 +1,2 @@
+-dlrm.Server.target_qps = 20250.0
+-dlrm.Offline.target_qps = 25430.0
++dlrm.Server.target_qps = 23600.0
++dlrm.Offline.target_qps = 35430.0
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf.CPX28C_4S b/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf.CPX28C_4S
+deleted file mode 100644
+index 74b7a9a..0000000
+--- a/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf.CPX28C_4S
++++ /dev/null
+@@ -1,2 +0,0 @@
+-dlrm.Server.target_qps = 19800.0
+-dlrm.Offline.target_qps = 35430.0
+diff --git a/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf.ICX40C_2S b/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf.ICX40C_2S
+index a114d27..350ecdc 100644
+--- a/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf.ICX40C_2S
++++ b/closed/Intel/code/dlrm-99.9/pytorch-cpu/user.conf.ICX40C_2S
+@@ -1,2 +1,2 @@
+-dlrm.Server.target_qps = 19600.0
+-dlrm.Offline.target_qps = 25430.0
++dlrm.Server.target_qps = 23600.0
++dlrm.Offline.target_qps = 35430.0
+diff --git a/closed/Intel/measurements/1-node-2S-ICX-PyTorch-INT8/dlrm-99.9/offline/README.md b/closed/Intel/measurements/1-node-2S-ICX-PyTorch-INT8/dlrm-99.9/offline/README.md
+index 294355f..2cc8f8b 100644
+--- a/closed/Intel/measurements/1-node-2S-ICX-PyTorch-INT8/dlrm-99.9/offline/README.md
++++ b/closed/Intel/measurements/1-node-2S-ICX-PyTorch-INT8/dlrm-99.9/offline/README.md
+@@ -48,7 +48,11 @@
+ (2) Prepare pre-trained DLRM model
+ ```
+    cd dlrm_pytorch/python/model
+-   wget https://dlrm.s3-us-west-1.amazonaws.com/models/tb00_40M.pt -O dlrm_terabyte.pytorch
++   wget ***sparse_dlrm_model.bin -O dlrm_terabyte.pytorch
++```
++(3) Download customize ipex
++```
++   wget torch_ipex-1.2.0-cp37-cp37m-linux_x86_64.whl
+ ```
+ ### 4. Run command for server and offline mode
+ 
+@@ -75,30 +79,22 @@
+    # server-performance-mode
+    sudo ./run_clean.sh
+    source ./setup_env_server.sh
+-   ./run_main.sh server           #run for DLRM fp32 model
+    ./run_main.sh server int8      #run for DLRM int8 model
+-   ./run_main.sh server bf16      #run for DLRM bf16 model
+ 
+    # server-accuracy-mode
+    sudo ./run_clean.sh
+    source ./setup_env_server.sh
+-   ./run_main.sh server accuracy           #run for DLRM fp32 model
+    ./run_main.sh server accuracy int8      #run for DLRM int8 model
+-   ./run_main.sh server accuracy bf16      #run for DLRM bf16 model
+ 
+    # offline-performance-mode
+    sudo ./run_clean.sh
+    source ./setup_env_offline.sh
+-   ./run_main.sh offline           #run for DLRM fp32 model
+    ./run_main.sh offline int8      #run for DLRM int8 model
+-   ./run_main.sh offline bf16      #run for DLRM bf16 model
+ 
+    # offline-accuracy-mode
+    sudo ./run_clean.sh
+    source ./setup_env_offline.sh
+-   ./run_main.sh offline accuracy           #run for DLRM fp32 model
+    ./run_main.sh offline accuracy int8      #run for DLRM int8 model
+-   ./run_main.sh offline accuracy bf16      #run for DLRM bf16 model
+ 
+    for int8 calibration scripts, please look into Intel/calibration/dlrm/pytorch-cpu/ directory.
+    for int8 execution, calibration result is in int8_configure.json which is copied from that output.

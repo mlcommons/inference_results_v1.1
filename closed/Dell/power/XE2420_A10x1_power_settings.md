@@ -1,0 +1,91 @@
+# Boot/BIOS Firmware Settings
+
+  - Set "PersistentMemoryMode = NVDIMM" in BIOS
+  - Set "NvdimmFactoryDefault = NvdimmFactoryDefaultDisable" in BIOS
+  - Set "MemTest = Disabled" in BIOS
+  - Set "DramRefreshDelay = Performance" in BIOS
+  - Set "MemOpMode = OptimizerMode" in BIOS
+  - Set "NodeInterleave = Disabled" in BIOS
+  - Set "AdddcSetting = Enabled" in BIOS
+  - Set "NativeTrfcTiming = Enabled" in BIOS
+  - Set "CorrEccSmi = Enabled" in BIOS
+  - Set "OppSrefEn = Disabled" in BIOS
+  - Set "CECriticalSEL = Enabled" in BIOS
+  - Set "LogicalProc = Enabled" in BIOS
+  - Set "CpuInterconnectBusSpeed = MaxDataRate" in BIOS
+  - Set "ProcVirtualization = Enabled" in BIOS
+  - Set "ProcAdjCacheLine = Enabled" in BIOS
+  - Set "ProcHwPrefetcher = Enabled" in BIOS
+  - Set "ProcSwPrefetcher = Enabled" in BIOS
+  - Set "DcuStreamerPrefetcher = Enabled" in BIOS
+  - Set "DcuIpPrefetcher = Enabled" in BIOS
+  - Set "SubNumaCluster = Disabled" in BIOS
+  - Set "UpiPrefetch = Enabled" in BIOS
+  - Set "LlcPrefetch = Disabled" in BIOS
+  - Set "DeadLineLlcAlloc = Enabled" in BIOS
+  - Set "DirectoryAtoS = Disabled" in BIOS
+  - Set "DynamicCoreAllocation = Disabled" in BIOS
+  - Set "ProcConfigTdp = Nominal" in BIOS
+  - Set "ProcX2Apic = Enabled" in BIOS
+  - Set "ProcCores = All" in BIOS
+  - Set "EmbSata = AhciMode" in BIOS
+  - Set "SecurityFreezeLock = Disabled" in BIOS
+  - Set "WriteCache = Disabled" in BIOS
+  - Set "BootMode = Uefi" in BIOS
+  - Set "BootSeqRetry = Enabled" in BIOS
+  - Set "GenericUsbBoot = Disabled" in BIOS
+  - Set "HddPlaceholder = Disabled" in BIOS
+  - Set "UsbPorts = AllOn" in BIOS
+  - Set "InternalUsb = On" in BIOS
+  - Set "UsbManagedPort = On" in BIOS
+  - Set "EmbNic1Nic2 = Enabled" in BIOS
+  - Set "IoatEngine = Disabled" in BIOS
+  - Set "SnoopHldOff = Roll2KCycles" in BIOS
+  - Set "EmbVideo = Enabled" in BIOS
+  - Set "SriovGlobalEnable = Disabled" in BIOS
+  - Set "OsWatchdogTimer = Disabled" in BIOS
+  - Set "PCIRootDeviceUnhide = Disabled" in BIOS
+  - Set "MmioAbove4Gb = Enabled" in BIOS
+  - Set "MemoryMappedIOH = 56TB" in BIOS
+  - Set "DellAutoDiscovery = PlatformDefault" in BIOS
+  - Set "SerialComm = OnConRedirAuto" in BIOS
+  - Set "SerialPortAddress = Serial1Com2Serial2Com1" in BIOS
+  - Set "ExtSerialConnector = Serial1" in BIOS
+  - Set "FailSafeBaud = 115200" in BIOS
+  - Set "ConTermType = Vt100Vt220" in BIOS
+  - Set "RedirAfterBoot = Enabled" in BIOS
+  - Set "SysProfile = Custom" in BIOS
+  - Set "ProcPwrPerf = SysDbpm" in BIOS
+  - Set "MemFrequency = MaxPerf" in BIOS
+  - Set "ProcTurboMode = Disabled" in BIOS
+  - Set "ProcC1E = Disabled" in BIOS
+  - Set "ProcCStates = Disabled" in BIOS
+  - Set "WriteDataCrc = Disabled" in BIOS
+  - Set "MemPatrolScrub = Standard" in BIOS
+  - Set "MemRefreshRate = 1x" in BIOS
+  - Set "UncoreFrequency = DynamicUFS" in BIOS
+  - Set "EnergyPerformanceBias = LowPower" in BIOS
+  - Set "MonitorMwait = Enabled" in BIOS
+  - Set "CpuInterconnectBusLinkPower = Disabled" in BIOS
+  - Set "PcieAspmL1 = Disabled" in BIOS
+  - Set "PasswordStatus = Unlocked" in BIOS
+  - Set "PwrButton = Enabled" in BIOS
+  - Set "AcPwrRcvry = Last" in BIOS
+  - Set "AcPwrRcvryDelay = Immediate" in BIOS
+  - Set "AcPwrRcvryUserDelay = 60" in BIOS
+  - Set "UefiVariableAccess = Standard" in BIOS
+  - Set "InBandManageabilityInterface = Enabled" in BIOS
+  - Set "RedundantOsLocation = None" in BIOS
+  - Set "ErrPrompt = Enabled" in BIOS
+  - Set "ForceInt10 = Enabled" in BIOS
+  - Set "DellWyseP25BIOSAccess = Enabled" in BIOS  - 
+
+# Management Firmware Settings
+  
+  - Set "Thermal Profile Optimization" = "Minimum Power (Performance Per Watt Optimized)" in iDRAC
+
+# Power Management  Settings  (command line or other)
+  
+  - Benchmark started via ssh
+  - echo always | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+

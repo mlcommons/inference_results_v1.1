@@ -1,0 +1,20 @@
+{
+    "import_path": "resnet50/pytorch-cpu",
+    "backend-params": {
+        "model_path": "/path/to/resnet50-19c8e357.pth",
+        "ipex": "True",
+        "dnnl": "True",
+        "jit": "True",
+        "configure_dir": "resnet50/pytorch-cpu/resnet50_configure_jit_intel.json"
+    },
+
+    "dataset-params": {
+        "data_path": "/path/to/dataset-imagenet-ilsvrc2012-val/",
+        "image_list": "/path/to/val_map.txt",
+        "total_sample_count": 1024
+    },
+    
+    "enqueue-params": {
+        "batch_size": 1
+    }
+}

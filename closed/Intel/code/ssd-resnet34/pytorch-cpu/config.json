@@ -1,0 +1,27 @@
+{
+    "import_path": "ssd-resnet34/pytorch-cpu",
+
+    "backend-params": {
+        "use_jit": true,
+        "model_path": "/home/sdp/tattafos/models/ssd-resnet34/ssd-resnet34.pth",
+        "inputs": "image",
+        "outputs": "bboxes,labels,scores",
+        "calibration": false,
+	"num_calibration_iterations": 500,
+	"configuration_file": "ssd-resnet34/pytorch-cpu/ssd_resnet34.json", 
+        "calibration_list": "/home/sdp/tattafos/code/workloads/ssd-resnet34/pytorch-cpu/coco_cal_images_list.txt",
+        "calibration_data_path": "/home/sdp/dataset-coco-calibration/val2017"
+    },
+
+    "dataset-params": {
+        "data_path": "/home/sdp/tattafos/datasets/dataset-coco-2017-val",
+        "annotations_file": "/home/sdp/tattafos/datasets/dataset-coco-2017-val/annotations/instances_val2017.json",
+        "total_sample_count": 64,
+        "dims": [1200, 1200, 3]
+    },
+    
+    "enqueue-params": {
+	"batch_size": 32
+    }
+    
+}

@@ -1,0 +1,4039 @@
+{
+  "action": "benchmark",
+  "module_uoa": "b0ac08fe1d3c2615",
+  "data_uoa": "mlperf-inference-bench-image-classification-tvm-onnx-cpu",
+  "cmd_key": "performance-singlestream",
+  "env": {
+    "MLPERF_BACKEND": "tvm",
+    "MLPERF_TVM_EXECUTOR": "graph",
+    "MLPERF_TVM_TARGET": "llvm",
+    "OMP_NUM_THREADS": "4",
+    "TVM_NUM_THREADS": "4",
+    "EXTRA_OPS": "--threads 1 --max-batchsize 1 --count 8192",
+    "CK_MLPERF_AUDIT_CONF": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/compliance/nvidia/TEST04-A/audit.config",
+    "CK_MLPERF_AUDIT_SCRIPT": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/compliance/nvidia/TEST04-A/run_verification.py",
+    "CK_MLPERF_COMPLIANCE_DIR": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/c64e99a98f8371ab/inference-results/closed/OctoML/compliance/aws-c6gd.xlarge-arm64-tvm/resnet50/singlestream",
+    "CK_MLPERF_COMPLIANCE_EXTRA": "-a . -b ../tmp-test04b"
+  },
+  "repetitions": 1,
+  "no_state_check": "yes",
+  "clean": "no",
+  "quiet": "yes",
+  "skip_stat_analysis": "yes",
+  "skip_print_timers": "yes",
+  "skip_print_stats": "yes",
+  "out": "con",
+  "dependencies": {
+    "lib-python-loadgen": {
+      "force_target_as_host": "yes",
+      "local": "yes",
+      "name": "Python MLPerf loadgen library",
+      "sort": 20,
+      "tags": "lib,python-package,mlperf,loadgen",
+      "package_uoa": "6b744d888c45962b",
+      "choices": [
+        "31ccd150e442583b"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "env_prefix": "CK_ENV_PYTHON_PACKAGE_MLPERF_LOADGEN",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/31ccd150e442583b/build/__init__.py",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "PACKAGE_VERSION": "master",
+          "PIP_INSTALL_OPTIONS": "--ignore-installed",
+          "PYTHON_PACKAGE_NAME": "mlperf_loadgen"
+        },
+        "limit_recursion_dir_search": {
+          "linux": 5,
+          "win": 5
+        },
+        "no_ver_in_suggested_path": "yes",
+        "skip_path": "yes",
+        "soft_file_universal": "mlperf_loadgen$#sep#$__init__.py",
+        "used_package_uid": "6b744d888c45962b",
+        "used_package_uoa": "6b744d888c45962b",
+        "version": "master",
+        "version_module_name": "version",
+        "version_split": [
+          0
+        ],
+        "version_variable_name": "version"
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "env_prefix": "CK_ENV_PYTHON_PACKAGE_MLPERF_LOADGEN",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/31ccd150e442583b/build/__init__.py",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "PACKAGE_VERSION": "master",
+            "PIP_INSTALL_OPTIONS": "--ignore-installed",
+            "PYTHON_PACKAGE_NAME": "mlperf_loadgen"
+          },
+          "limit_recursion_dir_search": {
+            "linux": 5,
+            "win": 5
+          },
+          "no_ver_in_suggested_path": "yes",
+          "skip_path": "yes",
+          "soft_file_universal": "mlperf_loadgen$#sep#$__init__.py",
+          "used_package_uid": "6b744d888c45962b",
+          "used_package_uoa": "6b744d888c45962b",
+          "version": "master",
+          "version_module_name": "version",
+          "version_split": [
+            0
+          ],
+          "version_variable_name": "version"
+        },
+        "deps": {
+          "compiler": {
+            "add_to_path": "no",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/2919e42bf8ad6c65/env.sh\n",
+            "build_dir_name": "gcc",
+            "choices": [
+              "2919e42bf8ad6c65"
+            ],
+            "detected_ver": "9.3.0",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "add_to_path": "yes",
+                "build_dir_name": "gcc",
+                "can_strip_dynamic_lib": "yes",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_GCC",
+                "full_path": "/usr/bin/gcc",
+                "languages": [
+                  "C",
+                  "CPP"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_target_os_tags": [
+                  "mingw",
+                  "windows",
+                  "linux"
+                ],
+                "retarget": "no",
+                "search_numeric_ext_on_linux": "yes",
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "gcc",
+                  "win": "gcc.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_path_example": {
+                  "linux": "/usr/bin/gcc",
+                  "win": "C:\\Program Files\\GCC-4.9.2-x64\\bin\\gcc.exe"
+                },
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": " --version > $#filename#$ 2>&1"
+                },
+                "sort": 100,
+                "tool_postfix": "",
+                "tool_postfix_configured": "yes",
+                "tool_prefix": "",
+                "tool_prefix_configured": "yes",
+                "version": "9.3.0",
+                "version_split": [
+                  9,
+                  3,
+                  0
+                ]
+              },
+              "data_name": "GNU C compiler",
+              "deps": {},
+              "env": {
+                "CK_AR": "ar",
+                "CK_ASM_EXT": ".s",
+                "CK_CC": "gcc",
+                "CK_CC_FULL_PATH": "/usr/bin/gcc",
+                "CK_COMPILER_FLAGS_OBLIGATORY": "",
+                "CK_COMPILER_FLAG_CPP0X": "-std=c++0x",
+                "CK_COMPILER_FLAG_CPP11": "-std=c++11",
+                "CK_COMPILER_FLAG_CPP14": "-std=c++14",
+                "CK_COMPILER_FLAG_CPP1Z": "-std=c++1z",
+                "CK_COMPILER_FLAG_GPROF": "-pg",
+                "CK_COMPILER_FLAG_OPENMP": "-fopenmp",
+                "CK_COMPILER_FLAG_PLUGIN": "-fplugin=",
+                "CK_COMPILER_FLAG_PTHREAD_LIB": "-lpthread",
+                "CK_COMPILER_FLAG_STD90": "-std=c90",
+                "CK_COMPILER_FLAG_STD99": "-std=c99",
+                "CK_COMPILER_FLAG_STD_GNU89": "-std=gnu89",
+                "CK_COMPILER_POSTFIX": "",
+                "CK_COMPILER_TOOLCHAIN_NAME": "gcc",
+                "CK_COMPILER_VERSION": "9.3.0",
+                "CK_CXX": "g++",
+                "CK_CXX_FULL_PATH": "/usr/bin/g++",
+                "CK_DLL_EXT": ".so",
+                "CK_ENV_COMPILER_GCC": "/usr",
+                "CK_ENV_COMPILER_GCC_LIB": "/usr/lib/gcc/aarch64-linux-gnu/9",
+                "CK_EXE_EXT": ".out",
+                "CK_EXTRA_LIB_ATOMIC": "-latomic",
+                "CK_EXTRA_LIB_DL": "-ldl",
+                "CK_EXTRA_LIB_M": "-lm",
+                "CK_EXTRA_LIB_RT": "-lrt",
+                "CK_FLAGS_CREATE_ASM": "-S",
+                "CK_FLAGS_CREATE_OBJ": "-c",
+                "CK_FLAGS_DLL": "-shared -fPIC",
+                "CK_FLAGS_DLL_EXTRA": "",
+                "CK_FLAGS_DYNAMIC_BIN": " ",
+                "CK_FLAGS_OUTPUT": "-o ",
+                "CK_FLAGS_STATIC_BIN": "-static -fPIC",
+                "CK_FLAGS_STATIC_LIB": "-fPIC",
+                "CK_FLAG_PREFIX_INCLUDE": "-I",
+                "CK_FLAG_PREFIX_LIB_DIR": "-L",
+                "CK_FLAG_PREFIX_VAR": "-D",
+                "CK_GPROF_OUT_FILE": "gmon.out",
+                "CK_LB": "ar rcs",
+                "CK_LB_OUTPUT": "-o ",
+                "CK_LD": "ld",
+                "CK_LD_FLAGS_EXTRA": "",
+                "CK_LIB_EXT": ".a",
+                "CK_LINKER_FLAG_OPENMP": "-lgomp -lrt",
+                "CK_MAKE": "make",
+                "CK_OBJDUMP": "objdump -d",
+                "CK_OBJ_EXT": ".o",
+                "CK_OPT_ALL_WARNINGS": "-Wall",
+                "CK_OPT_SIZE": "-Os",
+                "CK_OPT_SPEED": "-O3",
+                "CK_OPT_SPEED_SAFE": "-O2",
+                "CK_OPT_UNWIND": " ",
+                "CK_PLUGIN_FLAG": "-fplugin=",
+                "CK_PROFILER": "gprof",
+                "CK_RANLIB": "ranlib"
+              },
+              "env_script": "env.sh",
+              "install_location": "",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "9.3.0",
+                "version_split": [
+                  9,
+                  3,
+                  0
+                ]
+              },
+              "soft_alias": "compiler.gcc",
+              "soft_uoa": "3a8a82fa40bf992d",
+              "tags": [
+                "64bits",
+                "compiler",
+                "gcc",
+                "host-os-linux-64",
+                "lang-c",
+                "lang-cpp",
+                "target-os-linux-64",
+                "v9",
+                "v9.3",
+                "v9.3.0"
+              ]
+            },
+            "local": "yes",
+            "name": "C++ compiler",
+            "num_entries": 1,
+            "sort": 15,
+            "tags": "compiler,lang-cpp",
+            "uoa": "2919e42bf8ad6c65",
+            "ver": "9.3.0"
+          },
+          "lib-python-absl": {
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/191f7394c45b6cce/env.sh\n",
+            "choices": [
+              "191f7394c45b6cce"
+            ],
+            "dict": {
+              "customize": {
+                "check_that_exists": "yes",
+                "detect_version_as": "unversioned",
+                "env_prefix": "CK_ENV_PYTHON_PACKAGE_ABSL",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/191f7394c45b6cce/build/absl/__init__.py",
+                "install_env": {
+                  "CK_HOST_OS_ID": "linux",
+                  "CK_MD5SUM_CMD": "md5sum",
+                  "CK_TARGET_CPU_BITS": "64",
+                  "CK_TARGET_OS_ID": "linux",
+                  "PACKAGE_VERSION": "",
+                  "PIP_INSTALL_OPTIONS": "--ignore-installed",
+                  "PYTHON_PACKAGE_NAME": "absl-py"
+                },
+                "limit_recursion_dir_search": {
+                  "linux": 5,
+                  "win": 5
+                },
+                "skip_path": "yes",
+                "soft_file_universal": "absl$#sep#$__init__.py",
+                "used_package_uid": "96340e89289b098f",
+                "used_package_uoa": "96340e89289b098f",
+                "version": "unversioned",
+                "version_split": [
+                  0
+                ]
+              },
+              "data_name": "Python Abseil library",
+              "deps": {
+                "python": {
+                  "add_to_path": "yes",
+                  "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+                  "build_dir_name": "python",
+                  "choices": [
+                    "36bfb7626d649959"
+                  ],
+                  "detected_ver": "3.8.10",
+                  "dict": {
+                    "customize": {
+                      "add_only_with_version": "yes",
+                      "build_dir_name": "python",
+                      "check_that_exists": "yes",
+                      "ck_version": 10,
+                      "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                      "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "languages": [
+                        "PYTHON"
+                      ],
+                      "limit_recursion_dir_search": {
+                        "linux": 3,
+                        "win": 4
+                      },
+                      "only_for_host_os_tags": [
+                        "windows",
+                        "linux"
+                      ],
+                      "only_for_target_os_tags": [
+                        "windows",
+                        "android",
+                        "linux"
+                      ],
+                      "skip_path": "yes",
+                      "soft_file": {
+                        "linux": "python*",
+                        "win": "python*.exe"
+                      },
+                      "soft_file_from_host_os": "yes",
+                      "soft_version_cmd": {
+                        "linux": "--version > $#filename#$ 2>&1",
+                        "win": "--version > $#filename#$ 2>&1"
+                      },
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "data_name": "python",
+                    "deps": {},
+                    "env": {
+                      "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                      "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                      "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "CK_PYC": "python",
+                      "CK_PYTHON_BIN": "python",
+                      "CK_PYTHON_PIP_BIN": "pip3",
+                      "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                      "CK_PYTHON_VER3": "YES",
+                      "CK_PY_OBJ_EXT": ".pyc",
+                      "CK_PY_RT": "python"
+                    },
+                    "env_script": "env.sh",
+                    "install_location": "",
+                    "setup": {
+                      "host_os_uoa": "4258b5fe54828a50",
+                      "target_os_bits": "64",
+                      "target_os_uoa": "4258b5fe54828a50",
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "soft_alias": "compiler.python",
+                    "soft_uoa": "45d68512df22fde7",
+                    "tags": [
+                      "64bits",
+                      "compiler",
+                      "host-os-linux-64",
+                      "lang-python",
+                      "python",
+                      "target-os-linux-64",
+                      "v3",
+                      "v3.8",
+                      "v3.8.10"
+                    ]
+                  },
+                  "local": "yes",
+                  "name": "Python interpreter",
+                  "num_entries": 1,
+                  "sort": 10,
+                  "tags": "compiler,python",
+                  "uoa": "36bfb7626d649959",
+                  "ver": "3.8.10"
+                }
+              },
+              "env": {
+                "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/191f7394c45b6cce/build:${PYTHONPATH}"
+              },
+              "env_script": "env.sh",
+              "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/191f7394c45b6cce",
+              "package_uoa": "96340e89289b098f",
+              "setup": {
+                "deps_python": "36bfb7626d649959",
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "unversioned",
+                "version_split": [
+                  0
+                ]
+              },
+              "soft_alias": "lib.python.absl",
+              "soft_uoa": "13fe4a2c64a49824",
+              "tags": [
+                "64bits",
+                "absl",
+                "absl-py",
+                "host-os-linux-64",
+                "lib",
+                "needs-python",
+                "needs-python-3.8.10",
+                "python-package",
+                "target-os-linux-64",
+                "v0",
+                "vmaster"
+              ]
+            },
+            "local": "yes",
+            "name": "Python Abseil library",
+            "num_entries": 1,
+            "package_uoa": "96340e89289b098f",
+            "sort": 30,
+            "tags": "lib,python-package,absl",
+            "uoa": "191f7394c45b6cce",
+            "ver": "unversioned"
+          },
+          "lib-python-numpy": {
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/env.sh\n",
+            "choices": [
+              "ead813745478112c"
+            ],
+            "dict": {
+              "customize": {
+                "check_that_exists": "yes",
+                "env_prefix": "CK_ENV_PYTHON_PACKAGE_NUMPY",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/build/numpy/__init__.py",
+                "install_env": {
+                  "CK_HOST_OS_ID": "linux",
+                  "CK_MD5SUM_CMD": "md5sum",
+                  "CK_TARGET_CPU_BITS": "64",
+                  "CK_TARGET_OS_ID": "linux",
+                  "PACKAGE_VERSION": "",
+                  "PIP_INSTALL_OPTIONS": "--ignore-installed",
+                  "PYTHON_PACKAGE_NAME": "numpy"
+                },
+                "limit_recursion_dir_search": {
+                  "linux": 5,
+                  "win": 5
+                },
+                "skip_path": "yes",
+                "soft_file_universal": "numpy$#sep#$__init__.py",
+                "used_package_uid": "6aaeb794d288057a",
+                "used_package_uoa": "6aaeb794d288057a",
+                "version": "1.21.2",
+                "version_module_name": "version",
+                "version_split": [
+                  1,
+                  21,
+                  2
+                ],
+                "version_variable_name": "version"
+              },
+              "data_name": "Python NumPy library",
+              "deps": {
+                "python": {
+                  "add_to_path": "yes",
+                  "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+                  "build_dir_name": "python",
+                  "choices": [
+                    "36bfb7626d649959"
+                  ],
+                  "detected_ver": "3.8.10",
+                  "dict": {
+                    "customize": {
+                      "add_only_with_version": "yes",
+                      "build_dir_name": "python",
+                      "check_that_exists": "yes",
+                      "ck_version": 10,
+                      "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                      "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "languages": [
+                        "PYTHON"
+                      ],
+                      "limit_recursion_dir_search": {
+                        "linux": 3,
+                        "win": 4
+                      },
+                      "only_for_host_os_tags": [
+                        "windows",
+                        "linux"
+                      ],
+                      "only_for_target_os_tags": [
+                        "windows",
+                        "android",
+                        "linux"
+                      ],
+                      "skip_path": "yes",
+                      "soft_file": {
+                        "linux": "python*",
+                        "win": "python*.exe"
+                      },
+                      "soft_file_from_host_os": "yes",
+                      "soft_version_cmd": {
+                        "linux": "--version > $#filename#$ 2>&1",
+                        "win": "--version > $#filename#$ 2>&1"
+                      },
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "data_name": "python",
+                    "deps": {},
+                    "env": {
+                      "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                      "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                      "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "CK_PYC": "python",
+                      "CK_PYTHON_BIN": "python",
+                      "CK_PYTHON_PIP_BIN": "pip3",
+                      "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                      "CK_PYTHON_VER3": "YES",
+                      "CK_PY_OBJ_EXT": ".pyc",
+                      "CK_PY_RT": "python"
+                    },
+                    "env_script": "env.sh",
+                    "install_location": "",
+                    "setup": {
+                      "host_os_uoa": "4258b5fe54828a50",
+                      "target_os_bits": "64",
+                      "target_os_uoa": "4258b5fe54828a50",
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "soft_alias": "compiler.python",
+                    "soft_uoa": "45d68512df22fde7",
+                    "tags": [
+                      "64bits",
+                      "compiler",
+                      "host-os-linux-64",
+                      "lang-python",
+                      "python",
+                      "target-os-linux-64",
+                      "v3",
+                      "v3.8",
+                      "v3.8.10"
+                    ]
+                  },
+                  "local": "yes",
+                  "name": "Python interpreter",
+                  "num_entries": 1,
+                  "sort": 10,
+                  "tags": "compiler,python",
+                  "uoa": "36bfb7626d649959",
+                  "ver": "3.8.10"
+                }
+              },
+              "env": {
+                "PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/python_deps_site/bin:${PATH}",
+                "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/build:${PYTHONPATH}"
+              },
+              "env_script": "env.sh",
+              "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c",
+              "package_uoa": "6aaeb794d288057a",
+              "setup": {
+                "deps_python": "36bfb7626d649959",
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "1.21.2",
+                "version_split": [
+                  1,
+                  21,
+                  2
+                ]
+              },
+              "soft_alias": "lib.python.numpy",
+              "soft_uoa": "6a10047b1bcd16fc",
+              "tags": [
+                "64bits",
+                "host-os-linux-64",
+                "lib",
+                "needs-python",
+                "needs-python-3.8.10",
+                "numpy",
+                "python-package",
+                "target-os-linux-64",
+                "v1",
+                "v1.21",
+                "v1.21.2",
+                "vmaster"
+              ]
+            },
+            "local": "yes",
+            "name": "Python NumPy library",
+            "num_entries": 1,
+            "package_uoa": "6aaeb794d288057a",
+            "sort": 40,
+            "tags": "lib,python-package,numpy",
+            "uoa": "ead813745478112c",
+            "ver": "1.21.2"
+          },
+          "mlperf-inference": {
+            "add_to_path": "no",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/env.sh\n",
+            "choices": [
+              "6b55d2d50d79f387"
+            ],
+            "dict": {
+              "customize": {
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_MLPERF_INFERENCE",
+                "extra_dir": "",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/loadgen/README.md",
+                "git_info": {
+                  "datetime": "Sun Aug 15 10:41:25 2021 +0000",
+                  "iso_datetime": "2021-08-15T10:41:25",
+                  "iso_datetime_cut": "20210815",
+                  "iso_datetime_cut_revision": "20210815-d1a3236",
+                  "revision": "d1a3236"
+                },
+                "git_src_dir": "inference",
+                "install_env": {
+                  "CK_HOST_OS_ID": "linux",
+                  "CK_MD5SUM_CMD": "md5sum",
+                  "CK_TARGET_CPU_BITS": "64",
+                  "CK_TARGET_OS_ID": "linux",
+                  "PACKAGE_BUILD_TYPE": "none",
+                  "PACKAGE_GIT": "YES",
+                  "PACKAGE_GIT_CHECKOUT": "r1.1-seed",
+                  "PACKAGE_GIT_SUBMODULES": "YES",
+                  "PACKAGE_PATCH": "NO",
+                  "PACKAGE_SKIP_CLEAN_SRC_DIR": "YES",
+                  "PACKAGE_SKIP_LINUX_MAKE": "YES",
+                  "PACKAGE_SUB_DIR": "inference",
+                  "PACKAGE_URL": "https://github.com/octoml/mlcommons-inference",
+                  "PACKAGE_VERSION": "r1.1-tvm-seed"
+                },
+                "limit_recursion_dir_search": {
+                  "linux": 5
+                },
+                "no_os_in_suggested_path": "yes",
+                "no_ver_in_suggested_path": "yes",
+                "package_extra_name": " (OctoML's r1.1 branch with the TVM backend and the correct seed)",
+                "skip_path": "yes",
+                "soft_file_universal": "inference$#sep#$loadgen$#sep#$README.md",
+                "use_git_revision": "yes",
+                "used_package_uid": "e4b96c0d80445eca",
+                "used_package_uoa": "e4b96c0d80445eca",
+                "version": "r1.1-tvm-seed-d1a3236",
+                "version_split": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "data_name": "MLPerf Inference source (OctoML's r1.1 branch with the TVM backend and the correct seed)",
+              "deps": {},
+              "env": {
+                "CK_ENV_MLPERF_INFERENCE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference",
+                "CK_ENV_MLPERF_INFERENCE_LOADGEN": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/loadgen",
+                "CK_ENV_MLPERF_INFERENCE_MLPERF_CONF": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/mlperf.conf",
+                "CK_ENV_MLPERF_INFERENCE_VISION": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/vision",
+                "CK_ENV_MLPERF_INFERENCE_VLATEST": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/vision",
+                "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/vision/classification_and_detection/python:${PYTHONPATH}"
+              },
+              "env_script": "env.sh",
+              "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387",
+              "package_uoa": "e4b96c0d80445eca",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "r1.1-tvm-seed",
+                "version_split": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "soft_alias": "mlperf.inference.source",
+              "soft_uoa": "d0d94f2c992e9c32",
+              "tags": [
+                "64bits",
+                "host-os-linux-64",
+                "inference",
+                "mlcommons",
+                "mlperf",
+                "r1.1-tvm-seed",
+                "source",
+                "src",
+                "target-os-linux-64",
+                "uninstalled",
+                "v0",
+                "v0.1",
+                "v0.1.0",
+                "v0.1.0.0",
+                "v0.1.0.0.0"
+              ]
+            },
+            "local": "yes",
+            "name": "MLPerf Inference source",
+            "num_entries": 1,
+            "package_uoa": "e4b96c0d80445eca",
+            "sort": 10,
+            "tags": "mlperf,inference,source",
+            "uoa": "6b55d2d50d79f387",
+            "ver": "r1.1-tvm-seed-d1a3236"
+          },
+          "python": {
+            "add_to_path": "yes",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+            "build_dir_name": "python",
+            "choices": [
+              "36bfb7626d649959"
+            ],
+            "detected_ver": "3.8.10",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "build_dir_name": "python",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "languages": [
+                  "PYTHON"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_host_os_tags": [
+                  "windows",
+                  "linux"
+                ],
+                "only_for_target_os_tags": [
+                  "windows",
+                  "android",
+                  "linux"
+                ],
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "python*",
+                  "win": "python*.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": "--version > $#filename#$ 2>&1"
+                },
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "data_name": "python",
+              "deps": {},
+              "env": {
+                "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "CK_PYC": "python",
+                "CK_PYTHON_BIN": "python",
+                "CK_PYTHON_PIP_BIN": "pip3",
+                "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                "CK_PYTHON_VER3": "YES",
+                "CK_PY_OBJ_EXT": ".pyc",
+                "CK_PY_RT": "python"
+              },
+              "env_script": "env.sh",
+              "install_location": "",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "soft_alias": "compiler.python",
+              "soft_uoa": "45d68512df22fde7",
+              "tags": [
+                "64bits",
+                "compiler",
+                "host-os-linux-64",
+                "lang-python",
+                "python",
+                "target-os-linux-64",
+                "v3",
+                "v3.8",
+                "v3.8.10"
+              ]
+            },
+            "local": "yes",
+            "name": "Python interpreter",
+            "num_entries": 1,
+            "sort": 20,
+            "tags": "compiler,python",
+            "uoa": "36bfb7626d649959",
+            "ver": "3.8.10"
+          }
+        },
+        "env": {
+          "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/31ccd150e442583b/build:${PYTHONPATH}"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/31ccd150e442583b",
+        "package_uoa": "6b744d888c45962b",
+        "setup": {
+          "deps_compiler": "2919e42bf8ad6c65",
+          "deps_lib-python-absl": "191f7394c45b6cce",
+          "deps_lib-python-numpy": "ead813745478112c",
+          "deps_mlperf-inference": "6b55d2d50d79f387",
+          "deps_python": "36bfb7626d649959",
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "master",
+          "version_split": [
+            0
+          ]
+        },
+        "soft_uoa": "4817b4c5316f6cb5",
+        "tags": [
+          "64bits",
+          "compiled-by-gcc",
+          "compiled-by-gcc-9.3.0",
+          "host-os-linux-64",
+          "lib",
+          "loadgen",
+          "mlperf",
+          "mlperf-loadgen",
+          "mlperf_loadgen",
+          "needs-python",
+          "needs-python-3.8.10",
+          "python-package",
+          "target-os-linux-64",
+          "v0",
+          "vmaster"
+        ],
+        "data_name": "MLPerf Inference LoadGen library",
+        "soft_alias": "lib.python.mlperf.loadgen"
+      },
+      "ver": "master",
+      "uoa": "31ccd150e442583b",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/31ccd150e442583b/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "lib-python-numpy": {
+      "local": "yes",
+      "name": "Python Numpy library",
+      "sort": 50,
+      "tags": "lib,python-package,numpy",
+      "package_uoa": "6aaeb794d288057a",
+      "choices": [
+        "ead813745478112c"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "env_prefix": "CK_ENV_PYTHON_PACKAGE_NUMPY",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/build/numpy/__init__.py",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "PACKAGE_VERSION": "",
+          "PIP_INSTALL_OPTIONS": "--ignore-installed",
+          "PYTHON_PACKAGE_NAME": "numpy"
+        },
+        "limit_recursion_dir_search": {
+          "linux": 5,
+          "win": 5
+        },
+        "skip_path": "yes",
+        "soft_file_universal": "numpy$#sep#$__init__.py",
+        "used_package_uid": "6aaeb794d288057a",
+        "used_package_uoa": "6aaeb794d288057a",
+        "version": "1.21.2",
+        "version_module_name": "version",
+        "version_split": [
+          1,
+          21,
+          2
+        ],
+        "version_variable_name": "version"
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "env_prefix": "CK_ENV_PYTHON_PACKAGE_NUMPY",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/build/numpy/__init__.py",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "PACKAGE_VERSION": "",
+            "PIP_INSTALL_OPTIONS": "--ignore-installed",
+            "PYTHON_PACKAGE_NAME": "numpy"
+          },
+          "limit_recursion_dir_search": {
+            "linux": 5,
+            "win": 5
+          },
+          "skip_path": "yes",
+          "soft_file_universal": "numpy$#sep#$__init__.py",
+          "used_package_uid": "6aaeb794d288057a",
+          "used_package_uoa": "6aaeb794d288057a",
+          "version": "1.21.2",
+          "version_module_name": "version",
+          "version_split": [
+            1,
+            21,
+            2
+          ],
+          "version_variable_name": "version"
+        },
+        "deps": {
+          "python": {
+            "add_to_path": "yes",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+            "build_dir_name": "python",
+            "choices": [
+              "36bfb7626d649959"
+            ],
+            "detected_ver": "3.8.10",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "build_dir_name": "python",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "languages": [
+                  "PYTHON"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_host_os_tags": [
+                  "windows",
+                  "linux"
+                ],
+                "only_for_target_os_tags": [
+                  "windows",
+                  "android",
+                  "linux"
+                ],
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "python*",
+                  "win": "python*.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": "--version > $#filename#$ 2>&1"
+                },
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "data_name": "python",
+              "deps": {},
+              "env": {
+                "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "CK_PYC": "python",
+                "CK_PYTHON_BIN": "python",
+                "CK_PYTHON_PIP_BIN": "pip3",
+                "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                "CK_PYTHON_VER3": "YES",
+                "CK_PY_OBJ_EXT": ".pyc",
+                "CK_PY_RT": "python"
+              },
+              "env_script": "env.sh",
+              "install_location": "",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "soft_alias": "compiler.python",
+              "soft_uoa": "45d68512df22fde7",
+              "tags": [
+                "64bits",
+                "compiler",
+                "host-os-linux-64",
+                "lang-python",
+                "python",
+                "target-os-linux-64",
+                "v3",
+                "v3.8",
+                "v3.8.10"
+              ]
+            },
+            "local": "yes",
+            "name": "Python interpreter",
+            "num_entries": 1,
+            "sort": 10,
+            "tags": "compiler,python",
+            "uoa": "36bfb7626d649959",
+            "ver": "3.8.10"
+          }
+        },
+        "env": {
+          "PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/python_deps_site/bin:${PATH}",
+          "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/build:${PYTHONPATH}"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c",
+        "package_uoa": "6aaeb794d288057a",
+        "setup": {
+          "deps_python": "36bfb7626d649959",
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "1.21.2",
+          "version_split": [
+            1,
+            21,
+            2
+          ]
+        },
+        "soft_uoa": "6a10047b1bcd16fc",
+        "tags": [
+          "64bits",
+          "host-os-linux-64",
+          "lib",
+          "needs-python",
+          "needs-python-3.8.10",
+          "numpy",
+          "python-package",
+          "target-os-linux-64",
+          "v1",
+          "v1.21",
+          "v1.21.2",
+          "vmaster"
+        ],
+        "data_name": "Python NumPy library",
+        "soft_alias": "lib.python.numpy"
+      },
+      "ver": "1.21.2",
+      "uoa": "ead813745478112c",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "mlperf-inference-src": {
+      "force_target_as_host": "yes",
+      "local": "yes",
+      "name": "MLPerf Inference source",
+      "sort": 10,
+      "tags": "mlperf,inference,source",
+      "package_uoa": "e4b96c0d80445eca",
+      "choices": [
+        "6b55d2d50d79f387"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "ck_version": 10,
+        "env_prefix": "CK_ENV_MLPERF_INFERENCE",
+        "extra_dir": "",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/loadgen/README.md",
+        "git_info": {
+          "datetime": "Sun Aug 15 10:41:25 2021 +0000",
+          "iso_datetime": "2021-08-15T10:41:25",
+          "iso_datetime_cut": "20210815",
+          "iso_datetime_cut_revision": "20210815-d1a3236",
+          "revision": "d1a3236"
+        },
+        "git_src_dir": "inference",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "PACKAGE_BUILD_TYPE": "none",
+          "PACKAGE_GIT": "YES",
+          "PACKAGE_GIT_CHECKOUT": "r1.1-seed",
+          "PACKAGE_GIT_SUBMODULES": "YES",
+          "PACKAGE_PATCH": "NO",
+          "PACKAGE_SKIP_CLEAN_SRC_DIR": "YES",
+          "PACKAGE_SKIP_LINUX_MAKE": "YES",
+          "PACKAGE_SUB_DIR": "inference",
+          "PACKAGE_URL": "https://github.com/octoml/mlcommons-inference",
+          "PACKAGE_VERSION": "r1.1-tvm-seed"
+        },
+        "limit_recursion_dir_search": {
+          "linux": 5
+        },
+        "no_os_in_suggested_path": "yes",
+        "no_ver_in_suggested_path": "yes",
+        "package_extra_name": " (OctoML's r1.1 branch with the TVM backend and the correct seed)",
+        "skip_path": "yes",
+        "soft_file_universal": "inference$#sep#$loadgen$#sep#$README.md",
+        "use_git_revision": "yes",
+        "used_package_uid": "e4b96c0d80445eca",
+        "used_package_uoa": "e4b96c0d80445eca",
+        "version": "r1.1-tvm-seed-d1a3236",
+        "version_split": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "ck_version": 10,
+          "env_prefix": "CK_ENV_MLPERF_INFERENCE",
+          "extra_dir": "",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/loadgen/README.md",
+          "git_info": {
+            "datetime": "Sun Aug 15 10:41:25 2021 +0000",
+            "iso_datetime": "2021-08-15T10:41:25",
+            "iso_datetime_cut": "20210815",
+            "iso_datetime_cut_revision": "20210815-d1a3236",
+            "revision": "d1a3236"
+          },
+          "git_src_dir": "inference",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "PACKAGE_BUILD_TYPE": "none",
+            "PACKAGE_GIT": "YES",
+            "PACKAGE_GIT_CHECKOUT": "r1.1-seed",
+            "PACKAGE_GIT_SUBMODULES": "YES",
+            "PACKAGE_PATCH": "NO",
+            "PACKAGE_SKIP_CLEAN_SRC_DIR": "YES",
+            "PACKAGE_SKIP_LINUX_MAKE": "YES",
+            "PACKAGE_SUB_DIR": "inference",
+            "PACKAGE_URL": "https://github.com/octoml/mlcommons-inference",
+            "PACKAGE_VERSION": "r1.1-tvm-seed"
+          },
+          "limit_recursion_dir_search": {
+            "linux": 5
+          },
+          "no_os_in_suggested_path": "yes",
+          "no_ver_in_suggested_path": "yes",
+          "package_extra_name": " (OctoML's r1.1 branch with the TVM backend and the correct seed)",
+          "skip_path": "yes",
+          "soft_file_universal": "inference$#sep#$loadgen$#sep#$README.md",
+          "use_git_revision": "yes",
+          "used_package_uid": "e4b96c0d80445eca",
+          "used_package_uoa": "e4b96c0d80445eca",
+          "version": "r1.1-tvm-seed-d1a3236",
+          "version_split": [
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        "deps": {},
+        "env": {
+          "CK_ENV_MLPERF_INFERENCE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference",
+          "CK_ENV_MLPERF_INFERENCE_LOADGEN": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/loadgen",
+          "CK_ENV_MLPERF_INFERENCE_MLPERF_CONF": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/mlperf.conf",
+          "CK_ENV_MLPERF_INFERENCE_VISION": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/vision",
+          "CK_ENV_MLPERF_INFERENCE_VLATEST": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/vision",
+          "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/inference/vision/classification_and_detection/python:${PYTHONPATH}"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387",
+        "package_uoa": "e4b96c0d80445eca",
+        "setup": {
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "r1.1-tvm-seed",
+          "version_split": [
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        "soft_uoa": "d0d94f2c992e9c32",
+        "tags": [
+          "64bits",
+          "host-os-linux-64",
+          "inference",
+          "mlcommons",
+          "mlperf",
+          "r1.1-tvm-seed",
+          "source",
+          "src",
+          "target-os-linux-64",
+          "uninstalled",
+          "v0",
+          "v0.1",
+          "v0.1.0",
+          "v0.1.0.0",
+          "v0.1.0.0.0"
+        ],
+        "data_name": "MLPerf Inference source (OctoML's r1.1 branch with the TVM backend and the correct seed)",
+        "soft_alias": "mlperf.inference.source"
+      },
+      "ver": "r1.1-tvm-seed-d1a3236",
+      "uoa": "6b55d2d50d79f387",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/6b55d2d50d79f387/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "dataset": {
+      "force_target_as_host": "yes",
+      "local": "yes",
+      "name": "ImageNet dataset (val)",
+      "sort": 30,
+      "tags": "dataset,imagenet,val",
+      "choices": [
+        "79cee48cd0902466"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "ck_version": 10,
+        "env_prefix": "CK_ENV_DATASET_IMAGENET_VAL",
+        "full_path": "/home/ubuntu/datasets/imagenet-2012-val/ILSVRC2012_val_00000001.JPEG",
+        "limit_recursion_dir_search": {
+          "linux": 3,
+          "win": 3
+        },
+        "skip_path": "yes",
+        "soft_file": {
+          "linux": "ILSVRC2012_val_00000001.JPEG",
+          "win": "ILSVRC2012_val_00000001.JPEG"
+        },
+        "version": "2012",
+        "version_split": [
+          2012
+        ]
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "ck_version": 10,
+          "env_prefix": "CK_ENV_DATASET_IMAGENET_VAL",
+          "full_path": "/home/ubuntu/datasets/imagenet-2012-val/ILSVRC2012_val_00000001.JPEG",
+          "limit_recursion_dir_search": {
+            "linux": 3,
+            "win": 3
+          },
+          "skip_path": "yes",
+          "soft_file": {
+            "linux": "ILSVRC2012_val_00000001.JPEG",
+            "win": "ILSVRC2012_val_00000001.JPEG"
+          },
+          "version": "2012",
+          "version_split": [
+            2012
+          ]
+        },
+        "deps": {},
+        "env": {
+          "CK_CAFFE_IMAGENET_VAL": "/home/ubuntu/datasets/imagenet-2012-val/",
+          "CK_ENV_DATASET_IMAGENET_VAL": "/home/ubuntu/datasets/imagenet-2012-val",
+          "CK_ENV_DATASET_ROOT": "/home/ubuntu/datasets/imagenet-2012-val"
+        },
+        "env_script": "env.sh",
+        "install_location": "",
+        "setup": {
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "",
+          "version_split": [
+            2012
+          ]
+        },
+        "soft_uoa": "ff47fc6a33b4b03b",
+        "tags": [
+          "2012",
+          "64bits",
+          "caffe",
+          "dataset",
+          "full",
+          "host-os-linux-64",
+          "image-classification",
+          "imagenet",
+          "jpg",
+          "original",
+          "raw",
+          "target-os-linux-64",
+          "v2012",
+          "val"
+        ],
+        "data_name": "ImageNet dataset (validation)",
+        "soft_alias": "dataset.imagenet.val"
+      },
+      "ver": "2012",
+      "uoa": "79cee48cd0902466",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/79cee48cd0902466/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "dataset-aux": {
+      "force_target_as_host": "yes",
+      "local": "yes",
+      "name": "ImageNet dataset (aux)",
+      "sort": 35,
+      "tags": "dataset,imagenet,aux",
+      "package_uoa": "4e3e9dd897f125bb",
+      "choices": [
+        "a182bd719d4a5ca7"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "ck_version": 10,
+        "env_prefix": "CK_ENV_DATASET_IMAGENET_AUX",
+        "extra_dir": "",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/imagenet_mean.binaryproto",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "DOWNLOAD_FILE": "caffe_ilsvrc12.tar.gz",
+          "DOWNLOAD_FILE1": "caffe_ilsvrc12.tar",
+          "DOWNLOAD_FILE_MD5": "f963098ea0e785a968ca1eb634003a90",
+          "DOWNLOAD_NAME": "ILSVRC'12 aux dataset",
+          "DOWNLOAD_URL": "http://dl.caffe.berkeleyvision.org/",
+          "PACKAGE_VERSION": "2012"
+        },
+        "limit_recursion_dir_search": {
+          "linux": 3,
+          "win": 3
+        },
+        "no_os_in_suggested_path": "yes",
+        "no_ver_in_suggested_path": "yes",
+        "path_bin": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7",
+        "skip_path": "yes",
+        "soft_file_universal": "imagenet_mean.binaryproto",
+        "used_package_uid": "4e3e9dd897f125bb",
+        "used_package_uoa": "4e3e9dd897f125bb",
+        "version": "2012",
+        "version_split": [
+          2012
+        ]
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "ck_version": 10,
+          "env_prefix": "CK_ENV_DATASET_IMAGENET_AUX",
+          "extra_dir": "",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/imagenet_mean.binaryproto",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "DOWNLOAD_FILE": "caffe_ilsvrc12.tar.gz",
+            "DOWNLOAD_FILE1": "caffe_ilsvrc12.tar",
+            "DOWNLOAD_FILE_MD5": "f963098ea0e785a968ca1eb634003a90",
+            "DOWNLOAD_NAME": "ILSVRC'12 aux dataset",
+            "DOWNLOAD_URL": "http://dl.caffe.berkeleyvision.org/",
+            "PACKAGE_VERSION": "2012"
+          },
+          "limit_recursion_dir_search": {
+            "linux": 3,
+            "win": 3
+          },
+          "no_os_in_suggested_path": "yes",
+          "no_ver_in_suggested_path": "yes",
+          "path_bin": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7",
+          "skip_path": "yes",
+          "soft_file_universal": "imagenet_mean.binaryproto",
+          "used_package_uid": "4e3e9dd897f125bb",
+          "used_package_uoa": "4e3e9dd897f125bb",
+          "version": "2012",
+          "version_split": [
+            2012
+          ]
+        },
+        "deps": {},
+        "env": {
+          "CK_CAFFE_IMAGENET_BET_BIN": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/imagenet.bet.pickle",
+          "CK_CAFFE_IMAGENET_DET_SYNSET_WORDS_TXT": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/det_synset_words.txt",
+          "CK_CAFFE_IMAGENET_MEAN_BIN": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/imagenet_mean.binaryproto",
+          "CK_CAFFE_IMAGENET_SYNSETS_TXT": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/synsets.txt",
+          "CK_CAFFE_IMAGENET_SYNSET_WORDS_TXT": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/synset_words.txt",
+          "CK_CAFFE_IMAGENET_TEST_TXT": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/test.txt",
+          "CK_CAFFE_IMAGENET_TRAIN_TXT": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/train.txt",
+          "CK_CAFFE_IMAGENET_VAL_TXT": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/val.txt",
+          "CK_ENV_DATASET_IMAGENET_AUX": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7",
+        "package_uoa": "4e3e9dd897f125bb",
+        "setup": {
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "2012",
+          "version_split": [
+            2012
+          ]
+        },
+        "soft_uoa": "167d823440e6a59a",
+        "tags": [
+          "2012",
+          "64bits",
+          "aux",
+          "caffe",
+          "channel-stable",
+          "dataset",
+          "from.berkeley",
+          "host-os-linux-64",
+          "ilsvrc2012",
+          "image-classification",
+          "imagenet",
+          "target-os-linux-64",
+          "v2012"
+        ],
+        "data_name": "ImageNet dataset (aux)",
+        "soft_alias": "dataset.imagenet.aux"
+      },
+      "ver": "2012",
+      "uoa": "a182bd719d4a5ca7",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/a182bd719d4a5ca7/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "lib-python-opencv": {
+      "local": "yes",
+      "name": "Python OpenCV library",
+      "sort": 50,
+      "tags": "lib,python-package,cv2",
+      "package_uoa": "4c340608e44297b0",
+      "choices": [
+        "ebe377df204bceb4"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "comment": "Read about available variations here: https://pypi.org/project/opencv-python-headless/",
+        "detect_version_externally": "yes",
+        "env_prefix": "CK_ENV_PYTHON_PACKAGE_CV2",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ebe377df204bceb4/build/cv2/__init__.py",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "PACKAGE_VERSION": "",
+          "PIP_INSTALL_OPTIONS": "--ignore-installed",
+          "PYTHON_PACKAGE_NAME": "opencv-python-headless"
+        },
+        "limit_recursion_dir_search": {
+          "linux": 5,
+          "win": 5
+        },
+        "package_extra_name": " (OpenCV without contribs or GUI)",
+        "skip_path": "yes",
+        "soft_file_universal": "cv2$#sep#$__init__.py",
+        "used_package_uid": "4c340608e44297b0",
+        "used_package_uoa": "4c340608e44297b0",
+        "version": "4.5.3",
+        "version_split": [
+          4,
+          5,
+          3
+        ],
+        "version_variable_name": "__version__"
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "comment": "Read about available variations here: https://pypi.org/project/opencv-python-headless/",
+          "detect_version_externally": "yes",
+          "env_prefix": "CK_ENV_PYTHON_PACKAGE_CV2",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ebe377df204bceb4/build/cv2/__init__.py",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "PACKAGE_VERSION": "",
+            "PIP_INSTALL_OPTIONS": "--ignore-installed",
+            "PYTHON_PACKAGE_NAME": "opencv-python-headless"
+          },
+          "limit_recursion_dir_search": {
+            "linux": 5,
+            "win": 5
+          },
+          "package_extra_name": " (OpenCV without contribs or GUI)",
+          "skip_path": "yes",
+          "soft_file_universal": "cv2$#sep#$__init__.py",
+          "used_package_uid": "4c340608e44297b0",
+          "used_package_uoa": "4c340608e44297b0",
+          "version": "4.5.3",
+          "version_split": [
+            4,
+            5,
+            3
+          ],
+          "version_variable_name": "__version__"
+        },
+        "deps": {
+          "python": {
+            "add_to_path": "yes",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+            "build_dir_name": "python",
+            "choices": [
+              "36bfb7626d649959"
+            ],
+            "detected_ver": "3.8.10",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "build_dir_name": "python",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "languages": [
+                  "PYTHON"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_host_os_tags": [
+                  "windows",
+                  "linux"
+                ],
+                "only_for_target_os_tags": [
+                  "windows",
+                  "android",
+                  "linux"
+                ],
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "python*",
+                  "win": "python*.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": "--version > $#filename#$ 2>&1"
+                },
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "data_name": "python",
+              "deps": {},
+              "env": {
+                "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "CK_PYC": "python",
+                "CK_PYTHON_BIN": "python",
+                "CK_PYTHON_PIP_BIN": "pip3",
+                "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                "CK_PYTHON_VER3": "YES",
+                "CK_PY_OBJ_EXT": ".pyc",
+                "CK_PY_RT": "python"
+              },
+              "env_script": "env.sh",
+              "install_location": "",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "soft_alias": "compiler.python",
+              "soft_uoa": "45d68512df22fde7",
+              "tags": [
+                "64bits",
+                "compiler",
+                "host-os-linux-64",
+                "lang-python",
+                "python",
+                "target-os-linux-64",
+                "v3",
+                "v3.8",
+                "v3.8.10"
+              ]
+            },
+            "local": "yes",
+            "name": "Python interpreter",
+            "num_entries": 1,
+            "sort": 10,
+            "tags": "compiler,python",
+            "uoa": "36bfb7626d649959",
+            "ver": "3.8.10"
+          }
+        },
+        "env": {
+          "PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ebe377df204bceb4/python_deps_site/bin:${PATH}",
+          "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ebe377df204bceb4/build:${PYTHONPATH}"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ebe377df204bceb4",
+        "package_uoa": "4c340608e44297b0",
+        "setup": {
+          "deps_python": "36bfb7626d649959",
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "4.5.3",
+          "version_split": [
+            4,
+            5,
+            3
+          ]
+        },
+        "soft_uoa": "ed8216b834f1b8c4",
+        "tags": [
+          "64bits",
+          "cv2",
+          "headless",
+          "host-os-linux-64",
+          "lib",
+          "needs-python",
+          "needs-python-3.8.10",
+          "opencv",
+          "opencv-python-headless",
+          "python-package",
+          "target-os-linux-64",
+          "v4",
+          "v4.5",
+          "v4.5.3",
+          "without-contribs",
+          "without-gui"
+        ],
+        "data_name": "Python OpenCV library (OpenCV without contribs or GUI)",
+        "soft_alias": "lib.python.cv2"
+      },
+      "ver": "4.5.3",
+      "uoa": "ebe377df204bceb4",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/ebe377df204bceb4/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "tool-coco": {
+      "force_target_as_host": "yes",
+      "local": "yes",
+      "name": "Python API for COCO",
+      "note": "required for all vision apps",
+      "sort": 25,
+      "tags": "tool,coco",
+      "package_uoa": "3a59276b87532c04",
+      "choices": [
+        "d94244b24902dbd3"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "env_prefix": "CK_ENV_TOOL_COCO",
+        "extra_dir": "",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/d94244b24902dbd3/pycocotools/__init__.py",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "PACKAGE_GIT": "YES",
+          "PACKAGE_NAME": "tool-coco",
+          "PACKAGE_SKIP_LINUX_MAKE": "YES",
+          "PACKAGE_SUB_DIR": "src",
+          "PACKAGE_URL": "https://github.com/cocodataset/cocoapi.git",
+          "PACKAGE_VERSION": "master",
+          "TOOL_NAME": "tool-coco"
+        },
+        "limit_recursion_dir_search": {
+          "linux": 5
+        },
+        "skip_path": "yes",
+        "soft_file": {
+          "linux": "pycocotools/__init__.py"
+        },
+        "used_package_uid": "3a59276b87532c04",
+        "used_package_uoa": "3a59276b87532c04",
+        "version": "master",
+        "version_split": [
+          0
+        ]
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "env_prefix": "CK_ENV_TOOL_COCO",
+          "extra_dir": "",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/d94244b24902dbd3/pycocotools/__init__.py",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "PACKAGE_GIT": "YES",
+            "PACKAGE_NAME": "tool-coco",
+            "PACKAGE_SKIP_LINUX_MAKE": "YES",
+            "PACKAGE_SUB_DIR": "src",
+            "PACKAGE_URL": "https://github.com/cocodataset/cocoapi.git",
+            "PACKAGE_VERSION": "master",
+            "TOOL_NAME": "tool-coco"
+          },
+          "limit_recursion_dir_search": {
+            "linux": 5
+          },
+          "skip_path": "yes",
+          "soft_file": {
+            "linux": "pycocotools/__init__.py"
+          },
+          "used_package_uid": "3a59276b87532c04",
+          "used_package_uoa": "3a59276b87532c04",
+          "version": "master",
+          "version_split": [
+            0
+          ]
+        },
+        "deps": {
+          "compiler": {
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/2919e42bf8ad6c65/env.sh\n",
+            "build_dir_name": "gcc",
+            "choices": [
+              "2919e42bf8ad6c65"
+            ],
+            "detected_ver": "9.3.0",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "add_to_path": "yes",
+                "build_dir_name": "gcc",
+                "can_strip_dynamic_lib": "yes",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_GCC",
+                "full_path": "/usr/bin/gcc",
+                "languages": [
+                  "C",
+                  "CPP"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_target_os_tags": [
+                  "mingw",
+                  "windows",
+                  "linux"
+                ],
+                "retarget": "no",
+                "search_numeric_ext_on_linux": "yes",
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "gcc",
+                  "win": "gcc.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_path_example": {
+                  "linux": "/usr/bin/gcc",
+                  "win": "C:\\Program Files\\GCC-4.9.2-x64\\bin\\gcc.exe"
+                },
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": " --version > $#filename#$ 2>&1"
+                },
+                "sort": 100,
+                "tool_postfix": "",
+                "tool_postfix_configured": "yes",
+                "tool_prefix": "",
+                "tool_prefix_configured": "yes",
+                "version": "9.3.0",
+                "version_split": [
+                  9,
+                  3,
+                  0
+                ]
+              },
+              "data_name": "GNU C compiler",
+              "deps": {},
+              "env": {
+                "CK_AR": "ar",
+                "CK_ASM_EXT": ".s",
+                "CK_CC": "gcc",
+                "CK_CC_FULL_PATH": "/usr/bin/gcc",
+                "CK_COMPILER_FLAGS_OBLIGATORY": "",
+                "CK_COMPILER_FLAG_CPP0X": "-std=c++0x",
+                "CK_COMPILER_FLAG_CPP11": "-std=c++11",
+                "CK_COMPILER_FLAG_CPP14": "-std=c++14",
+                "CK_COMPILER_FLAG_CPP1Z": "-std=c++1z",
+                "CK_COMPILER_FLAG_GPROF": "-pg",
+                "CK_COMPILER_FLAG_OPENMP": "-fopenmp",
+                "CK_COMPILER_FLAG_PLUGIN": "-fplugin=",
+                "CK_COMPILER_FLAG_PTHREAD_LIB": "-lpthread",
+                "CK_COMPILER_FLAG_STD90": "-std=c90",
+                "CK_COMPILER_FLAG_STD99": "-std=c99",
+                "CK_COMPILER_FLAG_STD_GNU89": "-std=gnu89",
+                "CK_COMPILER_POSTFIX": "",
+                "CK_COMPILER_TOOLCHAIN_NAME": "gcc",
+                "CK_COMPILER_VERSION": "9.3.0",
+                "CK_CXX": "g++",
+                "CK_CXX_FULL_PATH": "/usr/bin/g++",
+                "CK_DLL_EXT": ".so",
+                "CK_ENV_COMPILER_GCC": "/usr",
+                "CK_ENV_COMPILER_GCC_LIB": "/usr/lib/gcc/aarch64-linux-gnu/9",
+                "CK_EXE_EXT": ".out",
+                "CK_EXTRA_LIB_ATOMIC": "-latomic",
+                "CK_EXTRA_LIB_DL": "-ldl",
+                "CK_EXTRA_LIB_M": "-lm",
+                "CK_EXTRA_LIB_RT": "-lrt",
+                "CK_FLAGS_CREATE_ASM": "-S",
+                "CK_FLAGS_CREATE_OBJ": "-c",
+                "CK_FLAGS_DLL": "-shared -fPIC",
+                "CK_FLAGS_DLL_EXTRA": "",
+                "CK_FLAGS_DYNAMIC_BIN": " ",
+                "CK_FLAGS_OUTPUT": "-o ",
+                "CK_FLAGS_STATIC_BIN": "-static -fPIC",
+                "CK_FLAGS_STATIC_LIB": "-fPIC",
+                "CK_FLAG_PREFIX_INCLUDE": "-I",
+                "CK_FLAG_PREFIX_LIB_DIR": "-L",
+                "CK_FLAG_PREFIX_VAR": "-D",
+                "CK_GPROF_OUT_FILE": "gmon.out",
+                "CK_LB": "ar rcs",
+                "CK_LB_OUTPUT": "-o ",
+                "CK_LD": "ld",
+                "CK_LD_FLAGS_EXTRA": "",
+                "CK_LIB_EXT": ".a",
+                "CK_LINKER_FLAG_OPENMP": "-lgomp -lrt",
+                "CK_MAKE": "make",
+                "CK_OBJDUMP": "objdump -d",
+                "CK_OBJ_EXT": ".o",
+                "CK_OPT_ALL_WARNINGS": "-Wall",
+                "CK_OPT_SIZE": "-Os",
+                "CK_OPT_SPEED": "-O3",
+                "CK_OPT_SPEED_SAFE": "-O2",
+                "CK_OPT_UNWIND": " ",
+                "CK_PLUGIN_FLAG": "-fplugin=",
+                "CK_PROFILER": "gprof",
+                "CK_RANLIB": "ranlib"
+              },
+              "env_script": "env.sh",
+              "install_location": "",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "9.3.0",
+                "version_split": [
+                  9,
+                  3,
+                  0
+                ]
+              },
+              "soft_alias": "compiler.gcc",
+              "soft_uoa": "3a8a82fa40bf992d",
+              "tags": [
+                "64bits",
+                "compiler",
+                "gcc",
+                "host-os-linux-64",
+                "lang-c",
+                "lang-cpp",
+                "target-os-linux-64",
+                "v9",
+                "v9.3",
+                "v9.3.0"
+              ]
+            },
+            "local": "yes",
+            "name": "C compiler",
+            "num_entries": 1,
+            "sort": 10,
+            "tags": "compiler,lang-c",
+            "uoa": "2919e42bf8ad6c65",
+            "update_tags_by_target_os_uoa": {
+              "linux-32": "gcc",
+              "linux-64": "gcc",
+              "macos-64": "llvm"
+            },
+            "ver": "9.3.0"
+          },
+          "lib-python-cython": {
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/7e95c4e97a67456c/env.sh\n",
+            "choices": [
+              "7e95c4e97a67456c"
+            ],
+            "dict": {
+              "customize": {
+                "check_that_exists": "yes",
+                "env_prefix": "CK_ENV_PYTHON_PACKAGE_CYTHON",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/7e95c4e97a67456c/build/Cython/__init__.py",
+                "install_env": {
+                  "CK_HOST_OS_ID": "linux",
+                  "CK_MD5SUM_CMD": "md5sum",
+                  "CK_TARGET_CPU_BITS": "64",
+                  "CK_TARGET_OS_ID": "linux",
+                  "PACKAGE_VERSION": "",
+                  "PIP_INSTALL_OPTIONS": "--ignore-installed",
+                  "PYTHON_PACKAGE_NAME": "cython"
+                },
+                "limit_recursion_dir_search": {
+                  "linux": 5,
+                  "win": 5
+                },
+                "skip_path": "yes",
+                "soft_file_universal": "Cython$#sep#$__init__.py",
+                "used_package_uid": "5364292e01d4120b",
+                "used_package_uoa": "5364292e01d4120b",
+                "version": "0.29.24",
+                "version_module_name": "Shadow",
+                "version_split": [
+                  0,
+                  29,
+                  24
+                ],
+                "version_variable_name": "__version__"
+              },
+              "data_name": "Python Cython library",
+              "deps": {
+                "python": {
+                  "add_to_path": "yes",
+                  "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+                  "build_dir_name": "python",
+                  "choices": [
+                    "36bfb7626d649959"
+                  ],
+                  "detected_ver": "3.8.10",
+                  "dict": {
+                    "customize": {
+                      "add_only_with_version": "yes",
+                      "build_dir_name": "python",
+                      "check_that_exists": "yes",
+                      "ck_version": 10,
+                      "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                      "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "languages": [
+                        "PYTHON"
+                      ],
+                      "limit_recursion_dir_search": {
+                        "linux": 3,
+                        "win": 4
+                      },
+                      "only_for_host_os_tags": [
+                        "windows",
+                        "linux"
+                      ],
+                      "only_for_target_os_tags": [
+                        "windows",
+                        "android",
+                        "linux"
+                      ],
+                      "skip_path": "yes",
+                      "soft_file": {
+                        "linux": "python*",
+                        "win": "python*.exe"
+                      },
+                      "soft_file_from_host_os": "yes",
+                      "soft_version_cmd": {
+                        "linux": "--version > $#filename#$ 2>&1",
+                        "win": "--version > $#filename#$ 2>&1"
+                      },
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "data_name": "python",
+                    "deps": {},
+                    "env": {
+                      "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                      "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                      "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "CK_PYC": "python",
+                      "CK_PYTHON_BIN": "python",
+                      "CK_PYTHON_PIP_BIN": "pip3",
+                      "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                      "CK_PYTHON_VER3": "YES",
+                      "CK_PY_OBJ_EXT": ".pyc",
+                      "CK_PY_RT": "python"
+                    },
+                    "env_script": "env.sh",
+                    "install_location": "",
+                    "setup": {
+                      "host_os_uoa": "4258b5fe54828a50",
+                      "target_os_bits": "64",
+                      "target_os_uoa": "4258b5fe54828a50",
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "soft_alias": "compiler.python",
+                    "soft_uoa": "45d68512df22fde7",
+                    "tags": [
+                      "64bits",
+                      "compiler",
+                      "host-os-linux-64",
+                      "lang-python",
+                      "python",
+                      "target-os-linux-64",
+                      "v3",
+                      "v3.8",
+                      "v3.8.10"
+                    ]
+                  },
+                  "local": "yes",
+                  "name": "Python interpreter",
+                  "num_entries": 1,
+                  "sort": 10,
+                  "tags": "compiler,python",
+                  "uoa": "36bfb7626d649959",
+                  "ver": "3.8.10"
+                }
+              },
+              "env": {
+                "PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/7e95c4e97a67456c/python_deps_site/bin:${PATH}",
+                "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/7e95c4e97a67456c/build:${PYTHONPATH}"
+              },
+              "env_script": "env.sh",
+              "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/7e95c4e97a67456c",
+              "package_uoa": "5364292e01d4120b",
+              "setup": {
+                "deps_python": "36bfb7626d649959",
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "0.29.24",
+                "version_split": [
+                  0,
+                  29,
+                  24
+                ]
+              },
+              "soft_alias": "lib.python.cython",
+              "soft_uoa": "8af9e4342b34e3bf",
+              "tags": [
+                "64bits",
+                "cython",
+                "host-os-linux-64",
+                "lib",
+                "needs-python",
+                "needs-python-3.8.10",
+                "python-package",
+                "target-os-linux-64",
+                "v0",
+                "v0.29",
+                "v0.29.24",
+                "vmaster"
+              ]
+            },
+            "local": "yes",
+            "name": "Python Cython library",
+            "num_entries": 1,
+            "package_uoa": "5364292e01d4120b",
+            "sort": 50,
+            "tags": "lib,python-package,cython",
+            "uoa": "7e95c4e97a67456c",
+            "ver": "0.29.24"
+          },
+          "lib-python-matplotlib": {
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/251ef49e2bf07711/env.sh\n",
+            "choices": [
+              "251ef49e2bf07711"
+            ],
+            "dict": {
+              "customize": {
+                "check_that_exists": "yes",
+                "env_prefix": "CK_ENV_PYTHON_PACKAGE_MATPLOTLIB",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/251ef49e2bf07711/build/matplotlib/__init__.py",
+                "install_env": {
+                  "CK_HOST_OS_ID": "linux",
+                  "CK_MD5SUM_CMD": "md5sum",
+                  "CK_TARGET_CPU_BITS": "64",
+                  "CK_TARGET_OS_ID": "linux",
+                  "PACKAGE_VERSION": "",
+                  "PIP_INSTALL_OPTIONS": "--ignore-installed",
+                  "PYTHON_PACKAGE_NAME": "matplotlib"
+                },
+                "limit_recursion_dir_search": {
+                  "linux": 5,
+                  "win": 5
+                },
+                "skip_path": "yes",
+                "soft_file_universal": "matplotlib$#sep#$__init__.py",
+                "used_package_uid": "79a67388f8474548",
+                "used_package_uoa": "79a67388f8474548",
+                "version": "3.4.3",
+                "version_module_name": "_version",
+                "version_split": [
+                  3,
+                  4,
+                  3
+                ],
+                "version_variable_name": "version_json"
+              },
+              "data_name": "Python Matplotlib library",
+              "deps": {
+                "python": {
+                  "add_to_path": "yes",
+                  "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+                  "build_dir_name": "python",
+                  "choices": [
+                    "36bfb7626d649959"
+                  ],
+                  "detected_ver": "3.8.10",
+                  "dict": {
+                    "customize": {
+                      "add_only_with_version": "yes",
+                      "build_dir_name": "python",
+                      "check_that_exists": "yes",
+                      "ck_version": 10,
+                      "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                      "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "languages": [
+                        "PYTHON"
+                      ],
+                      "limit_recursion_dir_search": {
+                        "linux": 3,
+                        "win": 4
+                      },
+                      "only_for_host_os_tags": [
+                        "windows",
+                        "linux"
+                      ],
+                      "only_for_target_os_tags": [
+                        "windows",
+                        "android",
+                        "linux"
+                      ],
+                      "skip_path": "yes",
+                      "soft_file": {
+                        "linux": "python*",
+                        "win": "python*.exe"
+                      },
+                      "soft_file_from_host_os": "yes",
+                      "soft_version_cmd": {
+                        "linux": "--version > $#filename#$ 2>&1",
+                        "win": "--version > $#filename#$ 2>&1"
+                      },
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "data_name": "python",
+                    "deps": {},
+                    "env": {
+                      "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                      "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                      "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "CK_PYC": "python",
+                      "CK_PYTHON_BIN": "python",
+                      "CK_PYTHON_PIP_BIN": "pip3",
+                      "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                      "CK_PYTHON_VER3": "YES",
+                      "CK_PY_OBJ_EXT": ".pyc",
+                      "CK_PY_RT": "python"
+                    },
+                    "env_script": "env.sh",
+                    "install_location": "",
+                    "setup": {
+                      "host_os_uoa": "4258b5fe54828a50",
+                      "target_os_bits": "64",
+                      "target_os_uoa": "4258b5fe54828a50",
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "soft_alias": "compiler.python",
+                    "soft_uoa": "45d68512df22fde7",
+                    "tags": [
+                      "64bits",
+                      "compiler",
+                      "host-os-linux-64",
+                      "lang-python",
+                      "python",
+                      "target-os-linux-64",
+                      "v3",
+                      "v3.8",
+                      "v3.8.10"
+                    ]
+                  },
+                  "local": "yes",
+                  "name": "Python interpreter",
+                  "num_entries": 1,
+                  "sort": 10,
+                  "tags": "compiler,python",
+                  "uoa": "36bfb7626d649959",
+                  "ver": "3.8.10"
+                }
+              },
+              "env": {
+                "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/251ef49e2bf07711/build:${PYTHONPATH}"
+              },
+              "env_script": "env.sh",
+              "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/251ef49e2bf07711",
+              "package_uoa": "79a67388f8474548",
+              "setup": {
+                "deps_python": "36bfb7626d649959",
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "3.4.3",
+                "version_split": [
+                  3,
+                  4,
+                  3
+                ]
+              },
+              "soft_alias": "lib.python.matplotlib",
+              "soft_uoa": "22a1d0f46439f9a5",
+              "tags": [
+                "64bits",
+                "host-os-linux-64",
+                "lib",
+                "matplotlib",
+                "needs-python",
+                "needs-python-3.8.10",
+                "python-package",
+                "target-os-linux-64",
+                "v3",
+                "v3.4",
+                "v3.4.3",
+                "vmaster"
+              ]
+            },
+            "local": "yes",
+            "name": "Python Matplotlib library",
+            "num_entries": 1,
+            "package_uoa": "79a67388f8474548",
+            "sort": 40,
+            "tags": "lib,python-package,matplotlib",
+            "uoa": "251ef49e2bf07711",
+            "ver": "3.4.3"
+          },
+          "lib-python-numpy": {
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/env.sh\n",
+            "choices": [
+              "ead813745478112c"
+            ],
+            "dict": {
+              "customize": {
+                "check_that_exists": "yes",
+                "env_prefix": "CK_ENV_PYTHON_PACKAGE_NUMPY",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/build/numpy/__init__.py",
+                "install_env": {
+                  "CK_HOST_OS_ID": "linux",
+                  "CK_MD5SUM_CMD": "md5sum",
+                  "CK_TARGET_CPU_BITS": "64",
+                  "CK_TARGET_OS_ID": "linux",
+                  "PACKAGE_VERSION": "",
+                  "PIP_INSTALL_OPTIONS": "--ignore-installed",
+                  "PYTHON_PACKAGE_NAME": "numpy"
+                },
+                "limit_recursion_dir_search": {
+                  "linux": 5,
+                  "win": 5
+                },
+                "skip_path": "yes",
+                "soft_file_universal": "numpy$#sep#$__init__.py",
+                "used_package_uid": "6aaeb794d288057a",
+                "used_package_uoa": "6aaeb794d288057a",
+                "version": "1.21.2",
+                "version_module_name": "version",
+                "version_split": [
+                  1,
+                  21,
+                  2
+                ],
+                "version_variable_name": "version"
+              },
+              "data_name": "Python NumPy library",
+              "deps": {
+                "python": {
+                  "add_to_path": "yes",
+                  "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+                  "build_dir_name": "python",
+                  "choices": [
+                    "36bfb7626d649959"
+                  ],
+                  "detected_ver": "3.8.10",
+                  "dict": {
+                    "customize": {
+                      "add_only_with_version": "yes",
+                      "build_dir_name": "python",
+                      "check_that_exists": "yes",
+                      "ck_version": 10,
+                      "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                      "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "languages": [
+                        "PYTHON"
+                      ],
+                      "limit_recursion_dir_search": {
+                        "linux": 3,
+                        "win": 4
+                      },
+                      "only_for_host_os_tags": [
+                        "windows",
+                        "linux"
+                      ],
+                      "only_for_target_os_tags": [
+                        "windows",
+                        "android",
+                        "linux"
+                      ],
+                      "skip_path": "yes",
+                      "soft_file": {
+                        "linux": "python*",
+                        "win": "python*.exe"
+                      },
+                      "soft_file_from_host_os": "yes",
+                      "soft_version_cmd": {
+                        "linux": "--version > $#filename#$ 2>&1",
+                        "win": "--version > $#filename#$ 2>&1"
+                      },
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "data_name": "python",
+                    "deps": {},
+                    "env": {
+                      "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                      "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                      "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                      "CK_PYC": "python",
+                      "CK_PYTHON_BIN": "python",
+                      "CK_PYTHON_PIP_BIN": "pip3",
+                      "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                      "CK_PYTHON_VER3": "YES",
+                      "CK_PY_OBJ_EXT": ".pyc",
+                      "CK_PY_RT": "python"
+                    },
+                    "env_script": "env.sh",
+                    "install_location": "",
+                    "setup": {
+                      "host_os_uoa": "4258b5fe54828a50",
+                      "target_os_bits": "64",
+                      "target_os_uoa": "4258b5fe54828a50",
+                      "version": "3.8.10",
+                      "version_split": [
+                        3,
+                        8,
+                        10
+                      ]
+                    },
+                    "soft_alias": "compiler.python",
+                    "soft_uoa": "45d68512df22fde7",
+                    "tags": [
+                      "64bits",
+                      "compiler",
+                      "host-os-linux-64",
+                      "lang-python",
+                      "python",
+                      "target-os-linux-64",
+                      "v3",
+                      "v3.8",
+                      "v3.8.10"
+                    ]
+                  },
+                  "local": "yes",
+                  "name": "Python interpreter",
+                  "num_entries": 1,
+                  "sort": 10,
+                  "tags": "compiler,python",
+                  "uoa": "36bfb7626d649959",
+                  "ver": "3.8.10"
+                }
+              },
+              "env": {
+                "PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/python_deps_site/bin:${PATH}",
+                "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c/build:${PYTHONPATH}"
+              },
+              "env_script": "env.sh",
+              "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ead813745478112c",
+              "package_uoa": "6aaeb794d288057a",
+              "setup": {
+                "deps_python": "36bfb7626d649959",
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "1.21.2",
+                "version_split": [
+                  1,
+                  21,
+                  2
+                ]
+              },
+              "soft_alias": "lib.python.numpy",
+              "soft_uoa": "6a10047b1bcd16fc",
+              "tags": [
+                "64bits",
+                "host-os-linux-64",
+                "lib",
+                "needs-python",
+                "needs-python-3.8.10",
+                "numpy",
+                "python-package",
+                "target-os-linux-64",
+                "v1",
+                "v1.21",
+                "v1.21.2",
+                "vmaster"
+              ]
+            },
+            "local": "yes",
+            "name": "Python NumPy library",
+            "num_entries": 1,
+            "package_uoa": "6aaeb794d288057a",
+            "sort": 30,
+            "tags": "lib,python-package,numpy",
+            "uoa": "ead813745478112c",
+            "ver": "1.21.2"
+          },
+          "python": {
+            "add_to_path": "yes",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+            "build_dir_name": "python",
+            "choices": [
+              "36bfb7626d649959"
+            ],
+            "detected_ver": "3.8.10",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "build_dir_name": "python",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "languages": [
+                  "PYTHON"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_host_os_tags": [
+                  "windows",
+                  "linux"
+                ],
+                "only_for_target_os_tags": [
+                  "windows",
+                  "android",
+                  "linux"
+                ],
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "python*",
+                  "win": "python*.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": "--version > $#filename#$ 2>&1"
+                },
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "data_name": "python",
+              "deps": {},
+              "env": {
+                "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "CK_PYC": "python",
+                "CK_PYTHON_BIN": "python",
+                "CK_PYTHON_PIP_BIN": "pip3",
+                "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                "CK_PYTHON_VER3": "YES",
+                "CK_PY_OBJ_EXT": ".pyc",
+                "CK_PY_RT": "python"
+              },
+              "env_script": "env.sh",
+              "install_location": "",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "soft_alias": "compiler.python",
+              "soft_uoa": "45d68512df22fde7",
+              "tags": [
+                "64bits",
+                "compiler",
+                "host-os-linux-64",
+                "lang-python",
+                "python",
+                "target-os-linux-64",
+                "v3",
+                "v3.8",
+                "v3.8.10"
+              ]
+            },
+            "local": "yes",
+            "name": "Python interpreter",
+            "num_entries": 1,
+            "sort": 20,
+            "tags": "compiler,python",
+            "uoa": "36bfb7626d649959",
+            "ver": "3.8.10"
+          }
+        },
+        "env": {
+          "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/d94244b24902dbd3:$PYTHONPATH"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/d94244b24902dbd3",
+        "package_uoa": "3a59276b87532c04",
+        "setup": {
+          "deps_compiler": "2919e42bf8ad6c65",
+          "deps_lib-python-cython": "7e95c4e97a67456c",
+          "deps_lib-python-matplotlib": "251ef49e2bf07711",
+          "deps_lib-python-numpy": "ead813745478112c",
+          "deps_python": "36bfb7626d649959",
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "master",
+          "version_split": [
+            0
+          ]
+        },
+        "soft_uoa": "7432c898273fe70d",
+        "tags": [
+          "64bits",
+          "api",
+          "coco",
+          "compiled-by-gcc",
+          "compiled-by-gcc-9.3.0",
+          "host-os-linux-64",
+          "needs-python",
+          "needs-python-3.8.10",
+          "target-os-linux-64",
+          "tool",
+          "v0",
+          "vmaster",
+          "vtrunk"
+        ],
+        "data_name": "COCO dataset API",
+        "soft_alias": "tool.coco"
+      },
+      "ver": "master",
+      "uoa": "d94244b24902dbd3",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/d94244b24902dbd3/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "model": {
+      "force_target_as_host": "yes",
+      "local": "yes",
+      "name": "Model for image classification (mlperf, onnx)",
+      "sort": 40,
+      "tags": "model,image-classification,mlperf,onnx",
+      "package_uoa": "bf121098921c4fd6",
+      "choices": [
+        "cf189dd23e6203c4"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "ck_version": 10,
+        "env_prefix": "CK_ENV_ONNX_MODEL",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/cf189dd23e6203c4/resnet50_v1.onnx",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "MLPERF_MODEL_NAME": "resnet50",
+          "MLPERF_PROFILE_EXT": "",
+          "ML_MODEL_DATA_LAYOUT": "NCHW",
+          "ML_MODEL_GIVEN_CHANNEL_MEANS": "123.68 116.78 103.94",
+          "ML_MODEL_INPUT_LAYERS": "input_tensor:0",
+          "ML_MODEL_INPUT_SHAPES": "\\\"input_tensor:0\\\": (BATCH_SIZE, 3, 224, 224)",
+          "ML_MODEL_OUTPUT_LAYERS": "softmax_tensor:0",
+          "MODEL_ACCURACY": "76.456",
+          "MODEL_DATASET": "imagenet2012-val",
+          "MODEL_FRAMEWORK": "onnx",
+          "MODEL_IMAGE_HEIGHT": "224",
+          "MODEL_IMAGE_WIDTH": "224",
+          "MODEL_INPUT_DATA_TYPES": "fp32",
+          "MODEL_INPUT_LAYERS": "input_tensor:0",
+          "MODEL_INPUT_LAYER_NAME": "input_tensor:0",
+          "MODEL_NORMALIZE_DATA": "0",
+          "MODEL_ONNX_OPSET": "11",
+          "MODEL_OUTPUT_LAYERS": "softmax_tensor:0",
+          "MODEL_OUTPUT_LAYER_NAME": "softmax_tensor:0",
+          "MODEL_PRECISION": "fp32",
+          "MODEL_RETRAINING": "no",
+          "MODEL_SUBTRACT_MEAN": "YES",
+          "MODEL_VERSION": "1.5",
+          "MODEL_WEIGHT_DATA_TYPES": "fp32",
+          "MODEL_WEIGHT_TRANSFORMATIONS": "no",
+          "PACKAGE_NAME": "resnet50_v1.onnx",
+          "PACKAGE_SKIP_CLEAN_PACKAGE": "YES",
+          "PACKAGE_SKIP_LINUX_MAKE": "YES",
+          "PACKAGE_UNGZIP": "NO",
+          "PACKAGE_URL": "https://zenodo.org/record/4735647/files",
+          "PACKAGE_VERSION": "1.5",
+          "PACKAGE_WGET": "YES"
+        },
+        "model_notes": "<a href=\"https://zenodo.org/record/2535873/files/resnet50_v1.pb\">from zenodo</a> converted with <a href=\"https://github.com/mlcommons/inference/blob/master/vision/classification_and_detection/tools/convert-to-onnx.sh\">this script</a>",
+        "no_os_in_suggested_path": "yes",
+        "no_ver_in_suggested_path": "yes",
+        "package_extra_name": " (MLPerf ResNet50, onnx, fp32, non-quantized, opset-11)",
+        "skip_file_check": "yes",
+        "skip_path": "yes",
+        "soft_file_universal": "*.onnx",
+        "used_package_uid": "bf121098921c4fd6",
+        "used_package_uoa": "bf121098921c4fd6",
+        "version": "1.5",
+        "version_split": [
+          1,
+          5
+        ]
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "ck_version": 10,
+          "env_prefix": "CK_ENV_ONNX_MODEL",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/cf189dd23e6203c4/resnet50_v1.onnx",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "MLPERF_MODEL_NAME": "resnet50",
+            "MLPERF_PROFILE_EXT": "",
+            "ML_MODEL_DATA_LAYOUT": "NCHW",
+            "ML_MODEL_GIVEN_CHANNEL_MEANS": "123.68 116.78 103.94",
+            "ML_MODEL_INPUT_LAYERS": "input_tensor:0",
+            "ML_MODEL_INPUT_SHAPES": "\\\"input_tensor:0\\\": (BATCH_SIZE, 3, 224, 224)",
+            "ML_MODEL_OUTPUT_LAYERS": "softmax_tensor:0",
+            "MODEL_ACCURACY": "76.456",
+            "MODEL_DATASET": "imagenet2012-val",
+            "MODEL_FRAMEWORK": "onnx",
+            "MODEL_IMAGE_HEIGHT": "224",
+            "MODEL_IMAGE_WIDTH": "224",
+            "MODEL_INPUT_DATA_TYPES": "fp32",
+            "MODEL_INPUT_LAYERS": "input_tensor:0",
+            "MODEL_INPUT_LAYER_NAME": "input_tensor:0",
+            "MODEL_NORMALIZE_DATA": "0",
+            "MODEL_ONNX_OPSET": "11",
+            "MODEL_OUTPUT_LAYERS": "softmax_tensor:0",
+            "MODEL_OUTPUT_LAYER_NAME": "softmax_tensor:0",
+            "MODEL_PRECISION": "fp32",
+            "MODEL_RETRAINING": "no",
+            "MODEL_SUBTRACT_MEAN": "YES",
+            "MODEL_VERSION": "1.5",
+            "MODEL_WEIGHT_DATA_TYPES": "fp32",
+            "MODEL_WEIGHT_TRANSFORMATIONS": "no",
+            "PACKAGE_NAME": "resnet50_v1.onnx",
+            "PACKAGE_SKIP_CLEAN_PACKAGE": "YES",
+            "PACKAGE_SKIP_LINUX_MAKE": "YES",
+            "PACKAGE_UNGZIP": "NO",
+            "PACKAGE_URL": "https://zenodo.org/record/4735647/files",
+            "PACKAGE_VERSION": "1.5",
+            "PACKAGE_WGET": "YES"
+          },
+          "model_notes": "<a href=\"https://zenodo.org/record/2535873/files/resnet50_v1.pb\">from zenodo</a> converted with <a href=\"https://github.com/mlcommons/inference/blob/master/vision/classification_and_detection/tools/convert-to-onnx.sh\">this script</a>",
+          "no_os_in_suggested_path": "yes",
+          "no_ver_in_suggested_path": "yes",
+          "package_extra_name": " (MLPerf ResNet50, onnx, fp32, non-quantized, opset-11)",
+          "skip_file_check": "yes",
+          "skip_path": "yes",
+          "soft_file_universal": "*.onnx",
+          "used_package_uid": "bf121098921c4fd6",
+          "used_package_uoa": "bf121098921c4fd6",
+          "version": "1.5",
+          "version_split": [
+            1,
+            5
+          ]
+        },
+        "deps": {},
+        "env": {
+          "CK_ENV_ONNX_MODEL_ACCURACY": "76.456",
+          "CK_ENV_ONNX_MODEL_DATASET": "imagenet2012-val",
+          "CK_ENV_ONNX_MODEL_FRAMEWORK": "onnx",
+          "CK_ENV_ONNX_MODEL_IMAGE_HEIGHT": "224",
+          "CK_ENV_ONNX_MODEL_IMAGE_WIDTH": "224",
+          "CK_ENV_ONNX_MODEL_INPUT_DATA_TYPES": "fp32",
+          "CK_ENV_ONNX_MODEL_INPUT_LAYERS": "input_tensor:0",
+          "CK_ENV_ONNX_MODEL_INPUT_LAYER_NAME": "input_tensor:0",
+          "CK_ENV_ONNX_MODEL_NORMALIZE_DATA": "0",
+          "CK_ENV_ONNX_MODEL_ONNX_FILENAME": "resnet50_v1.onnx",
+          "CK_ENV_ONNX_MODEL_ONNX_FILEPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/cf189dd23e6203c4/resnet50_v1.onnx",
+          "CK_ENV_ONNX_MODEL_ONNX_OPSET": "11",
+          "CK_ENV_ONNX_MODEL_OUTPUT_LAYERS": "softmax_tensor:0",
+          "CK_ENV_ONNX_MODEL_OUTPUT_LAYER_NAME": "softmax_tensor:0",
+          "CK_ENV_ONNX_MODEL_PRECISION": "fp32",
+          "CK_ENV_ONNX_MODEL_RETRAINING": "no",
+          "CK_ENV_ONNX_MODEL_ROOT": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/cf189dd23e6203c4",
+          "CK_ENV_ONNX_MODEL_SUBTRACT_MEAN": "YES",
+          "CK_ENV_ONNX_MODEL_VERSION": "1.5",
+          "CK_ENV_ONNX_MODEL_WEIGHT_DATA_TYPES": "fp32",
+          "CK_ENV_ONNX_MODEL_WEIGHT_TRANSFORMATIONS": "no",
+          "MLPERF_MODEL_NAME": "resnet50",
+          "MLPERF_PROFILE_EXT": "",
+          "ML_MODEL_DATA_LAYOUT": "NCHW",
+          "ML_MODEL_FILENAME": "resnet50_v1.onnx",
+          "ML_MODEL_FILEPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/cf189dd23e6203c4/resnet50_v1.onnx",
+          "ML_MODEL_GIVEN_CHANNEL_MEANS": "123.68 116.78 103.94",
+          "ML_MODEL_INPUT_LAYERS": "input_tensor:0",
+          "ML_MODEL_INPUT_SHAPES": "\\\"input_tensor:0\\\": (BATCH_SIZE, 3, 224, 224)",
+          "ML_MODEL_OUTPUT_LAYERS": "softmax_tensor:0",
+          "ML_MODEL_ROOT": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/cf189dd23e6203c4"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/cf189dd23e6203c4",
+        "package_uoa": "bf121098921c4fd6",
+        "setup": {
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "1.5",
+          "version_split": [
+            1,
+            5
+          ]
+        },
+        "soft_uoa": "bcaac306e9041879",
+        "tags": [
+          "64bits",
+          "downloaded",
+          "fp32",
+          "from.pb",
+          "host-os-linux-64",
+          "image-classification",
+          "imagenet-val",
+          "ml-model",
+          "mlperf",
+          "model",
+          "nchw",
+          "octoml",
+          "onnx",
+          "opset-11",
+          "resnet",
+          "resnet50",
+          "resnet50-v1.5",
+          "side.224",
+          "softmax",
+          "target-os-linux-64",
+          "v1",
+          "v1.5",
+          "v1.5-opset-11"
+        ],
+        "data_name": "ONNX model (MLPerf ResNet50, onnx, fp32, non-quantized, opset-11)",
+        "soft_alias": "model.onnx"
+      },
+      "ver": "1.5",
+      "uoa": "cf189dd23e6203c4",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/cf189dd23e6203c4/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "lib-python-onnx": {
+      "local": "yes",
+      "name": "Python ONNX (to load model)",
+      "sort": 125,
+      "tags": "lib,python-package,onnx",
+      "package_uoa": "f1f4e678e084d865",
+      "choices": [
+        "490315c47d1deff0"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "env_prefix": "CK_ENV_PYTHON_PACKAGE_ONNX",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/490315c47d1deff0/build/onnx/__init__.py",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "PACKAGE_VERSION": "1.10.1",
+          "PIP_INSTALL_OPTIONS": "--ignore-installed",
+          "PYTHON_PACKAGE_NAME": "onnx"
+        },
+        "limit_recursion_dir_search": {
+          "linux": 5,
+          "win": 5
+        },
+        "skip_path": "yes",
+        "soft_file_universal": "onnx$#sep#$__init__.py",
+        "used_package_uid": "f1f4e678e084d865",
+        "used_package_uoa": "f1f4e678e084d865",
+        "version": "1.10.1",
+        "version_module_name": "version",
+        "version_split": [
+          1,
+          10,
+          1
+        ],
+        "version_variable_name": "version"
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "env_prefix": "CK_ENV_PYTHON_PACKAGE_ONNX",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/490315c47d1deff0/build/onnx/__init__.py",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "PACKAGE_VERSION": "1.10.1",
+            "PIP_INSTALL_OPTIONS": "--ignore-installed",
+            "PYTHON_PACKAGE_NAME": "onnx"
+          },
+          "limit_recursion_dir_search": {
+            "linux": 5,
+            "win": 5
+          },
+          "skip_path": "yes",
+          "soft_file_universal": "onnx$#sep#$__init__.py",
+          "used_package_uid": "f1f4e678e084d865",
+          "used_package_uoa": "f1f4e678e084d865",
+          "version": "1.10.1",
+          "version_module_name": "version",
+          "version_split": [
+            1,
+            10,
+            1
+          ],
+          "version_variable_name": "version"
+        },
+        "deps": {
+          "python": {
+            "add_to_path": "yes",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+            "build_dir_name": "python",
+            "choices": [
+              "36bfb7626d649959"
+            ],
+            "detected_ver": "3.8.10",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "build_dir_name": "python",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "languages": [
+                  "PYTHON"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_host_os_tags": [
+                  "windows",
+                  "linux"
+                ],
+                "only_for_target_os_tags": [
+                  "windows",
+                  "android",
+                  "linux"
+                ],
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "python*",
+                  "win": "python*.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": "--version > $#filename#$ 2>&1"
+                },
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "data_name": "python",
+              "deps": {},
+              "env": {
+                "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "CK_PYC": "python",
+                "CK_PYTHON_BIN": "python",
+                "CK_PYTHON_PIP_BIN": "pip3",
+                "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                "CK_PYTHON_VER3": "YES",
+                "CK_PY_OBJ_EXT": ".pyc",
+                "CK_PY_RT": "python"
+              },
+              "env_script": "env.sh",
+              "install_location": "",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "soft_alias": "compiler.python",
+              "soft_uoa": "45d68512df22fde7",
+              "tags": [
+                "64bits",
+                "compiler",
+                "host-os-linux-64",
+                "lang-python",
+                "python",
+                "target-os-linux-64",
+                "v3",
+                "v3.8",
+                "v3.8.10"
+              ]
+            },
+            "local": "yes",
+            "name": "Python interpreter",
+            "num_entries": 1,
+            "sort": 10,
+            "tags": "compiler,python",
+            "uoa": "36bfb7626d649959",
+            "ver": "3.8.10"
+          }
+        },
+        "env": {
+          "PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/490315c47d1deff0/python_deps_site/bin:${PATH}",
+          "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/490315c47d1deff0/build:${PYTHONPATH}"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/490315c47d1deff0",
+        "package_uoa": "f1f4e678e084d865",
+        "setup": {
+          "deps_python": "36bfb7626d649959",
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "1.10.1",
+          "version_split": [
+            1,
+            10,
+            1
+          ]
+        },
+        "soft_uoa": "ba0d59d9556b4832",
+        "tags": [
+          "1.10.1",
+          "64bits",
+          "host-os-linux-64",
+          "latest",
+          "lib",
+          "needs-python",
+          "needs-python-3.8.10",
+          "onnx",
+          "precompiled",
+          "python-package",
+          "target-os-linux-64",
+          "v1",
+          "v1.10",
+          "v1.10.1"
+        ],
+        "data_name": "Python ONNX library",
+        "soft_alias": "lib.python.onnx"
+      },
+      "ver": "1.10.1",
+      "uoa": "490315c47d1deff0",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/490315c47d1deff0/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "lib-python-onnx-support": {
+      "local": "yes",
+      "name": "Python ONNX runtime",
+      "sort": 80,
+      "tags": "lib,python-package,onnxruntime-cpu",
+      "package_uoa": "180714ef1050496b",
+      "choices": [
+        "2a4197d24e3046ad"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "detect_version_externally": "yes",
+        "env_prefix": "CK_ENV_PYTHON_PACKAGE_ONNXRUNTIME",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/2a4197d24e3046ad/build/onnxruntime/__init__.py",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "PACKAGE_VERSION": "1.8.1",
+          "PIP_INSTALL_OPTIONS": "--ignore-installed",
+          "PYTHON_PACKAGE_NAME": "onnxruntime"
+        },
+        "limit_recursion_dir_search": {
+          "linux": 5,
+          "win": 5
+        },
+        "package_extra_name": " (cpu)",
+        "skip_path": "yes",
+        "soft_file_universal": "onnxruntime$#sep#$__init__.py",
+        "used_package_uid": "180714ef1050496b",
+        "used_package_uoa": "180714ef1050496b",
+        "version": "1.8.1",
+        "version_split": [
+          1,
+          8,
+          1
+        ],
+        "version_variable_name": "__version__"
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "detect_version_externally": "yes",
+          "env_prefix": "CK_ENV_PYTHON_PACKAGE_ONNXRUNTIME",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/2a4197d24e3046ad/build/onnxruntime/__init__.py",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "PACKAGE_VERSION": "1.8.1",
+            "PIP_INSTALL_OPTIONS": "--ignore-installed",
+            "PYTHON_PACKAGE_NAME": "onnxruntime"
+          },
+          "limit_recursion_dir_search": {
+            "linux": 5,
+            "win": 5
+          },
+          "package_extra_name": " (cpu)",
+          "skip_path": "yes",
+          "soft_file_universal": "onnxruntime$#sep#$__init__.py",
+          "used_package_uid": "180714ef1050496b",
+          "used_package_uoa": "180714ef1050496b",
+          "version": "1.8.1",
+          "version_split": [
+            1,
+            8,
+            1
+          ],
+          "version_variable_name": "__version__"
+        },
+        "deps": {
+          "python": {
+            "add_to_path": "yes",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+            "build_dir_name": "python",
+            "choices": [
+              "36bfb7626d649959"
+            ],
+            "detected_ver": "3.8.10",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "build_dir_name": "python",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "languages": [
+                  "PYTHON"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_host_os_tags": [
+                  "windows",
+                  "linux"
+                ],
+                "only_for_target_os_tags": [
+                  "windows",
+                  "android",
+                  "linux"
+                ],
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "python*",
+                  "win": "python*.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": "--version > $#filename#$ 2>&1"
+                },
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "data_name": "python",
+              "deps": {},
+              "env": {
+                "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "CK_PYC": "python",
+                "CK_PYTHON_BIN": "python",
+                "CK_PYTHON_PIP_BIN": "pip3",
+                "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                "CK_PYTHON_VER3": "YES",
+                "CK_PY_OBJ_EXT": ".pyc",
+                "CK_PY_RT": "python"
+              },
+              "env_script": "env.sh",
+              "install_location": "",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "soft_alias": "compiler.python",
+              "soft_uoa": "45d68512df22fde7",
+              "tags": [
+                "64bits",
+                "compiler",
+                "host-os-linux-64",
+                "lang-python",
+                "python",
+                "target-os-linux-64",
+                "v3",
+                "v3.8",
+                "v3.8.10"
+              ]
+            },
+            "local": "yes",
+            "name": "Python interpreter",
+            "num_entries": 1,
+            "sort": 10,
+            "tags": "compiler,python",
+            "uoa": "36bfb7626d649959",
+            "ver": "3.8.10"
+          }
+        },
+        "env": {
+          "PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/2a4197d24e3046ad/python_deps_site/bin:${PATH}",
+          "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/2a4197d24e3046ad/build:${PYTHONPATH}"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/2a4197d24e3046ad",
+        "package_uoa": "180714ef1050496b",
+        "setup": {
+          "deps_python": "36bfb7626d649959",
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "1.8.1",
+          "version_split": [
+            1,
+            8,
+            1
+          ]
+        },
+        "soft_uoa": "2029d994d58a457e",
+        "tags": [
+          "1.8.1",
+          "64bits",
+          "cpu",
+          "host-os-linux-64",
+          "latest",
+          "lib",
+          "needs-python",
+          "needs-python-3.8.10",
+          "onnxruntime",
+          "onnxruntime-cpu",
+          "python-package",
+          "target-os-linux-64",
+          "v1",
+          "v1.8",
+          "v1.8.1"
+        ],
+        "data_name": "Python onnxruntime library (cpu)",
+        "soft_alias": "lib.python.onnxruntime"
+      },
+      "ver": "1.8.1",
+      "uoa": "2a4197d24e3046ad",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/2a4197d24e3046ad/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "lib-python-scipy": {
+      "local": "yes",
+      "name": "Python SciPy library",
+      "sort": 120,
+      "tags": "lib,python-package,scipy",
+      "package_uoa": "e4d8d3d2c4c67902",
+      "choices": [
+        "ecbf09840178f072"
+      ],
+      "cus": {
+        "check_that_exists": "yes",
+        "env_prefix": "CK_ENV_PYTHON_PACKAGE_SCIPY",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ecbf09840178f072/build/scipy/__init__.py",
+        "install_env": {
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "PACKAGE_VERSION": "",
+          "PIP_INSTALL_OPTIONS": "--ignore-installed",
+          "PYTHON_PACKAGE_NAME": "scipy"
+        },
+        "limit_recursion_dir_search": {
+          "linux": 5,
+          "win": 5
+        },
+        "skip_path": "yes",
+        "soft_file_universal": "scipy$#sep#$__init__.py",
+        "used_package_uid": "e4d8d3d2c4c67902",
+        "used_package_uoa": "e4d8d3d2c4c67902",
+        "version": "1.7.1",
+        "version_module_name": "version",
+        "version_split": [
+          1,
+          7,
+          1
+        ],
+        "version_variable_name": "version"
+      },
+      "dict": {
+        "customize": {
+          "check_that_exists": "yes",
+          "env_prefix": "CK_ENV_PYTHON_PACKAGE_SCIPY",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ecbf09840178f072/build/scipy/__init__.py",
+          "install_env": {
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "PACKAGE_VERSION": "",
+            "PIP_INSTALL_OPTIONS": "--ignore-installed",
+            "PYTHON_PACKAGE_NAME": "scipy"
+          },
+          "limit_recursion_dir_search": {
+            "linux": 5,
+            "win": 5
+          },
+          "skip_path": "yes",
+          "soft_file_universal": "scipy$#sep#$__init__.py",
+          "used_package_uid": "e4d8d3d2c4c67902",
+          "used_package_uoa": "e4d8d3d2c4c67902",
+          "version": "1.7.1",
+          "version_module_name": "version",
+          "version_split": [
+            1,
+            7,
+            1
+          ],
+          "version_variable_name": "version"
+        },
+        "deps": {
+          "python": {
+            "add_to_path": "yes",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/36bfb7626d649959/env.sh\n",
+            "build_dir_name": "python",
+            "choices": [
+              "36bfb7626d649959"
+            ],
+            "detected_ver": "3.8.10",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "build_dir_name": "python",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_PYTHON",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "languages": [
+                  "PYTHON"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_host_os_tags": [
+                  "windows",
+                  "linux"
+                ],
+                "only_for_target_os_tags": [
+                  "windows",
+                  "android",
+                  "linux"
+                ],
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "python*",
+                  "win": "python*.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": "--version > $#filename#$ 2>&1"
+                },
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "data_name": "python",
+              "deps": {},
+              "env": {
+                "CK_ENV_COMPILER_PYTHON": "/mnt/CK/local/venv/mlperf-inference",
+                "CK_ENV_COMPILER_PYTHON_BIN": "/mnt/CK/local/venv/mlperf-inference/bin",
+                "CK_ENV_COMPILER_PYTHON_FILE": "/mnt/CK/local/venv/mlperf-inference/bin/python",
+                "CK_PYC": "python",
+                "CK_PYTHON_BIN": "python",
+                "CK_PYTHON_PIP_BIN": "pip3",
+                "CK_PYTHON_PIP_BIN_FULL": "/mnt/CK/local/venv/mlperf-inference/bin/pip3",
+                "CK_PYTHON_VER3": "YES",
+                "CK_PY_OBJ_EXT": ".pyc",
+                "CK_PY_RT": "python"
+              },
+              "env_script": "env.sh",
+              "install_location": "",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "3.8.10",
+                "version_split": [
+                  3,
+                  8,
+                  10
+                ]
+              },
+              "soft_alias": "compiler.python",
+              "soft_uoa": "45d68512df22fde7",
+              "tags": [
+                "64bits",
+                "compiler",
+                "host-os-linux-64",
+                "lang-python",
+                "python",
+                "target-os-linux-64",
+                "v3",
+                "v3.8",
+                "v3.8.10"
+              ]
+            },
+            "local": "yes",
+            "name": "Python interpreter",
+            "num_entries": 1,
+            "sort": 10,
+            "tags": "compiler,python",
+            "uoa": "36bfb7626d649959",
+            "ver": "3.8.10"
+          }
+        },
+        "env": {
+          "PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ecbf09840178f072/python_deps_site/bin:${PATH}",
+          "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ecbf09840178f072/build:${PYTHONPATH}"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/ecbf09840178f072",
+        "package_uoa": "e4d8d3d2c4c67902",
+        "setup": {
+          "deps_python": "36bfb7626d649959",
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "1.7.1",
+          "version_split": [
+            1,
+            7,
+            1
+          ]
+        },
+        "soft_uoa": "4460bdb0ade2a3df",
+        "tags": [
+          "64bits",
+          "host-os-linux-64",
+          "lib",
+          "needs-python",
+          "needs-python-3.8.10",
+          "python-package",
+          "scipy",
+          "target-os-linux-64",
+          "v1",
+          "v1.7",
+          "v1.7.1",
+          "vmaster"
+        ],
+        "data_name": "Python SciPy library",
+        "soft_alias": "lib.python.scipy"
+      },
+      "ver": "1.7.1",
+      "uoa": "ecbf09840178f072",
+      "num_entries": 1,
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/ecbf09840178f072/env.sh\n",
+      "for_run_time": "yes"
+    },
+    "compiler-tvm": {
+      "local": "yes",
+      "name": "TVM compiler",
+      "sort": 200,
+      "tags": "compiler,tvm",
+      "package_uoa": "ba9fe557bf474935",
+      "choices": [
+        "0d73dff4af394ac1"
+      ],
+      "cus": {
+        "add_only_with_version": "yes",
+        "add_to_path": "yes",
+        "build_dir_name": "perl",
+        "check_that_exists": "yes",
+        "ck_version": 10,
+        "env_prefix": "CK_ENV_COMPILER_TVM",
+        "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/0d73dff4af394ac1/tvm/build/libtvm.so",
+        "git_info": {
+          "datetime": "Wed Aug 11 14:46:51 2021 +0300",
+          "iso_datetime": "2021-08-11T14:46:51",
+          "iso_datetime_cut": "20210811",
+          "iso_datetime_cut_revision": "20210811-fbf6a2c29",
+          "revision": "fbf6a2c29"
+        },
+        "git_src_dir": "tvm",
+        "install_env": {
+          "CK_ARMEABI_V7A": "OFF",
+          "CK_ARMEABI_V7A_HARD": "OFF",
+          "CK_AR_PATH_FOR_CMAKE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/llvm-ar",
+          "CK_AR_PATH_FOR_CMAKE_MINGW": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/llvm-ar",
+          "CK_CC_FLAGS_FOR_CMAKE": "${CK_COMPILER_FLAGS_OBLIGATORY}",
+          "CK_CC_FLAGS_FOR_CMAKE_MINGW": "${CK_COMPILER_FLAGS_OBLIGATORY}",
+          "CK_CC_PATH_FOR_CMAKE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang",
+          "CK_CC_PATH_FOR_CMAKE_MINGW": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang",
+          "CK_CLANG": "YES",
+          "CK_CMAKE_EXTRA": "",
+          "CK_COMPILER_PATH_FOR_CMAKE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin",
+          "CK_COMPILER_PATH_FOR_CMAKE_MINGW": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin",
+          "CK_CPU_ARM_NEON": "OFF",
+          "CK_CPU_ARM_VFPV3": "OFF",
+          "CK_CXX_FLAGS_FOR_CMAKE": "${CK_COMPILER_FLAGS_OBLIGATORY}",
+          "CK_CXX_FLAGS_FOR_CMAKE_MINGW": "${CK_COMPILER_FLAGS_OBLIGATORY}",
+          "CK_CXX_PATH_FOR_CMAKE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang++",
+          "CK_CXX_PATH_FOR_CMAKE_MINGW": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang++",
+          "CK_HOST_CPU_NUMBER_OF_PROCESSORS": "4",
+          "CK_HOST_OS_ID": "linux",
+          "CK_MD5SUM_CMD": "md5sum",
+          "CK_TARGET_CPU_BITS": "64",
+          "CK_TARGET_OS_ID": "linux",
+          "PACKAGE_GIT_CHECKOUT": "ap/dnnl-int8-v2",
+          "PACKAGE_GIT_URL": "https://github.com/ctuning/tvm-mlperf-v1.1",
+          "PACKAGE_VERSION": "",
+          "USE_DNNL_CODEGEN": "OFF",
+          "USE_OPENMP": "gnu"
+        },
+        "languages": [
+          "tvm"
+        ],
+        "limit_recursion_dir_search": {
+          "linux": 3
+        },
+        "no_ver_in_suggested_path": "yes",
+        "only_for_target_os_tags": [
+          "windows"
+        ],
+        "skip_path": "yes",
+        "skip_version_recheck": "yes",
+        "soft_file": {
+          "linux": "tvm"
+        },
+        "soft_file_from_host_os": "yes",
+        "soft_path_example": {
+          "linux": "/usr/bin/tvm"
+        },
+        "soft_version_cmd": {
+          "linux": "-version > $#filename#$ 2>&1"
+        },
+        "use_git_revision": "yes",
+        "used_package_uid": "ba9fe557bf474935",
+        "used_package_uoa": "ba9fe557bf474935",
+        "version": "0.8.dev0-fbf6a2c29",
+        "version_split": [
+          0,
+          8,
+          0,
+          0
+        ]
+      },
+      "dict": {
+        "customize": {
+          "add_only_with_version": "yes",
+          "add_to_path": "yes",
+          "build_dir_name": "perl",
+          "check_that_exists": "yes",
+          "ck_version": 10,
+          "env_prefix": "CK_ENV_COMPILER_TVM",
+          "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/0d73dff4af394ac1/tvm/build/libtvm.so",
+          "git_info": {
+            "datetime": "Wed Aug 11 14:46:51 2021 +0300",
+            "iso_datetime": "2021-08-11T14:46:51",
+            "iso_datetime_cut": "20210811",
+            "iso_datetime_cut_revision": "20210811-fbf6a2c29",
+            "revision": "fbf6a2c29"
+          },
+          "git_src_dir": "tvm",
+          "install_env": {
+            "CK_ARMEABI_V7A": "OFF",
+            "CK_ARMEABI_V7A_HARD": "OFF",
+            "CK_AR_PATH_FOR_CMAKE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/llvm-ar",
+            "CK_AR_PATH_FOR_CMAKE_MINGW": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/llvm-ar",
+            "CK_CC_FLAGS_FOR_CMAKE": "${CK_COMPILER_FLAGS_OBLIGATORY}",
+            "CK_CC_FLAGS_FOR_CMAKE_MINGW": "${CK_COMPILER_FLAGS_OBLIGATORY}",
+            "CK_CC_PATH_FOR_CMAKE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang",
+            "CK_CC_PATH_FOR_CMAKE_MINGW": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang",
+            "CK_CLANG": "YES",
+            "CK_CMAKE_EXTRA": "",
+            "CK_COMPILER_PATH_FOR_CMAKE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin",
+            "CK_COMPILER_PATH_FOR_CMAKE_MINGW": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin",
+            "CK_CPU_ARM_NEON": "OFF",
+            "CK_CPU_ARM_VFPV3": "OFF",
+            "CK_CXX_FLAGS_FOR_CMAKE": "${CK_COMPILER_FLAGS_OBLIGATORY}",
+            "CK_CXX_FLAGS_FOR_CMAKE_MINGW": "${CK_COMPILER_FLAGS_OBLIGATORY}",
+            "CK_CXX_PATH_FOR_CMAKE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang++",
+            "CK_CXX_PATH_FOR_CMAKE_MINGW": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang++",
+            "CK_HOST_CPU_NUMBER_OF_PROCESSORS": "4",
+            "CK_HOST_OS_ID": "linux",
+            "CK_MD5SUM_CMD": "md5sum",
+            "CK_TARGET_CPU_BITS": "64",
+            "CK_TARGET_OS_ID": "linux",
+            "PACKAGE_GIT_CHECKOUT": "ap/dnnl-int8-v2",
+            "PACKAGE_GIT_URL": "https://github.com/ctuning/tvm-mlperf-v1.1",
+            "PACKAGE_VERSION": "",
+            "USE_DNNL_CODEGEN": "OFF",
+            "USE_OPENMP": "gnu"
+          },
+          "languages": [
+            "tvm"
+          ],
+          "limit_recursion_dir_search": {
+            "linux": 3
+          },
+          "no_ver_in_suggested_path": "yes",
+          "only_for_target_os_tags": [
+            "windows"
+          ],
+          "skip_path": "yes",
+          "skip_version_recheck": "yes",
+          "soft_file": {
+            "linux": "tvm"
+          },
+          "soft_file_from_host_os": "yes",
+          "soft_path_example": {
+            "linux": "/usr/bin/tvm"
+          },
+          "soft_version_cmd": {
+            "linux": "-version > $#filename#$ 2>&1"
+          },
+          "use_git_revision": "yes",
+          "used_package_uid": "ba9fe557bf474935",
+          "used_package_uoa": "ba9fe557bf474935",
+          "version": "0.8.dev0-fbf6a2c29",
+          "version_split": [
+            0,
+            8,
+            0,
+            0
+          ]
+        },
+        "deps": {
+          "cmake": {
+            "add_to_path": "no",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/4e51d4cb0c4853a6/env.sh\n",
+            "build_dir_name": "cmake",
+            "choices": [
+              "4e51d4cb0c4853a6",
+              "4a1c456dac40201b"
+            ],
+            "detected_ver": "3.21.1",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "add_to_path": "yes",
+                "build_dir_name": "cmake",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_TOOL_CMAKE",
+                "extra_dir": "",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/4e51d4cb0c4853a6/prebuilt/bin/cmake",
+                "install_env": {
+                  "CK_HOST_CPU_NUMBER_OF_PROCESSORS": "4",
+                  "CK_HOST_OS_ID": "linux",
+                  "CK_MD5SUM_CMD": "md5sum",
+                  "CK_TARGET_CPU_BITS": "64",
+                  "CK_TARGET_OS_ID": "linux",
+                  "CMAKE_VERSION": "3.21.1",
+                  "PACKAGE_COPY": "NO",
+                  "PACKAGE_DETECT_VARS": "YES",
+                  "PACKAGE_GIT": "NO",
+                  "PACKAGE_NAME": "cmake-3.21.1-linux-aarch64.tar.gz",
+                  "PACKAGE_NAME1": "cmake-3.21.1-linux-aarch64.tar",
+                  "PACKAGE_RENAME_DIR": "YES",
+                  "PACKAGE_RENAME_DIR1": "cmake-3.21.1-linux-aarch64",
+                  "PACKAGE_RENAME_DIR2": "prebuilt",
+                  "PACKAGE_SKIP_LINUX_MAKE": "YES",
+                  "PACKAGE_UNGZIP": "YES",
+                  "PACKAGE_UNTAR": "YES",
+                  "PACKAGE_URL": "https://github.com/Kitware/CMake/releases/download/v3.21.1",
+                  "PACKAGE_VERSION": "",
+                  "PACKAGE_WGET": "YES",
+                  "PACKAGE_WGET_EXTRA": "--no-cookies"
+                },
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 3
+                },
+                "only_for_host_os_tags": [
+                  "windows",
+                  "linux"
+                ],
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "cmake",
+                  "win": "cmake.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_path_example": {
+                  "linux": "/usr/bin/cmake",
+                  "win": "C:\\Program Files (x86)\\CMake\\bin\\cmake.exe"
+                },
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": "--version > $#filename#$ 2>&1"
+                },
+                "used_package_uid": "1949ccd24f6205fc",
+                "used_package_uoa": "1949ccd24f6205fc",
+                "version": "3.21.1",
+                "version_split": [
+                  3,
+                  21,
+                  1
+                ]
+              },
+              "data_name": "cmake",
+              "deps": {},
+              "env": {
+                "CK_CMAKE": "cmake",
+                "CK_ENV_TOOL_CMAKE": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/4e51d4cb0c4853a6/prebuilt",
+                "CK_ENV_TOOL_CMAKE_BIN": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/4e51d4cb0c4853a6/prebuilt/bin"
+              },
+              "env_script": "env.sh",
+              "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/4e51d4cb0c4853a6",
+              "package_uoa": "1949ccd24f6205fc",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "3.21.1",
+                "version_split": [
+                  3,
+                  21,
+                  1
+                ]
+              },
+              "soft_alias": "tool.cmake",
+              "soft_uoa": "77ef5e31404d9589",
+              "tags": [
+                "64bits",
+                "cmake",
+                "downloaded",
+                "from-github",
+                "host-os-linux-64",
+                "prebuilt",
+                "target-os-linux-64",
+                "tool",
+                "v3",
+                "v3.21",
+                "v3.21.1"
+              ]
+            },
+            "force_target_as_host": "yes",
+            "local": "yes",
+            "name": "CMake tool",
+            "num_entries": 1,
+            "package_uoa": "1949ccd24f6205fc",
+            "skip_from_bat": "yes",
+            "sort": 20,
+            "tags": "tool,cmake",
+            "uoa": "4e51d4cb0c4853a6",
+            "ver": "3.21.1",
+            "version_from": [
+              3,
+              13,
+              3
+            ]
+          },
+          "compiler": {
+            "add_to_path": "no",
+            "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/env.sh\n",
+            "build_dir_name": "llvm",
+            "choices": [
+              "06d9714e88444cb2"
+            ],
+            "detected_ver": "12.0.0",
+            "dict": {
+              "customize": {
+                "add_only_with_version": "yes",
+                "add_to_path": "yes",
+                "build_dir_name": "llvm",
+                "can_strip_dynamic_lib": "yes",
+                "check_that_exists": "yes",
+                "ck_version": 10,
+                "env_prefix": "CK_ENV_COMPILER_LLVM",
+                "full_path": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang",
+                "install_env": {
+                  "CK_HOST_CPU_NUMBER_OF_PROCESSORS": "4",
+                  "CK_HOST_OS_ID": "linux",
+                  "CK_MD5SUM_CMD": "md5sum",
+                  "CK_TARGET_CPU_BITS": "64",
+                  "CK_TARGET_OS_ID": "linux",
+                  "LLVM_VERSION": "12.0.0",
+                  "PACKAGE_NAME": "clang+llvm-12.0.0-aarch64-linux-gnu.tar.xz",
+                  "PACKAGE_SKIP_LINUX_MAKE": "YES",
+                  "PACKAGE_UNTAR_EXTRA": "--strip 1",
+                  "PACKAGE_UNXTAR": "YES",
+                  "PACKAGE_URL": "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.0",
+                  "PACKAGE_VERSION": "12.0.0",
+                  "PACKAGE_WGET": "YES",
+                  "PACKAGE_WGET_EXTRA": "--no-cookies"
+                },
+                "languages": [
+                  "C",
+                  "CPP"
+                ],
+                "limit_recursion_dir_search": {
+                  "linux": 3,
+                  "win": 4
+                },
+                "only_for_target_os_tags": [
+                  "windows",
+                  "linux"
+                ],
+                "path_include": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/include",
+                "path_lib": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/lib",
+                "retarget": "no",
+                "search_numeric_ext_on_linux": "yes",
+                "skip_path": "yes",
+                "soft_file": {
+                  "linux": "clang",
+                  "win": "clang.exe"
+                },
+                "soft_file_from_host_os": "yes",
+                "soft_path_example": {
+                  "linux": "/usr/bin/clang",
+                  "win": "C:\\Program Files (x86)\\llvm\\bin\\clang.exe"
+                },
+                "soft_version_cmd": {
+                  "linux": "--version > $#filename#$ 2>&1",
+                  "win": " --version > $#filename#$ 2>&1"
+                },
+                "sort": 50,
+                "tool_postfix": "",
+                "tool_postfix_configured": "yes",
+                "tool_prefix": "",
+                "tool_prefix_configured": "yes",
+                "used_package_uid": "1b38deb1e2e1f04d",
+                "used_package_uoa": "1b38deb1e2e1f04d",
+                "version": "12.0.0",
+                "version_split": [
+                  12,
+                  0,
+                  0
+                ]
+              },
+              "data_name": "LLVM compiler",
+              "deps": {
+                "mvsc": {
+                  "local": "yes",
+                  "name": "microsoft C compiler",
+                  "only_for_target_os_tags": [
+                    "windows"
+                  ],
+                  "tags": "microsoft,compiler"
+                },
+                "ndk-gcc": {
+                  "local": "yes",
+                  "name": "Android NDK GCC",
+                  "only_for_target_os_tags": [
+                    "android"
+                  ],
+                  "tags": "compiler,gcc,ndk"
+                }
+              },
+              "env": {
+                "CK_AR": "llvm-ar",
+                "CK_ASM_EXT": ".s",
+                "CK_CC": "clang",
+                "CK_CC_FULL_PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang",
+                "CK_COMPILER_ENABLE_EXCEPTIONS": "-fcxx-exceptions",
+                "CK_COMPILER_FLAGS_OBLIGATORY": "",
+                "CK_COMPILER_FLAG_CPP0X": "-std=c++0x",
+                "CK_COMPILER_FLAG_CPP11": "-std=c++11",
+                "CK_COMPILER_FLAG_CPP14": "-std=c++14",
+                "CK_COMPILER_FLAG_CPP17": "-std=c++17",
+                "CK_COMPILER_FLAG_GPROF": "-pg",
+                "CK_COMPILER_FLAG_OPENMP": "-fopenmp",
+                "CK_COMPILER_FLAG_PLUGIN": "-fplugin=",
+                "CK_COMPILER_FLAG_PTHREAD_LIB": "-lpthread",
+                "CK_COMPILER_FLAG_STD90": "-std=c90",
+                "CK_COMPILER_FLAG_STD99": "-std=c99",
+                "CK_COMPILER_POSTFIX": "",
+                "CK_COMPILER_PREFIX": "",
+                "CK_COMPILER_TOOLCHAIN_NAME": "clang",
+                "CK_COMPILER_VERSION": "12.0.0",
+                "CK_CXX": "clang++",
+                "CK_CXX_FULL_PATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin/clang++",
+                "CK_DLL_EXT": ".so",
+                "CK_ENV_COMPILER_LLVM": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2",
+                "CK_ENV_COMPILER_LLVM_BIN": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/bin",
+                "CK_ENV_COMPILER_LLVM_LIB": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2/lib",
+                "CK_EXE_EXT": ".out",
+                "CK_EXTRA_LIB_DL": "-ldl",
+                "CK_EXTRA_LIB_M": "-lm",
+                "CK_FLAGS_CREATE_ASM": "-S",
+                "CK_FLAGS_CREATE_OBJ": "-c",
+                "CK_FLAGS_DLL": "-shared -fPIC",
+                "CK_FLAGS_DLL_EXTRA": "",
+                "CK_FLAGS_DYNAMIC_BIN": " ",
+                "CK_FLAGS_OUTPUT": "-o ",
+                "CK_FLAGS_STATIC_BIN": "-static -fPIC",
+                "CK_FLAGS_STATIC_LIB": "-fPIC",
+                "CK_FLAG_PREFIX_INCLUDE": "-I",
+                "CK_FLAG_PREFIX_LIB_DIR": "-L",
+                "CK_FLAG_PREFIX_VAR": "-D",
+                "CK_GPROF_OUT_FILE": "gmon.out",
+                "CK_LB": "llvm-ar rcs",
+                "CK_LB_OUTPUT": "",
+                "CK_LD_FLAGS_EXTRA": "",
+                "CK_LIB_EXT": ".a",
+                "CK_LINKER_FLAG_OPENMP": "-fopenmp",
+                "CK_LLC": "llc",
+                "CK_LLVM_CONFIG": "llvm-config",
+                "CK_MAKE": "make",
+                "CK_OBJDUMP": "llvm-objdump -d",
+                "CK_OBJ_EXT": ".o",
+                "CK_OPT_SIZE": "-Os",
+                "CK_OPT_SPEED": "-O3",
+                "CK_OPT_SPEED_SAFE": "-O2",
+                "CK_OPT_UNWIND": " ",
+                "CK_PLUGIN_FLAG": "-fplugin=",
+                "CK_PROFILER": "gprof",
+                "CK_RANLIB": "llvm-ranlib"
+              },
+              "env_script": "env.sh",
+              "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/06d9714e88444cb2",
+              "package_uoa": "1b38deb1e2e1f04d",
+              "setup": {
+                "host_os_uoa": "4258b5fe54828a50",
+                "target_os_bits": "64",
+                "target_os_uoa": "4258b5fe54828a50",
+                "version": "12.0.0",
+                "version_split": [
+                  12,
+                  0,
+                  0
+                ]
+              },
+              "soft_alias": "compiler.llvm",
+              "soft_uoa": "1c2eb494b8ae3bc4",
+              "tags": [
+                "64bits",
+                "channel-stable",
+                "compiler",
+                "host-os-linux-64",
+                "lang-c",
+                "lang-cpp",
+                "llvm",
+                "prebuilt",
+                "target-os-linux-64",
+                "v12",
+                "v12.0",
+                "v12.0.0"
+              ]
+            },
+            "local": "yes",
+            "name": "C++ compiler",
+            "num_entries": 1,
+            "package_uoa": "1b38deb1e2e1f04d",
+            "sort": 10,
+            "tags": "compiler,lang-cpp,llvm",
+            "uoa": "06d9714e88444cb2",
+            "ver": "12.0.0"
+          },
+          "cuda": {
+            "enable_if_env": [
+              {
+                "USE_CUDA": [
+                  "ON"
+                ]
+              }
+            ],
+            "local": "yes",
+            "name": "CUDA toolset",
+            "skipped": "yes",
+            "sort": 0,
+            "tags": "compiler,lang-c-cuda"
+          },
+          "lib-dnnl": {
+            "add_to_path": "no",
+            "enable_if_env": [
+              {
+                "USE_DNNL_CODEGEN": [
+                  "ON"
+                ]
+              }
+            ],
+            "local": "yes",
+            "name": "DNNL library",
+            "skipped": "yes",
+            "sort": 30,
+            "tags": "lib,dnnl"
+          }
+        },
+        "env": {
+          "CK_ENV_COMPILER_TVM": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/0d73dff4af394ac1/tvm",
+          "PYTHONPATH": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/0d73dff4af394ac1/tvm/python:${PYTHONPATH}",
+          "TVM_HOME": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/0d73dff4af394ac1/tvm"
+        },
+        "env_script": "env.sh",
+        "install_location": "/mnt/CK/local/venv/mlperf-inference/CK/local/env/0d73dff4af394ac1",
+        "package_uoa": "ba9fe557bf474935",
+        "setup": {
+          "deps_cmake": "4e51d4cb0c4853a6",
+          "deps_compiler": "06d9714e88444cb2",
+          "host_os_uoa": "4258b5fe54828a50",
+          "target_os_bits": "64",
+          "target_os_uoa": "4258b5fe54828a50",
+          "version": "0.8.dev0",
+          "version_split": [
+            0,
+            8,
+            0,
+            0
+          ]
+        },
+        "soft_uoa": "757f02edb31a4008",
+        "tags": [
+          "64bits",
+          "compiled-by-llvm",
+          "compiled-by-llvm-12.0.0",
+          "compiler",
+          "dev-0.8-dnnl-int8-v2-mlperf-1.1",
+          "host-os-linux-64",
+          "source",
+          "src",
+          "target-os-linux-64",
+          "tvm",
+          "v0",
+          "v0.8",
+          "v0.8.0",
+          "v0.8.0.0"
+        ],
+        "data_name": "TVM",
+        "soft_alias": "compiler.tvm"
+      },
+      "ver": "0.8.dev0-fbf6a2c29",
+      "uoa": "0d73dff4af394ac1",
+      "num_entries": 1,
+      "build_dir_name": "perl",
+      "bat": ". /mnt/CK/local/venv/mlperf-inference/CK/local/env/0d73dff4af394ac1/env.sh\n",
+      "for_run_time": "yes"
+    }
+  }
+}

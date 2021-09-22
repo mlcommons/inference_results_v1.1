@@ -1,0 +1,26 @@
+{
+  "action": "benchmark",
+  "module_uoa": "b0ac08fe1d3c2615",
+  "data_uoa": "mlperf-inference-bench-image-classification-tvm-pytorch-cpu",
+  "cmd_key": "performance-offline",
+  "env": {
+    "MLPERF_BACKEND": "tvm2",
+    "MLPERF_TVM_EXECUTOR": "graph",
+    "MLPERF_TVM_TARGET": "llvm -mcpu=cascadelake",
+    "MLPERF_TVM_USE_DNNL": "YES",
+    "TVM_BATCH_SIZE": "1",
+    "TVM_BIND_THREADS": "0",
+    "OMP_NUM_THREADS": "1",
+    "TVM_NUM_THREADS": "1",
+    "EXTRA_OPS": "--qps 2100 --time 610"
+  },
+  "record_deps": "ck-deps.json",
+  "repetitions": 1,
+  "no_state_check": "yes",
+  "clean": "no",
+  "quiet": "",
+  "skip_stat_analysis": "yes",
+  "skip_print_timers": "yes",
+  "skip_print_stats": "yes",
+  "out": "con"
+}

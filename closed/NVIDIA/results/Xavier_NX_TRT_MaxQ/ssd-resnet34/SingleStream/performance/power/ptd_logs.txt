@@ -1,0 +1,2469 @@
+Yokogawa ethernet/USB interface specified.
+Selected power meter 'Yokogawa WT330:1-Channel' from wt310.cpp
+  ****************************************************************************
+                      ***********************************                     
+                               SPEC PTDaemon Tool                             
+                        Version 1.9.2-3976349f-20201208                     
+                      ***********************************                     
+                     Licensed Materials - Property of SPEC
+     Copyright 2006-2020 Standard Performance Evaluation Corporation (SPEC)
+                              All Rights Reserved.
+  For use with benchmark products from SPEC and authorized organizations only.
+  ****************************************************************************
+
+
+Redirecting data output to file C:\Users\lab\AppData\Local\Temp\tmpk98fhedd\ptd_logfile.txt
+Calculated PTD CRC: 0x3976349f, 1296896
+08-10-2021 14:50:52.558: Attempting to connect to measurement device type 52...
+08-10-2021 14:50:52.561: Yokogawa TMCTL library loaded.
+08-10-2021 14:50:52.561: Yokogawa ethernet mode selected
+08-10-2021 14:50:53.206: Analyzer identity response of 33 bytes: YOKOGAWA,WT333E,C2VL22012V,F1.04
+
+08-10-2021 14:50:53.206: WT3XX enhanced model detected.
+08-10-2021 14:50:54.034: Writing query string :INTEGRATE:STATE?
+...
+08-10-2021 14:50:54.551: ...response of 4 bytes: RES
+
+08-10-2021 14:51:03.822: Writing query string :MEAS:AVER:STATE?;:MEAS:AVER:TYPE?
+...
+08-10-2021 14:51:04.339: ...response of 33 bytes: :MEAS:AVER 0;:MEAS:AVER:TYPE LIN
+
+08-10-2021 14:51:04.853: Writing query string :SYNC?
+...
+08-10-2021 14:51:05.370: ...response of 11 bytes: :SYNC CURR
+
+08-10-2021 14:51:06.400: Writing query string :CFAC?;:CURR:RANG?;:CURR:AUTO?;:VOLT:RANG?;:VOLT:AUTO?
+...
+08-10-2021 14:51:06.918: ...response of 24 bytes: 3;1.0E+00;0;150.0E+00;1
+
+08-10-2021 14:51:07.432: Writing query string :FILT:LINE?
+...
+08-10-2021 14:51:07.940: ...response of 2 bytes: 0
+
+08-10-2021 14:51:08.454: Writing query string :FILT:FREQ?
+...
+08-10-2021 14:51:08.973: ...response of 2 bytes: 1
+
+08-10-2021 14:51:10.001: Uncertainty checking for YokogawaWT330E is activated
+08-10-2021 14:51:10.001: Connected to YokogawaWT330E successfully
+08-10-2021 14:51:10.001: Establishing the listener on port 8888...
+08-10-2021 14:51:10.001: Waiting for a connection...
+08-10-2021 14:51:10.266: Accepted connection from 127.0.0.1:56919
+08-10-2021 14:51:10.267: Response to client sent: Hello, PTDaemon here!
+08-10-2021 14:51:10.268: Response to client sent: YokogawaWT330E,1000,1,1,1,1,0,0,1,version=1.9.2-3976349f-20201208,OS=Windows 8 / Server 2012,mode=power,1,1,1,0,0,no_cal_date,YOKOGAWA;WT333E;C2VL22012V;F1.04
+08-10-2021 14:51:10.269: Response to client sent: Ranges,0,1.000000,1,150.000000
+08-10-2021 14:51:10.276: Volt range set to Auto
+08-10-2021 14:51:10.277: Writing query string :CURR:RANG?;:CURRENT:AUTO?;:VOLT:RANG?;:VOLT:AUTO?
+...
+08-10-2021 14:51:10.787: ...response of 22 bytes: 1.0E+00;0;150.0E+00;1
+
+08-10-2021 14:51:10.787: Response to client sent: Range V changed
+08-10-2021 14:51:10.800: Ampere range set to Auto
+08-10-2021 14:51:10.800: Writing query string :CURR:RANG?;:CURRENT:AUTO?;:VOLT:RANG?;:VOLT:AUTO?
+...
+08-10-2021 14:51:11.314: ...response of 22 bytes: 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:11.314: Response to client sent: Range A changed
+08-10-2021 14:51:21.317: Go with mark '2021-08-10_07-50-52_ranging'
+08-10-2021 14:51:21.317: Response to client sent: Starting untimed measurement, maximum 500000 samples at 1000ms with 0 rampup samples
+08-10-2021 14:51:21.646: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:21.646: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:21.646: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:21.646: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:21.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:21.647: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:22.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:22.698: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:23.702: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:23.703: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:24.681: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:24.681: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:24.681: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:24.681: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:24.681: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:24.681: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:25.649: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:25.650: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:25.650: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:25.650: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:25.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:25.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:26.703: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:26.703: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:27.686: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:27.686: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:28.690: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:28.690: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:28.690: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:28.690: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:28.690: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:28.690: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:29.668: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:29.668: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:30.662: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:30.662: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:30.662: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:30.662: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:30.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:30.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:31.693: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:31.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:32.684: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:32.684: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:32.684: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:32.684: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:32.684: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:32.685: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:33.701: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:33.701: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:34.666: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:34.666: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:35.671: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:35.671: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:35.671: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:35.671: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:35.671: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:35.671: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:36.702: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:36.703: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:37.700: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:37.700: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:37.700: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:37.700: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:37.700: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:37.701: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:38.665: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:38.665: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:39.649: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:39.650: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:39.650: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:39.650: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:39.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:39.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:40.685: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:40.685: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:41.720: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:41.720: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:42.708: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:42.708: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:42.708: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:42.708: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:42.708: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:42.708: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:43.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:43.698: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:44.685: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:44.686: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:44.686: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:44.686: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:44.686: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:44.686: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:45.669: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:45.669: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:46.682: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:46.682: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:47.675: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:47.675: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:47.675: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:47.675: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:47.675: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:47.675: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:48.677: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:48.677: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:49.655: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:49.655: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:49.655: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:49.655: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:49.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:49.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:50.677: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:50.677: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:51.675: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:51.675: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:52.681: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:52.681: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:52.681: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:52.681: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:52.681: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:52.681: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:53.661: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:53.661: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:53.661: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:53.661: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:53.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:53.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:54.666: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:54.666: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:55.697: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:55.697: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:56.702: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:56.702: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:56.702: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:56.702: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:51:56.703: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:56.703: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:57.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:57.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:58.656: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:58.656: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:58.656: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:58.656: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:51:58.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:58.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:51:59.675: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:51:59.675: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:00.676: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:00.676: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:01.693: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:01.693: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:01.693: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:01.694: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:01.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:01.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:02.664: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:02.664: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:03.681: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:03.682: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:03.682: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:03.682: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:03.682: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:03.682: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:04.696: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:04.696: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:05.698: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:05.698: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:05.698: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:05.698: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:05.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:05.698: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:06.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:06.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:07.663: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:07.663: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:07.663: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:07.663: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:07.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:07.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:08.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:08.698: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:09.702: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:09.702: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:09.702: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:09.702: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:09.702: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:09.702: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:10.676: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:10.676: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:11.657: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:11.657: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:11.657: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:11.657: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:11.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:11.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:12.676: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:12.676: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:13.691: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:13.691: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:14.677: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:14.677: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:15.656: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:15.656: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:15.656: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:15.656: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:15.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:15.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:16.656: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:16.656: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:16.656: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:16.657: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:16.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:16.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:17.688: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:17.688: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:18.676: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:18.676: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:19.692: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:19.692: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:19.692: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:19.692: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:19.692: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:19.692: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:20.659: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:20.659: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:20.659: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:20.659: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:20.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:20.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:21.664: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:21.664: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:22.679: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:22.679: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:23.697: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:23.697: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:23.697: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:23.697: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:23.697: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:23.697: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:24.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:24.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:25.662: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:25.662: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:25.663: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:25.663: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:25.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:25.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:26.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:26.698: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:27.680: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:27.680: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:28.694: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:28.694: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:28.694: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:28.694: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:28.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:28.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:29.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:29.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:30.670: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:30.670: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:30.670: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:30.670: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:30.670: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:30.670: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:31.703: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:31.703: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:32.676: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:32.676: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:32.676: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:32.676: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:32.676: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:32.676: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:33.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:33.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:34.654: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:34.654: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:34.654: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:34.654: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:34.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:34.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:35.690: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:35.690: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:36.690: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:36.690: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:36.690: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:36.691: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:36.691: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:36.691: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:37.720: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:37.721: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:38.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:38.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:39.662: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:39.662: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:39.662: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:39.662: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:39.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:39.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:40.676: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:40.676: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:41.677: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:41.677: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:42.659: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:42.659: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:42.659: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:42.659: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:42.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:42.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:43.659: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:43.659: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:43.659: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:43.659: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:43.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:43.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:44.676: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:44.676: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:45.693: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:45.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:46.677: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:46.677: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:46.677: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:46.678: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:46.678: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:46.678: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:47.658: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:47.658: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:47.658: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:47.658: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:47.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:47.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:48.664: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:48.665: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:49.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:49.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:50.718: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:50.718: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:50.718: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:50.719: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:50.719: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:50.719: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:51.665: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:51.666: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:52.650: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:52.650: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:52.650: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:52.650: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:52.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:52.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:53.669: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:53.669: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:54.699: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:54.699: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:55.698: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:55.698: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:55.698: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:55.698: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:55.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:55.698: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:56.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:56.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:57.659: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:57.659: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:57.660: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:57.660: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:52:57.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:57.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:58.679: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:58.679: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:52:59.679: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:59.679: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:59.679: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:59.680: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:52:59.680: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:52:59.680: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:00.675: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:00.675: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:01.659: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:01.659: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:01.659: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:01.659: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:01.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:01.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:02.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:02.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:03.692: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:03.692: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:03.693: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:03.693: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:03.693: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:03.693: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:04.678: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:04.678: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:05.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:05.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:06.655: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:06.656: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:06.656: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:06.656: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:06.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:06.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:07.686: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:07.687: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:08.693: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:08.693: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:08.693: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:08.694: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:08.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:08.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:09.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:09.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:10.655: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:10.655: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:10.655: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:10.655: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:10.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:10.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:11.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:11.698: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:12.700: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:12.700: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:13.681: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:13.681: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:13.681: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:13.682: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:13.682: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:13.682: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:14.663: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:14.663: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:14.663: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:14.663: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:14.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:14.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:15.673: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:15.673: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:16.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:16.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:17.672: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:17.673: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:18.653: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:18.653: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:18.653: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:18.653: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:18.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:18.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:19.655: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:19.656: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:19.656: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:19.656: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:19.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:19.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:20.675: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:20.675: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:21.677: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:21.677: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:22.691: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:22.691: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:22.691: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:22.691: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:22.691: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:22.691: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:23.655: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:23.655: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:23.655: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:23.655: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:23.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:23.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:24.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:24.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:25.690: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:25.690: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:26.674: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:26.674: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:26.674: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:26.674: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:26.674: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:26.674: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:27.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:27.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:28.655: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:28.655: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:28.655: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:28.655: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:28.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:28.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:29.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:29.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:30.688: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:30.688: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:31.674: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:31.674: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:31.674: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:31.674: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:31.674: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:31.674: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:32.674: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:32.674: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:33.670: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:33.671: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:33.671: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:33.671: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:33.671: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:33.671: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:34.682: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:34.682: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:35.672: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:35.673: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:35.673: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:35.673: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:35.673: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:35.673: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:36.667: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:36.667: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:37.655: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:37.655: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:37.655: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:37.655: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:37.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:37.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:38.669: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:38.669: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:39.683: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:39.684: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:39.684: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:39.684: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:39.684: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:39.684: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:40.699: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:40.699: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:41.654: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:41.654: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:41.654: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:41.655: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:41.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:41.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:42.676: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:42.677: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:43.671: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:43.671: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:44.679: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:44.679: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:45.661: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:45.661: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:45.661: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:45.661: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:45.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:45.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:46.659: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:46.660: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:46.660: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:46.660: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:46.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:46.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:47.679: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:47.679: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:48.692: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:48.692: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:49.682: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:49.683: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:49.683: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:49.683: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:49.683: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:49.683: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:50.662: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:50.662: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:50.662: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:50.662: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:50.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:50.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:51.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:51.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:52.667: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:52.667: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:53.680: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:53.680: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:53.680: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:53.680: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:53.681: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:53.681: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:54.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:54.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:55.659: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:55.659: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:55.659: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:55.659: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:53:55.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:55.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:56.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:56.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:57.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:57.698: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:58.666: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:58.666: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:58.666: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:58.666: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:53:58.666: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:58.666: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:53:59.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:53:59.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:00.659: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:00.659: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:00.659: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:00.659: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:00.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:00.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:01.689: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:01.690: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:02.675: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:02.675: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:02.675: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:02.675: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:02.675: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:02.676: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:03.668: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:03.668: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:04.663: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:04.663: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:04.663: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:04.663: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:04.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:04.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:05.671: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:05.671: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:06.674: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:06.674: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:07.702: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:07.702: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:07.702: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:07.702: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:07.702: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:07.702: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:08.667: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:08.667: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:09.651: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:09.651: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:09.651: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:09.651: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:09.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:09.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:10.676: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:10.676: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:11.696: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:11.696: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:12.655: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:12.655: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:12.655: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:12.655: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:12.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:12.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:13.665: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:13.666: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:13.666: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:13.666: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:13.666: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:13.666: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:14.687: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:14.687: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:15.700: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:15.700: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:16.685: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:16.685: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:16.685: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:16.685: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:16.685: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:16.685: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:17.665: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:17.665: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:17.665: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:17.665: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:17.665: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:17.665: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:18.672: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:18.672: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:19.701: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:19.701: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:20.711: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:20.711: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:20.711: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:20.711: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:20.711: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:20.712: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:21.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:21.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:22.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:22.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:23.693: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:23.694: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:23.694: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:23.694: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:23.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:23.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:24.675: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:24.675: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:25.693: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:25.694: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:25.694: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:25.694: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:25.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:25.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:26.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:26.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:27.663: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:27.663: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:27.664: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:27.664: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:27.664: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:27.664: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:28.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:28.699: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:29.685: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:29.685: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:29.686: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:29.686: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:29.686: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:29.686: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:30.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:30.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:31.656: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:31.656: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:31.656: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:31.656: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:31.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:31.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:32.687: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:32.688: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:33.673: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:33.673: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:33.673: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:33.673: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:33.673: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:33.673: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:34.687: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:34.687: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:35.667: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:35.667: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:36.651: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:36.651: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:36.651: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:36.651: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:36.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:36.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:37.672: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:37.672: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:38.701: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:38.701: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:39.666: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:39.666: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:39.666: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:39.666: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:39.666: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:39.666: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:40.648: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:40.648: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:40.648: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:40.648: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 14:54:40.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:40.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:41.679: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:41.679: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:42.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:42.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:43.660: ERROR: Bad watts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:43.660: ERROR: Bad amps reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:43.660: ERROR: Bad pf reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:43.660: ERROR: Bad volts reading nan from WT310
+Buffer was 500.0E-03;1;150.0E+00;1
+
+08-10-2021 14:54:43.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:43.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:44.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:44.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:45.675: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:45.675: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:46.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:46.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:47.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:47.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:48.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:48.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:49.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:49.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:50.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:50.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:51.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:51.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:52.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:52.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:53.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:53.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:54.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:54.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:55.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:55.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:56.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:56.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:57.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:57.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:58.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:58.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:54:59.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:54:59.664: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:00.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:00.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:01.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:01.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:02.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:02.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:03.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:03.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:04.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:04.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:05.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:05.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:06.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:06.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:07.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:07.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:08.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:08.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:09.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:09.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:10.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:10.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:11.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:11.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:12.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:12.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:13.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:13.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:14.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:14.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:15.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:15.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:16.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:16.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:17.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:17.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:18.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:18.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:19.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:19.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:20.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:20.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:21.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:21.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:22.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:22.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:23.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:23.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:24.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:24.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:25.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:25.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:26.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:26.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:27.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:27.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:28.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:28.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:29.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:29.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:30.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:30.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:31.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:31.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:32.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:32.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:33.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:33.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:34.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:34.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:35.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:35.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:36.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:36.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:37.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:37.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:38.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:38.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:39.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:39.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:40.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:40.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:41.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:41.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:42.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:42.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:43.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:43.647: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:44.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:44.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:45.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:45.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:46.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:46.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:47.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:47.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:48.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:48.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:49.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:49.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:50.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:50.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:51.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:51.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:52.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:52.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:53.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:53.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:54.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:54.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:55.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:55.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:56.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:56.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:57.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:57.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:58.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:58.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:55:59.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:55:59.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:00.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:00.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:01.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:01.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:02.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:02.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:03.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:03.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:04.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:04.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:05.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:05.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:06.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:06.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:07.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:07.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:08.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:08.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:09.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:09.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:10.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:10.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:11.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:11.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:12.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:12.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:13.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:13.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:14.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:14.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:15.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:15.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:16.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:16.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:17.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:17.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:18.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:18.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:19.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:19.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:20.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:20.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:21.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:21.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:22.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:22.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:23.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:23.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:24.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:24.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:25.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:25.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:26.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:26.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:27.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:27.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:28.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:28.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:29.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:29.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:30.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:30.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:31.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:31.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:32.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:32.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:33.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:33.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:34.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:34.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:35.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:35.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:36.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:36.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:37.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:37.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:38.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:38.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:39.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:39.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:40.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:40.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:41.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:41.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:42.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:42.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:43.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:43.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:44.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:44.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:45.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:45.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:46.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:46.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:47.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:47.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:48.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:48.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:49.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:49.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:50.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:50.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:51.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:51.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:52.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:52.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:53.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:53.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:54.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:54.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:55.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:55.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:56.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:56.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:57.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:57.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:58.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:58.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:56:59.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:56:59.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:00.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:00.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:01.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:01.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:02.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:02.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:03.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:03.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:04.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:04.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:05.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:05.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:06.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:06.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:07.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:07.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:08.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:08.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:09.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:09.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:10.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:10.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:11.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:11.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:12.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:12.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:13.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:13.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:14.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:14.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:15.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:15.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:16.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:16.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:17.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:17.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:18.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:18.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:19.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:19.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:20.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:20.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:21.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:21.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:22.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:22.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:23.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:23.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:24.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:24.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:25.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:25.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:26.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:26.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:27.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:27.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:28.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:28.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:29.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:29.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:30.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:30.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:31.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:31.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:32.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:32.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:33.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:33.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:34.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:34.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:35.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:35.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:36.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:36.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:37.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:37.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:38.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:38.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:39.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:39.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:40.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:40.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:41.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:41.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:42.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:42.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:43.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:43.652: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:44.652: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:44.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:45.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:45.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:46.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:46.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:47.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:47.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:48.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:48.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:49.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:49.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:50.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:50.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:51.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:51.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:52.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:52.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:53.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:53.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:54.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:54.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:55.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:55.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:56.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:56.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:57.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:57.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:58.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:58.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:57:59.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:57:59.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:00.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:00.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:01.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:01.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:02.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:02.647: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:03.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:03.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:04.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:04.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:05.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:05.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:06.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:06.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:07.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:07.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:08.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:08.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:09.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:09.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:10.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:10.647: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:11.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:11.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:12.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:12.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:13.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:13.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:14.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:14.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:15.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:15.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:16.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:16.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:17.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:17.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:18.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:18.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:19.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:19.647: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:20.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:20.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:21.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:21.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:22.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:22.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:23.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:23.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:24.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:24.647: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:25.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:25.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:26.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:26.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:27.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:27.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:28.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:28.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:29.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:29.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:30.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:30.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:31.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:31.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:32.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:32.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:33.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:33.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:34.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:34.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:35.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:35.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:36.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:36.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:37.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:37.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:38.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:38.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:39.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:39.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:40.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:40.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:41.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:41.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:42.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:42.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:43.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:43.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:44.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:44.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:45.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:45.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:46.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:46.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:47.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:47.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:48.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:48.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:49.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:49.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:50.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:50.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:51.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:51.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:52.664: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:52.664: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:53.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:53.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:54.664: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:54.664: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:55.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:55.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:56.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:56.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:57.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:57.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:58.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:58.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:58:59.642: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:58:59.642: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:00.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:00.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:01.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:01.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:02.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:02.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:03.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:03.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:04.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:04.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:05.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:05.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:06.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:06.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:07.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:07.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:08.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:08.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:09.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:09.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:10.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:10.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:11.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:11.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:12.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:12.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:13.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:13.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:14.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:14.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:15.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:15.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:16.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:16.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:17.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:17.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:18.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:18.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:19.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:19.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:20.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:20.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:21.649: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:21.649: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:22.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:22.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:23.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:23.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:24.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:24.647: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:25.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:25.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:26.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:26.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:27.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:27.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:28.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:28.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:29.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:29.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:30.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:30.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:31.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:31.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:32.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:32.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:33.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:33.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:34.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:34.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:35.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:35.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:36.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:36.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:37.653: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:37.653: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:38.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:38.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:39.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:39.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:40.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:40.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:41.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:41.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:42.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:42.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:43.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:43.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:44.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:44.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:45.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:45.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:46.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:46.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:47.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:47.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:48.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:48.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:49.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:49.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:50.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:50.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:51.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:51.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:52.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:52.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:53.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:53.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:54.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:54.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:55.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:55.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:56.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:56.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:57.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:57.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:58.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:58.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 14:59:59.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 14:59:59.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:00.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:00.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:01.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:01.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:02.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:02.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:03.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:03.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:04.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:04.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:05.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:05.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:06.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:06.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:07.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:07.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:08.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:08.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:09.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:09.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:10.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:10.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:11.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:11.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:12.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:12.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:13.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:13.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:14.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:14.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:15.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:15.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:16.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:16.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:17.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:17.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:18.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:18.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:19.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:19.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:20.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:20.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:21.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:21.647: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:22.659: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:22.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:23.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:23.659: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:24.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:24.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:25.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:25.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:26.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:26.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:27.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:27.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:28.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:28.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:29.692: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:29.692: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:30.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:30.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:31.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:31.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:32.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:32.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:33.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:33.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:34.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:34.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:35.684: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:35.684: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:36.685: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:36.685: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:37.689: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:37.689: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:38.690: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:38.690: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:39.682: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:39.682: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:40.698: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:40.698: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:41.697: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:41.697: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:42.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:42.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:43.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:43.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:44.697: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:44.697: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:45.696: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:45.696: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:46.695: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:46.695: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:47.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:47.694: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:48.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:48.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:49.695: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:49.696: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:50.694: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:50.695: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:51.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:51.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:52.666: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:52.666: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:53.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:53.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:54.695: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:54.695: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:55.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:55.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:56.662: ERROR: Bad watts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 15:00:56.662: ERROR: Bad amps reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 15:00:56.662: ERROR: Bad pf reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 15:00:56.662: ERROR: Bad volts reading nan from WT310
+Buffer was 1.0E+00;1;150.0E+00;1
+
+08-10-2021 15:00:56.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:56.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:57.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:57.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:58.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:58.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:00:59.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:00:59.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:00.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:00.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:01.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:01.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:02.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:02.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:03.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:03.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:04.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:04.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:05.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:05.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:06.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:06.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:07.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:07.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:08.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:08.650: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:09.643: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:09.643: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:10.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:10.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:11.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:11.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:12.647: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:12.647: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:13.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:13.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:14.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:14.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:15.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:15.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:16.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:16.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:17.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:17.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:18.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:18.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:19.663: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:19.663: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:20.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:20.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:21.660: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:21.660: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:22.648: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:22.648: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:23.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:23.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:24.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:24.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:25.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:25.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:26.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:26.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:27.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:27.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:28.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:28.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:29.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:29.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:30.656: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:30.656: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:31.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:31.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:32.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:32.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:33.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:33.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:34.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:34.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:35.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:35.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:36.654: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:36.654: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:37.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:37.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:38.655: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:38.655: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:39.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:39.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:40.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:40.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:41.662: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:41.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:42.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:42.662: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:43.661: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:43.661: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:44.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:44.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:45.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:45.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:46.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:46.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:47.651: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:47.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:48.650: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:48.651: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:49.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:49.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:50.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:50.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:51.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:51.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:52.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:52.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:53.658: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:53.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:54.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:54.658: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:55.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:55.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:56.442: Response to client sent: Stopping untimed measurement
+08-10-2021 15:01:56.657: ERROR: Can't evaluate uncertainty of this sample!
+08-10-2021 15:01:56.657: WARNING: Uncertainty unknown for the last measurement sample! channel 0
+08-10-2021 15:01:57.327: Completed test
+08-10-2021 15:01:57.327: Avg watts 13.558662, min watts 3.910000, max watts 14.086000, samples 636, errors 91, valid 545
+08-10-2021 15:01:57.329: Volt range set to 150.000000V
+08-10-2021 15:01:58.343: Writing query string :CURR:RANG?;:CURRENT:AUTO?;:VOLT:RANG?;:VOLT:AUTO?
+...
+08-10-2021 15:01:58.860: ...response of 22 bytes: 1.0E+00;1;150.0E+00;0
+
+08-10-2021 15:01:58.860: Response to client sent: Range V changed
+08-10-2021 15:01:58.867: Amp range set to 0.500000A
+08-10-2021 15:01:59.874: Writing query string :CURR:RANG?;:CURRENT:AUTO?;:VOLT:RANG?;:VOLT:AUTO?
+...
+08-10-2021 15:02:00.391: ...response of 24 bytes: 500.0E-03;0;150.0E+00;0
+
+08-10-2021 15:02:00.391: Response to client sent: Range A changed
+08-10-2021 15:02:10.411: Go with mark '2021-08-10_07-50-52_testing'
+08-10-2021 15:02:10.411: Response to client sent: Starting untimed measurement, maximum 500000 samples at 1000ms with 0 rampup samples
+08-10-2021 15:12:38.831: Response to client sent: Stopping untimed measurement
+08-10-2021 15:12:39.420: Completed test
+08-10-2021 15:12:39.420: Avg watts 13.539561, min watts 3.939000, max watts 14.038000, samples 629, errors 0, valid 629
+08-10-2021 15:12:39.420: Response to client sent: Error: no measurement to stop
+08-10-2021 15:12:39.423: Volt range set to Auto
+08-10-2021 15:12:39.423: Writing query string :CURR:RANG?;:CURRENT:AUTO?;:VOLT:RANG?;:VOLT:AUTO?
+...
+08-10-2021 15:12:39.936: ...response of 24 bytes: 500.0E-03;0;150.0E+00;1
+
+08-10-2021 15:12:39.937: Response to client sent: Range V changed
+08-10-2021 15:12:39.944: Amp range set to 1.000000A
+08-10-2021 15:12:40.958: Writing query string :CURR:RANG?;:CURRENT:AUTO?;:VOLT:RANG?;:VOLT:AUTO?
+...
+08-10-2021 15:12:41.475: ...response of 22 bytes: 1.0E+00;0;150.0E+00;1
+
+08-10-2021 15:12:41.475: Response to client sent: Range A changed
+08-10-2021 15:12:41.481: No data returned by socket read.
+08-10-2021 15:12:41.481: Shutting connection down...
+08-10-2021 15:12:41.481: Connection is down.
+08-10-2021 15:12:41.481: Waiting for a connection...

@@ -1,0 +1,53 @@
+{
+    "TestScenario.Offline": {
+        "count": 268400,
+        "good_items": 0,
+        "mean": 907.5625683779305,
+        "percentiles": {
+            "50.0": 906.952556942,
+            "80.0": 1449.9171080570006,
+            "90.0": 1630.84080642,
+            "95.0": 1721.518915791,
+            "99.0": 1793.842279624,
+            "99.9": 1808.74422308
+        },
+        "qps": 148.37236080913337,
+        "took": 1808.9622523784637,
+        "total_items": 268400
+    },
+    "args": {
+        "accuracy": false,
+        "backend": "tensorflow",
+        "cache": 0,
+        "count": null,
+        "data_format": "NHWC",
+        "dataset": "imagenet",
+        "dataset_list": null,
+        "dataset_path": "/home/ubuntu/datasets/imagenet-2012-val",
+        "debug": false,
+        "find_peak_performance": false,
+        "inputs": [
+            "input_tensor:0"
+        ],
+        "max_batchsize": 32,
+        "max_latency": null,
+        "mlperf_conf": "/home/ubuntu/CK/local/venv/mlperf-inference/CK/local/env/7204e56654583b16/inference/mlperf.conf",
+        "model": "/home/ubuntu/CK/local/venv/mlperf-inference/CK/local/env/744a5bcff13e2ec7/resnet50_v1.pb",
+        "model_name": "resnet50",
+        "output": "/home/ubuntu/CK/local/venv/mlperf-inference/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-tensorflow-cpu/tmp",
+        "outputs": [
+            "ArgMax:0"
+        ],
+        "profile": "resnet50-tf",
+        "qps": 400,
+        "samples_per_query": null,
+        "scenario": "Offline",
+        "threads": 24,
+        "time": 610,
+        "user_conf": "user.conf"
+    },
+    "cmdline": "Namespace(accuracy=False, backend='tensorflow', cache=0, count=None, data_format='NHWC', dataset='imagenet', dataset_list=None, dataset_path='/home/ubuntu/datasets/imagenet-2012-val', debug=False, find_peak_performance=False, inputs=['input_tensor:0'], max_batchsize=32, max_latency=None, mlperf_conf='/home/ubuntu/CK/local/venv/mlperf-inference/CK/local/env/7204e56654583b16/inference/mlperf.conf', model='/home/ubuntu/CK/local/venv/mlperf-inference/CK/local/env/744a5bcff13e2ec7/resnet50_v1.pb', model_name='resnet50', output='/home/ubuntu/CK/local/venv/mlperf-inference/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-tensorflow-cpu/tmp', outputs=['ArgMax:0'], profile='resnet50-tf', qps=400, samples_per_query=None, scenario='Offline', threads=24, time=610, user_conf='user.conf')",
+    "runtime": "tensorflow",
+    "time": 1629093164,
+    "version": "2.6.0/v2.6.0-rc2-32-g919f693420e"
+}

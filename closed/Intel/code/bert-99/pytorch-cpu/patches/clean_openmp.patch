@@ -1,0 +1,98 @@
+commit af11528e9aa09bf50393d6d8c6ce22655d19d1ba
+Author: caozhong <zhong.z.cao@intel.com>
+Date:   Wed May 26 18:31:19 2021 +0800
+
+    Cleaning OpenMP settings
+    
+    Signed-off-by: caozhong <zhong.z.cao@intel.com>
+
+diff --git a/caffe2/CMakeLists.txt b/caffe2/CMakeLists.txt
+index 827aa29f4c..c02d39b973 100644
+--- a/caffe2/CMakeLists.txt
++++ b/caffe2/CMakeLists.txt
+@@ -1154,24 +1154,6 @@ endif()
+ if(USE_OPENMP)
+   find_package(OpenMP QUIET)
+ endif()
+-if(USE_OPENMP AND OPENMP_FOUND)
+-  if(MSVC AND OpenMP_CXX_LIBRARIES MATCHES "libiomp5md\\.lib")
+-    set(AT_MKL_MT 1)
+-  else()
+-    set(AT_MKL_MT 0)
+-  endif()
+-  message(STATUS "pytorch is compiling with OpenMP. \n"
+-    "OpenMP CXX_FLAGS: ${OpenMP_CXX_FLAGS}. \n"
+-    "OpenMP libraries: ${OpenMP_CXX_LIBRARIES}.")
+-  if(UNIX)
+-    separate_arguments(OpenMP_CXX_OPTIONS UNIX_COMMAND "${OpenMP_CXX_FLAGS}")
+-  else()
+-    separate_arguments(OpenMP_CXX_OPTIONS WINDOWS_COMMAND "${OpenMP_CXX_FLAGS}")
+-  endif()
+-  target_compile_options(torch_cpu PRIVATE ${OpenMP_CXX_OPTIONS})
+-  target_link_libraries(torch_cpu PRIVATE ${OpenMP_CXX_LIBRARIES})
+-endif()
+-
+ 
+ if(USE_ROCM)
+   target_compile_definitions(torch_hip PRIVATE
+@@ -1241,13 +1223,6 @@ if(NOT INTERN_BUILD_MOBILE OR BUILD_CAFFE2_MOBILE)
+   endif()
+ endif()
+ 
+-if(USE_OPENMP AND OPENMP_FOUND)
+-  message(STATUS "Caffe2 is compiling with OpenMP. \n"
+-    "OpenMP CXX_FLAGS: ${OpenMP_CXX_FLAGS}. \n"
+-    "OpenMP libraries: ${OpenMP_CXX_LIBRARIES}.")
+-  target_link_libraries(torch_cpu PRIVATE ${OpenMP_CXX_LIBRARIES})
+-endif()
+-
+ if($ENV{TH_BINARY_BUILD})
+   if(NOT MSVC AND USE_CUDA AND NOT APPLE)
+     # Note [Extra MKL symbols for MAGMA in torch_cpu]
+@@ -1513,6 +1488,33 @@ if(APPLE AND USE_PYTORCH_METAL)
+   endif()
+ endif()
+ 
++if(USE_OPENMP AND OPENMP_FOUND)
++  if(MSVC AND OpenMP_CXX_LIBRARIES MATCHES "libiomp5md\\.lib")
++    set(AT_MKL_MT 1)
++  else()
++    set(AT_MKL_MT 0)
++  endif()
++
++  message(STATUS "pytorch is compiling with OpenMP. \n"
++    "OpenMP CXX_FLAGS: ${OpenMP_CXX_FLAGS}. \n"
++    "OpenMP libraries: ${OpenMP_CXX_LIBRARIES}.")
++
++  message(STATUS "Caffe2 is compiling with OpenMP. \n"
++    "OpenMP CXX_FLAGS: ${OpenMP_CXX_FLAGS}. \n"
++    "OpenMP libraries: ${OpenMP_CXX_LIBRARIES}.")
++
++  if(UNIX)
++    separate_arguments(OpenMP_CXX_OPTIONS UNIX_COMMAND "${OpenMP_CXX_FLAGS}")
++  else()
++    separate_arguments(OpenMP_CXX_OPTIONS WINDOWS_COMMAND "${OpenMP_CXX_FLAGS}")
++  endif()
++
++  target_compile_options(torch_cpu PRIVATE ${OpenMP_CXX_OPTIONS})
++  # Without -fopenmp, omp library should be behind all linking objects
++  # that have openmp reference
++  target_link_libraries(torch_cpu PRIVATE ${OpenMP_CXX_LIBRARIES})
++endif()
++
+ # Note [Global dependencies]
+ # Some libraries (e.g. OpenMPI) like to dlopen plugins after they're initialized,
+ # and they assume that all of their symbols will be available in the global namespace.
+diff --git a/cmake/Dependencies.cmake b/cmake/Dependencies.cmake
+index 03363107b6..ec70410583 100644
+--- a/cmake/Dependencies.cmake
++++ b/cmake/Dependencies.cmake
+@@ -1113,8 +1113,6 @@ if(USE_OPENMP)
+     else()
+         message(STATUS "Will link against OpenMP libraries: ${OpenMP_CXX_LIBRARIES}")
+     endif()
+-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+   else()
+     message(WARNING "Not compiling with OpenMP. Suppress this warning with -DUSE_OPENMP=OFF")
+     caffe2_update_option(USE_OPENMP OFF)

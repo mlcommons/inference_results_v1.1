@@ -1,0 +1,58 @@
+================================================
+MLPerf Results Summary
+================================================
+SUT name : PySUT
+Scenario : Server
+Mode     : PerformanceOnly
+Scheduled samples per second : 2695.92
+Result is : INVALID
+  Performance constraints satisfied : NO
+  Min duration satisfied : NO
+  Min queries satisfied : NO
+Recommendations:
+ * Reduce target QPS to improve latency.
+ * Increase the target QPS so the loadgen pre-generates more queries.
+ * The test exited early, before enough queries were issued.
+   See the detailed log for why this may have occurred.
+
+================================================
+Additional Stats
+================================================
+Completed samples per second    : 2636.83
+
+Min latency (ns)                : 8302287
+Max latency (ns)                : 31200731
+Mean latency (ns)               : 10398514
+50.00 percentile latency (ns)   : 9426878
+90.00 percentile latency (ns)   : 12300573
+95.00 percentile latency (ns)   : 13378789
+97.00 percentile latency (ns)   : 18835167
+99.00 percentile latency (ns)   : 27049968
+99.90 percentile latency (ns)   : 30467580
+
+================================================
+Test Parameters Used
+================================================
+samples_per_query : 1
+target_qps : 2600
+target_latency (ns): 15000000
+max_async_queries : 0
+min_duration (ms): 600000
+max_duration (ms): 0
+min_query_count : 270336
+max_query_count : 0
+qsl_rng_seed : 1624344308455410291
+sample_index_rng_seed : 517984244576520566
+schedule_rng_seed : 10051496985653635065
+accuracy_log_rng_seed : 0
+accuracy_log_probability : 0
+accuracy_log_sampling_target : 0
+print_timestamps : 0
+performance_issue_unique : 1
+performance_issue_same : 0
+performance_issue_same_index : 0
+performance_sample_count : 1024
+
+1 warning encountered. See detailed log.
+
+No errors encountered during test.

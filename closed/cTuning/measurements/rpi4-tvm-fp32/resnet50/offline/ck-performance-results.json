@@ -1,0 +1,51 @@
+{
+    "TestScenario.SingleStream": {
+        "count": 2048,
+        "good_items": 0,
+        "mean": 0.5639474402998047,
+        "percentiles": {
+            "50.0": 0.563396169,
+            "80.0": 0.5645195022,
+            "90.0": 0.5650527894,
+            "95.0": 0.5656765716500001,
+            "99.0": 0.56880299484,
+            "99.9": 0.7145789182770239
+        },
+        "qps": 1.7723237456562542,
+        "took": 1155.5450887680054,
+        "total_items": 2048
+    },
+    "args": {
+        "accuracy": false,
+        "backend": "tvm",
+        "cache": 0,
+        "count": 2048,
+        "data_format": "NCHW",
+        "dataset": "imagenet",
+        "dataset_list": null,
+        "dataset_path": "/home/fursin/datasets/imagenet-2012-val",
+        "debug": false,
+        "find_peak_performance": false,
+        "inputs": null,
+        "max_batchsize": 1,
+        "max_latency": null,
+        "mlperf_conf": "/home/fursin/CK/local/venv/mlperf-inference-tvm/CK/local/env/14332b764207b153/inference/mlperf.conf",
+        "model": "/home/fursin/CK/local/venv/mlperf-inference-tvm/CK/local/env/2078fd026b5b405b/resnet50_v1.onnx",
+        "model_name": "resnet50",
+        "output": "/home/fursin/CK/local/venv/mlperf-inference-tvm/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-tvm-onnx-cpu/tmp",
+        "outputs": [
+            "ArgMax:0"
+        ],
+        "profile": "resnet50-onnxruntime",
+        "qps": null,
+        "samples_per_query": null,
+        "scenario": "SingleStream",
+        "threads": 1,
+        "time": null,
+        "user_conf": "user.conf"
+    },
+    "cmdline": "Namespace(accuracy=False, backend='tvm', cache=0, count=2048, data_format='NCHW', dataset='imagenet', dataset_list=None, dataset_path='/home/fursin/datasets/imagenet-2012-val', debug=False, find_peak_performance=False, inputs=None, max_batchsize=1, max_latency=None, mlperf_conf='/home/fursin/CK/local/venv/mlperf-inference-tvm/CK/local/env/14332b764207b153/inference/mlperf.conf', model='/home/fursin/CK/local/venv/mlperf-inference-tvm/CK/local/env/2078fd026b5b405b/resnet50_v1.onnx', model_name='resnet50', output='/home/fursin/CK/local/venv/mlperf-inference-tvm/CK/octoml@mlops/program/mlperf-inference-bench-image-classification-tvm-onnx-cpu/tmp', outputs=['ArgMax:0'], profile='resnet50-onnxruntime', qps=None, samples_per_query=None, scenario='SingleStream', threads=1, time=None, user_conf='user.conf')",
+    "runtime": "tvm",
+    "time": 1629106897,
+    "version": "N/A : TODO"
+}

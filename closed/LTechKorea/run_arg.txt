@@ -1,0 +1,709 @@
+Launching Docker session
+docker run --gpus "device= 0" --rm -t -w /work \
+	-v /home/tanssg/inference_results_v1.0/closed/LTechKorea:/work -v /home/tanssg:/mnt//home/tanssg \
+	--cap-add SYS_ADMIN --cap-add SYS_TIME \
+	-e NVIDIA_VISIBLE_DEVICES=0,1 \
+	--shm-size=32gb \
+	-v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro \
+	--security-opt apparmor=unconfined --security-opt seccomp=unconfined \
+	--name mlperf-inference-tanssg -h mlperf-inference-tanssg --add-host mlperf-inference-tanssg:127.0.0.1 \
+	--user 1002:1002 --net host --device /dev/fuse \
+	-v /opt/data/scratch.mlperf_inference:/opt/data/scratch.mlperf_inference -v /opt/data/Dataset:/opt/data/Dataset  \
+	-e MLPERF_SCRATCH_PATH=/opt/data/scratch.mlperf_inference \
+	-e HOST_HOSTNAME=ltech-gpu10 \
+	-e LD_LIBRARY_PATH=:/usr/local/cuda/lib64:/usr/lib/x86_64-linux-gnu:/home/tanssg/inference_results_v1.0/closed/LTechKorea/build/inference/loadgen/build:/usr/local/cuda-11.1/targets/x86_64-linux/lib/ \
+	 \
+	mlperf-inference:tanssg make run RUN_ARGS="--help"
+make[1]: Entering directory '/work'
+usage: main.py [-h] [--gpu_batch_size GPU_BATCH_SIZE]
+               [--dla_batch_size DLA_BATCH_SIZE] [--batch_size BATCH_SIZE]
+               [--verbose] [--verbose_nvtx] [--no_child_process]
+               [--workspace_size WORKSPACE_SIZE] [--power]
+               [--data_dir DATA_DIR]
+               [--preprocessed_data_dir PREPROCESSED_DATA_DIR]
+               [--precision {fp32,fp16,int8,None}]
+               [--input_dtype {fp32,fp16,int8,None}]
+               [--input_format {linear,chw4,dhwc8,None}] [--audio_fp16_input]
+               [--force_calibration] [--calib_batch_size CALIB_BATCH_SIZE]
+               [--calib_max_batches CALIB_MAX_BATCHES]
+               [--cache_file CACHE_FILE] [--calib_data_map CALIB_DATA_MAP]
+               [--scenario SCENARIO] [--dla_core DLA_CORE]
+               [--model_path MODEL_PATH] [--active_sms ACTIVE_SMS]
+               [--profile PROFILE] [--log_dir LOG_DIR] [--use_graphs]
+               [--nopipelined_execution] [--nobatch_sorting]
+               [--noenable_audio_processing] [--nouse_copy_kernel]
+               [--num_warmups NUM_WARMUPS] [--max_seq_length MAX_SEQ_LENGTH]
+               [--audio_batch_size AUDIO_BATCH_SIZE]
+               [--audio_buffer_num_lines AUDIO_BUFFER_NUM_LINES]
+               [--dali_batches_issue_ahead DALI_BATCHES_ISSUE_AHEAD]
+               [--dali_pipeline_depth DALI_PIPELINE_DEPTH]
+               [--disable_encoder_plugin] [--devices DEVICES]
+               [--map_path MAP_PATH] [--tensor_path TENSOR_PATH]
+               [--performance_sample_count PERFORMANCE_SAMPLE_COUNT]
+               [--gpu_copy_streams GPU_COPY_STREAMS]
+               [--gpu_inference_streams GPU_INFERENCE_STREAMS]
+               [--dla_copy_streams DLA_COPY_STREAMS]
+               [--dla_inference_streams DLA_INFERENCE_STREAMS]
+               [--run_infer_on_copy_streams RUN_INFER_ON_COPY_STREAMS]
+               [--warmup_duration WARMUP_DURATION]
+               [--use_direct_host_access USE_DIRECT_HOST_ACCESS]
+               [--use_deque_limit USE_DEQUE_LIMIT]
+               [--deque_timeout_usec DEQUE_TIMEOUT_USEC]
+               [--use_batcher_thread_per_device USE_BATCHER_THREAD_PER_DEVICE]
+               [--use_cuda_thread_per_device USE_CUDA_THREAD_PER_DEVICE]
+               [--start_from_device START_FROM_DEVICE] [--max_dlas MAX_DLAS]
+               [--coalesced_tensor COALESCED_TENSOR]
+               [--assume_contiguous ASSUME_CONTIGUOUS]
+               [--complete_threads COMPLETE_THREADS]
+               [--use_same_context USE_SAME_CONTEXT]
+               [--mlperf_conf_path MLPERF_CONF_PATH]
+               [--user_conf_path USER_CONF_PATH]
+               [--test_mode {SubmissionRun,AccuracyOnly,PerformanceOnly,FindPeakPerformance}]
+               [--min_duration MIN_DURATION] [--max_duration MAX_DURATION]
+               [--min_query_count MIN_QUERY_COUNT]
+               [--max_query_count MAX_QUERY_COUNT]
+               [--qsl_rng_seed QSL_RNG_SEED]
+               [--sample_index_rng_seed SAMPLE_INDEX_RNG_SEED] [--fast]
+               [--logfile_suffix LOGFILE_SUFFIX]
+               [--logfile_prefix_with_datetime] [--log_copy_detail_to_stdout]
+               [--disable_log_copy_summary_to_stdout]
+               [--log_mode {AsyncPoll,EndOfTestOnly,Synchronous}]
+               [--log_mode_async_poll_interval_ms LOG_MODE_ASYNC_POLL_INTERVAL_MS]
+               [--log_enable_trace LOG_ENABLE_TRACE] [--use_triton]
+               [--preferred_batch_size PREFERRED_BATCH_SIZE]
+               [--max_queue_delay_usec MAX_QUEUE_DELAY_USEC]
+               [--instance_group_count INSTANCE_GROUP_COUNT]
+               [--request_timeout_usec REQUEST_TIMEOUT_USEC]
+               [--buffer_manager_thread_count BUFFER_MANAGER_THREAD_COUNT]
+               [--gather_kernel_buffer_threshold GATHER_KERNEL_BUFFER_THRESHOLD]
+               [--batch_triton_requests] [--output_pinned_memory]
+               [--server_target_qps SERVER_TARGET_QPS]
+               [--server_target_latency_ns SERVER_TARGET_LATENCY_NS]
+               [--server_target_latency_percentile SERVER_TARGET_LATENCY_PERCENTILE]
+               [--schedule_rng_seed SCHEDULE_RNG_SEED]
+               [--accuracy_log_rng_seed ACCURACY_LOG_RNG_SEED]
+               [--single_stream_expected_latency_ns SINGLE_STREAM_EXPECTED_LATENCY_NS]
+               [--single_stream_target_latency_percentile SINGLE_STREAM_TARGET_LATENCY_PERCENTILE]
+               [--offline_expected_qps OFFLINE_EXPECTED_QPS]
+               [--multi_stream_target_qps MULTI_STREAM_TARGET_QPS]
+               [--multi_stream_target_latency_ns MULTI_STREAM_TARGET_LATENCY_NS]
+               [--multi_stream_target_latency_percentile MULTI_STREAM_TARGET_LATENCY_PERCENTILE]
+               [--multi_stream_samples_per_query MULTI_STREAM_SAMPLES_PER_QUERY]
+               [--multi_stream_max_async_queries MULTI_STREAM_MAX_ASYNC_QUERIES]
+               [--action {generate_engines,run_harness,run_cpu_harness,calibrate,generate_conf_files,run_audit_harness,run_cpu_audit_harness,run_audit_verification,run_cpu_audit_verification}]
+               [--benchmarks BENCHMARKS] [--configs CONFIGS]
+               [--config_ver CONFIG_VER] [--scenarios SCENARIOS] [--no_gpu]
+               [--gpu_only] [--audit_test {TEST01,TEST04-A,TEST04-B,TEST05}]
+               [--system_name SYSTEM_NAME] [--engine_file ENGINE_FILE]
+               [--num_samples NUM_SAMPLES]
+               [--sample_partition_path SAMPLE_PARTITION_PATH]
+               [--num_staging_threads NUM_STAGING_THREADS]
+               [--num_staging_batches NUM_STAGING_BATCHES]
+               [--max_pairs_per_staging_thread MAX_PAIRS_PER_STAGING_THREAD]
+               [--gpu_num_bundles GPU_NUM_BUNDLES] [--check_contiguity]
+               [--use_jemalloc] [--use_spin_wait] [--numa_config NUMA_CONFIG]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --gpu_batch_size GPU_BATCH_SIZE
+                        GPU batch size to use for the engine.
+  --dla_batch_size DLA_BATCH_SIZE
+                        DLA batch size to use for the engine.
+  --batch_size BATCH_SIZE
+                        Batch size to use for the engine.
+  --verbose             Use verbose output
+  --verbose_nvtx        Turn ProfilingVerbosity to kVERBOSE so that layer
+                        detail is printed in NVTX.
+  --no_child_process    Do not generate engines on child process. Do it on
+                        current process instead.
+  --workspace_size WORKSPACE_SIZE
+                        The maximum size of temporary workspace that any layer
+                        in the network can use in TRT
+  --power               Select if you would like to measure power
+  --data_dir DATA_DIR   Directory containing unprocessed datasets
+  --preprocessed_data_dir PREPROCESSED_DATA_DIR
+                        Directory containing preprocessed datasets
+  --precision {fp32,fp16,int8,None}
+                        Precision. Default: int8
+  --input_dtype {fp32,fp16,int8,None}
+                        Input datatype. Choices: fp32, int8.
+  --input_format {linear,chw4,dhwc8,None}
+                        Input format (layout). Choices: linear, chw4
+  --audio_fp16_input    Is input format for raw audio file in fp16?. Choices:
+                        true, false
+  --force_calibration   Run quantization calibration even if the cache exists.
+                        (Only used for quantized models)
+  --calib_batch_size CALIB_BATCH_SIZE
+                        Batch size for calibration.
+  --calib_max_batches CALIB_MAX_BATCHES
+                        Number of batches to run for calibration.
+  --cache_file CACHE_FILE
+                        Path to calibration cache.
+  --calib_data_map CALIB_DATA_MAP
+                        Path to the data map of the calibration set.
+  --scenario SCENARIO   Name for the scenario. Used to generate engine name.
+  --dla_core DLA_CORE   DLA core to use. Do not set if not using DLA
+  --model_path MODEL_PATH
+                        Path to the model (weights) file.
+  --active_sms ACTIVE_SMS
+                        Control the percentage of active SMs while generating
+                        engines.
+  --profile PROFILE     [INTERNAL ONLY] Select if you would like to profile --
+                        select among nsys, nvprof and ncu
+  --log_dir LOG_DIR     Directory for all output logs.
+  --use_graphs          Enable CUDA graphs
+  --nopipelined_execution
+                        Disable pipelined execution
+  --nobatch_sorting     Disable batch sorting by sequence length
+  --noenable_audio_processing
+                        Disable DALI preprocessing and fallback to
+                        preprocessed npy files
+  --nouse_copy_kernel   Disable using DALI's scatter gather kernel instead of
+                        using cudamemcpyAsync
+  --num_warmups NUM_WARMUPS
+                        Number of samples to warmup on. A value of -1 runs two
+                        full batches for each stream
+                        (2*batch_size*streams_per_gpu*NUM_GPUS), 0 turns off
+                        warmups.
+  --max_seq_length MAX_SEQ_LENGTH
+                        Max sequence length for audio
+  --audio_batch_size AUDIO_BATCH_SIZE
+                        Batch size for DALI's processing
+  --audio_buffer_num_lines AUDIO_BUFFER_NUM_LINES
+                        Number of audio samples in flight for DALI's
+                        processing
+  --dali_batches_issue_ahead DALI_BATCHES_ISSUE_AHEAD
+                        Number of batches for which cudamemcpy is issued ahead
+                        of DALI compute
+  --dali_pipeline_depth DALI_PIPELINE_DEPTH
+                        Depth of sub-batch processing in DALI pipeline
+  --disable_encoder_plugin
+                        Disable the INT8 Encoder TRT plugin and use the
+                        fallback TRT API for Encoder
+  --devices DEVICES     Comma-separated list of numbered devices
+  --map_path MAP_PATH   Path to map file for samples
+  --tensor_path TENSOR_PATH
+                        Path to preprocessed samples in .npy format
+  --performance_sample_count PERFORMANCE_SAMPLE_COUNT
+                        Number of samples to load in performance set. 0=use
+                        default
+  --gpu_copy_streams GPU_COPY_STREAMS
+                        Number of copy streams to use for GPU
+  --gpu_inference_streams GPU_INFERENCE_STREAMS
+                        Number of inference streams to use for GPU
+  --dla_copy_streams DLA_COPY_STREAMS
+                        Number of copy streams to use for DLA
+  --dla_inference_streams DLA_INFERENCE_STREAMS
+                        Number of inference streams to use for DLA
+  --run_infer_on_copy_streams RUN_INFER_ON_COPY_STREAMS
+                        Run inference on copy streams.
+  --warmup_duration WARMUP_DURATION
+                        Minimum duration to perform warmup for
+  --use_direct_host_access USE_DIRECT_HOST_ACCESS
+                        Use direct access to host memory for all devices
+  --use_deque_limit USE_DEQUE_LIMIT
+                        Use a max number of elements dequed from work queue
+  --deque_timeout_usec DEQUE_TIMEOUT_USEC
+                        Timeout in us for deque from work queue.
+  --use_batcher_thread_per_device USE_BATCHER_THREAD_PER_DEVICE
+                        Enable a separate batcher thread per device
+  --use_cuda_thread_per_device USE_CUDA_THREAD_PER_DEVICE
+                        Enable a separate cuda thread per device
+  --start_from_device START_FROM_DEVICE
+                        Assuming that inputs start from device memory in QSL
+  --max_dlas MAX_DLAS   Max number of DLAs to use per device
+  --coalesced_tensor COALESCED_TENSOR
+                        Turn on if all the samples are coalesced into one
+                        single npy file
+  --assume_contiguous ASSUME_CONTIGUOUS
+                        Assume that the data in a query is already contiguous
+  --complete_threads COMPLETE_THREADS
+                        Number of threads per device for sending responses
+  --use_same_context USE_SAME_CONTEXT
+                        Use the same TRT context for all copy streams (shape
+                        must be static and gpu_inference_streams must be 1).
+  --mlperf_conf_path MLPERF_CONF_PATH
+                        Path to mlperf.conf
+  --user_conf_path USER_CONF_PATH
+                        Path to user.conf
+  --test_mode {SubmissionRun,AccuracyOnly,PerformanceOnly,FindPeakPerformance}
+                        Testing mode for Loadgen
+  --min_duration MIN_DURATION
+                        Minimum test duration
+  --max_duration MAX_DURATION
+                        Maximum test duration
+  --min_query_count MIN_QUERY_COUNT
+                        Minimum number of queries in test
+  --max_query_count MAX_QUERY_COUNT
+                        Maximum number of queries in test
+  --qsl_rng_seed QSL_RNG_SEED
+                        Seed for RNG that specifies which QSL samples are
+                        chosen for performance set and the order in which
+                        samples are processed in AccuracyOnly mode
+  --sample_index_rng_seed SAMPLE_INDEX_RNG_SEED
+                        Seed for RNG that specifies order in which samples
+                        from performance set are included in queries
+  --fast                If set, will set min_duration to 1 minute (60000ms),
+                        and set min_query_count to 1 for multi-stream
+  --logfile_suffix LOGFILE_SUFFIX
+                        Specify the filename suffix for the LoadGen log files
+  --logfile_prefix_with_datetime
+                        Prefix filenames for LoadGen log files
+  --log_copy_detail_to_stdout
+                        Copy LoadGen detailed logging to stdout
+  --disable_log_copy_summary_to_stdout
+                        Disable copy LoadGen summary logging to stdout
+  --log_mode {AsyncPoll,EndOfTestOnly,Synchronous}
+                        Logging mode for Loadgen
+  --log_mode_async_poll_interval_ms LOG_MODE_ASYNC_POLL_INTERVAL_MS
+                        Specify the poll interval for asynchrounous logging
+  --log_enable_trace LOG_ENABLE_TRACE
+                        Enable trace logging
+  --use_triton          Use Triton harness
+  --preferred_batch_size PREFERRED_BATCH_SIZE
+                        Preferred batch sizes
+  --max_queue_delay_usec MAX_QUEUE_DELAY_USEC
+                        Set max queuing delay in usec.
+  --instance_group_count INSTANCE_GROUP_COUNT
+                        Set number of instance groups on each GPU.
+  --request_timeout_usec REQUEST_TIMEOUT_USEC
+                        Set the timeout for every request in usec.
+  --buffer_manager_thread_count BUFFER_MANAGER_THREAD_COUNT
+                        The number of threads used to accelerate copies and
+                        other operations required to manage input and output
+                        tensor contents.
+  --gather_kernel_buffer_threshold GATHER_KERNEL_BUFFER_THRESHOLD
+                        Buffer size for gather kernel
+  --batch_triton_requests
+                        Send a batch of query samples to triton instead of
+                        single query at a time
+  --output_pinned_memory
+                        Use pinned memory when data transfer for output is
+                        between device mem and non-pinned sys mem
+  --server_target_qps SERVER_TARGET_QPS
+                        Target QPS for server scenario.
+  --server_target_latency_ns SERVER_TARGET_LATENCY_NS
+                        Desired latency constraint for server scenario
+  --server_target_latency_percentile SERVER_TARGET_LATENCY_PERCENTILE
+                        Desired latency percentile constraint for server
+                        scenario
+  --schedule_rng_seed SCHEDULE_RNG_SEED
+                        Seed for RNG that affects the poisson arrival process
+                        in server scenario
+  --accuracy_log_rng_seed ACCURACY_LOG_RNG_SEED
+                        Affects which samples have their query returns logged
+                        to the accuracy log in performance mode.
+  --single_stream_expected_latency_ns SINGLE_STREAM_EXPECTED_LATENCY_NS
+                        Inverse of desired target QPS
+  --single_stream_target_latency_percentile SINGLE_STREAM_TARGET_LATENCY_PERCENTILE
+                        Desired latency percentile for single stream scenario
+  --offline_expected_qps OFFLINE_EXPECTED_QPS
+                        Target samples per second rate for the SUT
+  --multi_stream_target_qps MULTI_STREAM_TARGET_QPS
+                        Target QPS rate for the SUT
+  --multi_stream_target_latency_ns MULTI_STREAM_TARGET_LATENCY_NS
+                        Desired latency constraint for multi stream scenario
+  --multi_stream_target_latency_percentile MULTI_STREAM_TARGET_LATENCY_PERCENTILE
+                        Desired latency percentile for multi stream scenario
+  --multi_stream_samples_per_query MULTI_STREAM_SAMPLES_PER_QUERY
+                        Expected samples per query for multi stream scenario
+  --multi_stream_max_async_queries MULTI_STREAM_MAX_ASYNC_QUERIES
+                        Max number of asynchronous queries for multi stream
+                        scenario
+  --action {generate_engines,run_harness,run_cpu_harness,calibrate,generate_conf_files,run_audit_harness,run_cpu_audit_harness,run_audit_verification,run_cpu_audit_verification}
+                        generate_engines / run_harness / run_cpu_harness /
+                        calibrate / generate_conf_files
+  --benchmarks BENCHMARKS
+                        Specify the benchmark(s) with a comma-separated list.
+                        Default: run all benchmarks.
+  --configs CONFIGS     Specify the config files with a comma-separated list.
+                        Wild card (*) is also allowed. If "", detect platform
+                        and attempt to load configs. Default: ""
+  --config_ver CONFIG_VER
+                        Config version to run. Uses 'default' if not set.
+  --scenarios SCENARIOS
+                        Specify the scenarios with a comma-separated list.
+                        Choices:["Server", "Offline", "SingleStream",
+                        "MultiStream"] Default: "*"
+  --no_gpu              Do not perform action with GPU parameters (run on DLA
+                        only).
+  --gpu_only            Only perform action with GPU parameters (do not run
+                        DLA).
+  --audit_test {TEST01,TEST04-A,TEST04-B,TEST05}
+                        Defines audit test to run.
+  --system_name SYSTEM_NAME
+                        Override the system name to run under
+  --engine_file ENGINE_FILE
+                        File to load engine from
+  --num_samples NUM_SAMPLES
+                        Number of samples to use for accuracy runner
+  --sample_partition_path SAMPLE_PARTITION_PATH
+                        Path to sample partition file in npy format.
+  --num_staging_threads NUM_STAGING_THREADS
+                        Number of staging threads in DLRM BatchMaker
+  --num_staging_batches NUM_STAGING_BATCHES
+                        Number of staging batches in DLRM BatchMaker
+  --max_pairs_per_staging_thread MAX_PAIRS_PER_STAGING_THREAD
+                        Maximum pairs to copy in one BatchMaker staging thread
+  --gpu_num_bundles GPU_NUM_BUNDLES
+                        Number of event+buffer bundles per GPU (default: 2)
+  --check_contiguity    Check if inputs are already contiguous in QSL to avoid
+                        copying
+  --use_jemalloc        Use libjemalloc.so.2 as the malloc(3) implementation
+  --use_spin_wait       Use spin waiting for LWIS. Recommended for single
+                        stream
+  --numa_config NUMA_CONFIG
+                        NUMA settings: GPU and CPU cores for each NUMA node.
+                        For example: 0,2:0-63&1,3:64-127 means NUMA node 0 has
+                        GPU 0 and GPU 2 and CPU 0-63, and NUMA node 1 has GPU
+                        1 and GPU3 and CPU 64-127
+make[1]: Leaving directory '/work'
+make[1]: Entering directory '/work'
+usage: main.py [-h] [--gpu_batch_size GPU_BATCH_SIZE]
+               [--dla_batch_size DLA_BATCH_SIZE] [--batch_size BATCH_SIZE]
+               [--verbose] [--verbose_nvtx] [--no_child_process]
+               [--workspace_size WORKSPACE_SIZE] [--power]
+               [--data_dir DATA_DIR]
+               [--preprocessed_data_dir PREPROCESSED_DATA_DIR]
+               [--precision {fp32,fp16,int8,None}]
+               [--input_dtype {fp32,fp16,int8,None}]
+               [--input_format {linear,chw4,dhwc8,None}] [--audio_fp16_input]
+               [--force_calibration] [--calib_batch_size CALIB_BATCH_SIZE]
+               [--calib_max_batches CALIB_MAX_BATCHES]
+               [--cache_file CACHE_FILE] [--calib_data_map CALIB_DATA_MAP]
+               [--scenario SCENARIO] [--dla_core DLA_CORE]
+               [--model_path MODEL_PATH] [--active_sms ACTIVE_SMS]
+               [--profile PROFILE] [--log_dir LOG_DIR] [--use_graphs]
+               [--nopipelined_execution] [--nobatch_sorting]
+               [--noenable_audio_processing] [--nouse_copy_kernel]
+               [--num_warmups NUM_WARMUPS] [--max_seq_length MAX_SEQ_LENGTH]
+               [--audio_batch_size AUDIO_BATCH_SIZE]
+               [--audio_buffer_num_lines AUDIO_BUFFER_NUM_LINES]
+               [--dali_batches_issue_ahead DALI_BATCHES_ISSUE_AHEAD]
+               [--dali_pipeline_depth DALI_PIPELINE_DEPTH]
+               [--disable_encoder_plugin] [--devices DEVICES]
+               [--map_path MAP_PATH] [--tensor_path TENSOR_PATH]
+               [--performance_sample_count PERFORMANCE_SAMPLE_COUNT]
+               [--gpu_copy_streams GPU_COPY_STREAMS]
+               [--gpu_inference_streams GPU_INFERENCE_STREAMS]
+               [--dla_copy_streams DLA_COPY_STREAMS]
+               [--dla_inference_streams DLA_INFERENCE_STREAMS]
+               [--run_infer_on_copy_streams RUN_INFER_ON_COPY_STREAMS]
+               [--warmup_duration WARMUP_DURATION]
+               [--use_direct_host_access USE_DIRECT_HOST_ACCESS]
+               [--use_deque_limit USE_DEQUE_LIMIT]
+               [--deque_timeout_usec DEQUE_TIMEOUT_USEC]
+               [--use_batcher_thread_per_device USE_BATCHER_THREAD_PER_DEVICE]
+               [--use_cuda_thread_per_device USE_CUDA_THREAD_PER_DEVICE]
+               [--start_from_device START_FROM_DEVICE] [--max_dlas MAX_DLAS]
+               [--coalesced_tensor COALESCED_TENSOR]
+               [--assume_contiguous ASSUME_CONTIGUOUS]
+               [--complete_threads COMPLETE_THREADS]
+               [--use_same_context USE_SAME_CONTEXT]
+               [--mlperf_conf_path MLPERF_CONF_PATH]
+               [--user_conf_path USER_CONF_PATH]
+               [--test_mode {SubmissionRun,AccuracyOnly,PerformanceOnly,FindPeakPerformance}]
+               [--min_duration MIN_DURATION] [--max_duration MAX_DURATION]
+               [--min_query_count MIN_QUERY_COUNT]
+               [--max_query_count MAX_QUERY_COUNT]
+               [--qsl_rng_seed QSL_RNG_SEED]
+               [--sample_index_rng_seed SAMPLE_INDEX_RNG_SEED] [--fast]
+               [--logfile_suffix LOGFILE_SUFFIX]
+               [--logfile_prefix_with_datetime] [--log_copy_detail_to_stdout]
+               [--disable_log_copy_summary_to_stdout]
+               [--log_mode {AsyncPoll,EndOfTestOnly,Synchronous}]
+               [--log_mode_async_poll_interval_ms LOG_MODE_ASYNC_POLL_INTERVAL_MS]
+               [--log_enable_trace LOG_ENABLE_TRACE] [--use_triton]
+               [--preferred_batch_size PREFERRED_BATCH_SIZE]
+               [--max_queue_delay_usec MAX_QUEUE_DELAY_USEC]
+               [--instance_group_count INSTANCE_GROUP_COUNT]
+               [--request_timeout_usec REQUEST_TIMEOUT_USEC]
+               [--buffer_manager_thread_count BUFFER_MANAGER_THREAD_COUNT]
+               [--gather_kernel_buffer_threshold GATHER_KERNEL_BUFFER_THRESHOLD]
+               [--batch_triton_requests] [--output_pinned_memory]
+               [--server_target_qps SERVER_TARGET_QPS]
+               [--server_target_latency_ns SERVER_TARGET_LATENCY_NS]
+               [--server_target_latency_percentile SERVER_TARGET_LATENCY_PERCENTILE]
+               [--schedule_rng_seed SCHEDULE_RNG_SEED]
+               [--accuracy_log_rng_seed ACCURACY_LOG_RNG_SEED]
+               [--single_stream_expected_latency_ns SINGLE_STREAM_EXPECTED_LATENCY_NS]
+               [--single_stream_target_latency_percentile SINGLE_STREAM_TARGET_LATENCY_PERCENTILE]
+               [--offline_expected_qps OFFLINE_EXPECTED_QPS]
+               [--multi_stream_target_qps MULTI_STREAM_TARGET_QPS]
+               [--multi_stream_target_latency_ns MULTI_STREAM_TARGET_LATENCY_NS]
+               [--multi_stream_target_latency_percentile MULTI_STREAM_TARGET_LATENCY_PERCENTILE]
+               [--multi_stream_samples_per_query MULTI_STREAM_SAMPLES_PER_QUERY]
+               [--multi_stream_max_async_queries MULTI_STREAM_MAX_ASYNC_QUERIES]
+               [--action {generate_engines,run_harness,run_cpu_harness,calibrate,generate_conf_files,run_audit_harness,run_cpu_audit_harness,run_audit_verification,run_cpu_audit_verification}]
+               [--benchmarks BENCHMARKS] [--configs CONFIGS]
+               [--config_ver CONFIG_VER] [--scenarios SCENARIOS] [--no_gpu]
+               [--gpu_only] [--audit_test {TEST01,TEST04-A,TEST04-B,TEST05}]
+               [--system_name SYSTEM_NAME] [--engine_file ENGINE_FILE]
+               [--num_samples NUM_SAMPLES]
+               [--sample_partition_path SAMPLE_PARTITION_PATH]
+               [--num_staging_threads NUM_STAGING_THREADS]
+               [--num_staging_batches NUM_STAGING_BATCHES]
+               [--max_pairs_per_staging_thread MAX_PAIRS_PER_STAGING_THREAD]
+               [--gpu_num_bundles GPU_NUM_BUNDLES] [--check_contiguity]
+               [--use_jemalloc] [--use_spin_wait] [--numa_config NUMA_CONFIG]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --gpu_batch_size GPU_BATCH_SIZE
+                        GPU batch size to use for the engine.
+  --dla_batch_size DLA_BATCH_SIZE
+                        DLA batch size to use for the engine.
+  --batch_size BATCH_SIZE
+                        Batch size to use for the engine.
+  --verbose             Use verbose output
+  --verbose_nvtx        Turn ProfilingVerbosity to kVERBOSE so that layer
+                        detail is printed in NVTX.
+  --no_child_process    Do not generate engines on child process. Do it on
+                        current process instead.
+  --workspace_size WORKSPACE_SIZE
+                        The maximum size of temporary workspace that any layer
+                        in the network can use in TRT
+  --power               Select if you would like to measure power
+  --data_dir DATA_DIR   Directory containing unprocessed datasets
+  --preprocessed_data_dir PREPROCESSED_DATA_DIR
+                        Directory containing preprocessed datasets
+  --precision {fp32,fp16,int8,None}
+                        Precision. Default: int8
+  --input_dtype {fp32,fp16,int8,None}
+                        Input datatype. Choices: fp32, int8.
+  --input_format {linear,chw4,dhwc8,None}
+                        Input format (layout). Choices: linear, chw4
+  --audio_fp16_input    Is input format for raw audio file in fp16?. Choices:
+                        true, false
+  --force_calibration   Run quantization calibration even if the cache exists.
+                        (Only used for quantized models)
+  --calib_batch_size CALIB_BATCH_SIZE
+                        Batch size for calibration.
+  --calib_max_batches CALIB_MAX_BATCHES
+                        Number of batches to run for calibration.
+  --cache_file CACHE_FILE
+                        Path to calibration cache.
+  --calib_data_map CALIB_DATA_MAP
+                        Path to the data map of the calibration set.
+  --scenario SCENARIO   Name for the scenario. Used to generate engine name.
+  --dla_core DLA_CORE   DLA core to use. Do not set if not using DLA
+  --model_path MODEL_PATH
+                        Path to the model (weights) file.
+  --active_sms ACTIVE_SMS
+                        Control the percentage of active SMs while generating
+                        engines.
+  --profile PROFILE     [INTERNAL ONLY] Select if you would like to profile --
+                        select among nsys, nvprof and ncu
+  --log_dir LOG_DIR     Directory for all output logs.
+  --use_graphs          Enable CUDA graphs
+  --nopipelined_execution
+                        Disable pipelined execution
+  --nobatch_sorting     Disable batch sorting by sequence length
+  --noenable_audio_processing
+                        Disable DALI preprocessing and fallback to
+                        preprocessed npy files
+  --nouse_copy_kernel   Disable using DALI's scatter gather kernel instead of
+                        using cudamemcpyAsync
+  --num_warmups NUM_WARMUPS
+                        Number of samples to warmup on. A value of -1 runs two
+                        full batches for each stream
+                        (2*batch_size*streams_per_gpu*NUM_GPUS), 0 turns off
+                        warmups.
+  --max_seq_length MAX_SEQ_LENGTH
+                        Max sequence length for audio
+  --audio_batch_size AUDIO_BATCH_SIZE
+                        Batch size for DALI's processing
+  --audio_buffer_num_lines AUDIO_BUFFER_NUM_LINES
+                        Number of audio samples in flight for DALI's
+                        processing
+  --dali_batches_issue_ahead DALI_BATCHES_ISSUE_AHEAD
+                        Number of batches for which cudamemcpy is issued ahead
+                        of DALI compute
+  --dali_pipeline_depth DALI_PIPELINE_DEPTH
+                        Depth of sub-batch processing in DALI pipeline
+  --disable_encoder_plugin
+                        Disable the INT8 Encoder TRT plugin and use the
+                        fallback TRT API for Encoder
+  --devices DEVICES     Comma-separated list of numbered devices
+  --map_path MAP_PATH   Path to map file for samples
+  --tensor_path TENSOR_PATH
+                        Path to preprocessed samples in .npy format
+  --performance_sample_count PERFORMANCE_SAMPLE_COUNT
+                        Number of samples to load in performance set. 0=use
+                        default
+  --gpu_copy_streams GPU_COPY_STREAMS
+                        Number of copy streams to use for GPU
+  --gpu_inference_streams GPU_INFERENCE_STREAMS
+                        Number of inference streams to use for GPU
+  --dla_copy_streams DLA_COPY_STREAMS
+                        Number of copy streams to use for DLA
+  --dla_inference_streams DLA_INFERENCE_STREAMS
+                        Number of inference streams to use for DLA
+  --run_infer_on_copy_streams RUN_INFER_ON_COPY_STREAMS
+                        Run inference on copy streams.
+  --warmup_duration WARMUP_DURATION
+                        Minimum duration to perform warmup for
+  --use_direct_host_access USE_DIRECT_HOST_ACCESS
+                        Use direct access to host memory for all devices
+  --use_deque_limit USE_DEQUE_LIMIT
+                        Use a max number of elements dequed from work queue
+  --deque_timeout_usec DEQUE_TIMEOUT_USEC
+                        Timeout in us for deque from work queue.
+  --use_batcher_thread_per_device USE_BATCHER_THREAD_PER_DEVICE
+                        Enable a separate batcher thread per device
+  --use_cuda_thread_per_device USE_CUDA_THREAD_PER_DEVICE
+                        Enable a separate cuda thread per device
+  --start_from_device START_FROM_DEVICE
+                        Assuming that inputs start from device memory in QSL
+  --max_dlas MAX_DLAS   Max number of DLAs to use per device
+  --coalesced_tensor COALESCED_TENSOR
+                        Turn on if all the samples are coalesced into one
+                        single npy file
+  --assume_contiguous ASSUME_CONTIGUOUS
+                        Assume that the data in a query is already contiguous
+  --complete_threads COMPLETE_THREADS
+                        Number of threads per device for sending responses
+  --use_same_context USE_SAME_CONTEXT
+                        Use the same TRT context for all copy streams (shape
+                        must be static and gpu_inference_streams must be 1).
+  --mlperf_conf_path MLPERF_CONF_PATH
+                        Path to mlperf.conf
+  --user_conf_path USER_CONF_PATH
+                        Path to user.conf
+  --test_mode {SubmissionRun,AccuracyOnly,PerformanceOnly,FindPeakPerformance}
+                        Testing mode for Loadgen
+  --min_duration MIN_DURATION
+                        Minimum test duration
+  --max_duration MAX_DURATION
+                        Maximum test duration
+  --min_query_count MIN_QUERY_COUNT
+                        Minimum number of queries in test
+  --max_query_count MAX_QUERY_COUNT
+                        Maximum number of queries in test
+  --qsl_rng_seed QSL_RNG_SEED
+                        Seed for RNG that specifies which QSL samples are
+                        chosen for performance set and the order in which
+                        samples are processed in AccuracyOnly mode
+  --sample_index_rng_seed SAMPLE_INDEX_RNG_SEED
+                        Seed for RNG that specifies order in which samples
+                        from performance set are included in queries
+  --fast                If set, will set min_duration to 1 minute (60000ms),
+                        and set min_query_count to 1 for multi-stream
+  --logfile_suffix LOGFILE_SUFFIX
+                        Specify the filename suffix for the LoadGen log files
+  --logfile_prefix_with_datetime
+                        Prefix filenames for LoadGen log files
+  --log_copy_detail_to_stdout
+                        Copy LoadGen detailed logging to stdout
+  --disable_log_copy_summary_to_stdout
+                        Disable copy LoadGen summary logging to stdout
+  --log_mode {AsyncPoll,EndOfTestOnly,Synchronous}
+                        Logging mode for Loadgen
+  --log_mode_async_poll_interval_ms LOG_MODE_ASYNC_POLL_INTERVAL_MS
+                        Specify the poll interval for asynchrounous logging
+  --log_enable_trace LOG_ENABLE_TRACE
+                        Enable trace logging
+  --use_triton          Use Triton harness
+  --preferred_batch_size PREFERRED_BATCH_SIZE
+                        Preferred batch sizes
+  --max_queue_delay_usec MAX_QUEUE_DELAY_USEC
+                        Set max queuing delay in usec.
+  --instance_group_count INSTANCE_GROUP_COUNT
+                        Set number of instance groups on each GPU.
+  --request_timeout_usec REQUEST_TIMEOUT_USEC
+                        Set the timeout for every request in usec.
+  --buffer_manager_thread_count BUFFER_MANAGER_THREAD_COUNT
+                        The number of threads used to accelerate copies and
+                        other operations required to manage input and output
+                        tensor contents.
+  --gather_kernel_buffer_threshold GATHER_KERNEL_BUFFER_THRESHOLD
+                        Buffer size for gather kernel
+  --batch_triton_requests
+                        Send a batch of query samples to triton instead of
+                        single query at a time
+  --output_pinned_memory
+                        Use pinned memory when data transfer for output is
+                        between device mem and non-pinned sys mem
+  --server_target_qps SERVER_TARGET_QPS
+                        Target QPS for server scenario.
+  --server_target_latency_ns SERVER_TARGET_LATENCY_NS
+                        Desired latency constraint for server scenario
+  --server_target_latency_percentile SERVER_TARGET_LATENCY_PERCENTILE
+                        Desired latency percentile constraint for server
+                        scenario
+  --schedule_rng_seed SCHEDULE_RNG_SEED
+                        Seed for RNG that affects the poisson arrival process
+                        in server scenario
+  --accuracy_log_rng_seed ACCURACY_LOG_RNG_SEED
+                        Affects which samples have their query returns logged
+                        to the accuracy log in performance mode.
+  --single_stream_expected_latency_ns SINGLE_STREAM_EXPECTED_LATENCY_NS
+                        Inverse of desired target QPS
+  --single_stream_target_latency_percentile SINGLE_STREAM_TARGET_LATENCY_PERCENTILE
+                        Desired latency percentile for single stream scenario
+  --offline_expected_qps OFFLINE_EXPECTED_QPS
+                        Target samples per second rate for the SUT
+  --multi_stream_target_qps MULTI_STREAM_TARGET_QPS
+                        Target QPS rate for the SUT
+  --multi_stream_target_latency_ns MULTI_STREAM_TARGET_LATENCY_NS
+                        Desired latency constraint for multi stream scenario
+  --multi_stream_target_latency_percentile MULTI_STREAM_TARGET_LATENCY_PERCENTILE
+                        Desired latency percentile for multi stream scenario
+  --multi_stream_samples_per_query MULTI_STREAM_SAMPLES_PER_QUERY
+                        Expected samples per query for multi stream scenario
+  --multi_stream_max_async_queries MULTI_STREAM_MAX_ASYNC_QUERIES
+                        Max number of asynchronous queries for multi stream
+                        scenario
+  --action {generate_engines,run_harness,run_cpu_harness,calibrate,generate_conf_files,run_audit_harness,run_cpu_audit_harness,run_audit_verification,run_cpu_audit_verification}
+                        generate_engines / run_harness / run_cpu_harness /
+                        calibrate / generate_conf_files
+  --benchmarks BENCHMARKS
+                        Specify the benchmark(s) with a comma-separated list.
+                        Default: run all benchmarks.
+  --configs CONFIGS     Specify the config files with a comma-separated list.
+                        Wild card (*) is also allowed. If "", detect platform
+                        and attempt to load configs. Default: ""
+  --config_ver CONFIG_VER
+                        Config version to run. Uses 'default' if not set.
+  --scenarios SCENARIOS
+                        Specify the scenarios with a comma-separated list.
+                        Choices:["Server", "Offline", "SingleStream",
+                        "MultiStream"] Default: "*"
+  --no_gpu              Do not perform action with GPU parameters (run on DLA
+                        only).
+  --gpu_only            Only perform action with GPU parameters (do not run
+                        DLA).
+  --audit_test {TEST01,TEST04-A,TEST04-B,TEST05}
+                        Defines audit test to run.
+  --system_name SYSTEM_NAME
+                        Override the system name to run under
+  --engine_file ENGINE_FILE
+                        File to load engine from
+  --num_samples NUM_SAMPLES
+                        Number of samples to use for accuracy runner
+  --sample_partition_path SAMPLE_PARTITION_PATH
+                        Path to sample partition file in npy format.
+  --num_staging_threads NUM_STAGING_THREADS
+                        Number of staging threads in DLRM BatchMaker
+  --num_staging_batches NUM_STAGING_BATCHES
+                        Number of staging batches in DLRM BatchMaker
+  --max_pairs_per_staging_thread MAX_PAIRS_PER_STAGING_THREAD
+                        Maximum pairs to copy in one BatchMaker staging thread
+  --gpu_num_bundles GPU_NUM_BUNDLES
+                        Number of event+buffer bundles per GPU (default: 2)
+  --check_contiguity    Check if inputs are already contiguous in QSL to avoid
+                        copying
+  --use_jemalloc        Use libjemalloc.so.2 as the malloc(3) implementation
+  --use_spin_wait       Use spin waiting for LWIS. Recommended for single
+                        stream
+  --numa_config NUMA_CONFIG
+                        NUMA settings: GPU and CPU cores for each NUMA node.
+                        For example: 0,2:0-63&1,3:64-127 means NUMA node 0 has
+                        GPU 0 and GPU 2 and CPU 0-63, and NUMA node 1 has GPU
+                        1 and GPU3 and CPU 64-127
+usage: print_harness_result.py [-h] [--log_dir LOG_DIR]
+
+optional arguments:
+  -h, --help         show this help message and exit
+  --log_dir LOG_DIR  Directory for all output logs.
+make[1]: Leaving directory '/work'
