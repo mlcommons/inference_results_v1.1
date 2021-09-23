@@ -244,15 +244,19 @@ diff --git a/closed/Intel/code/dlrm-99.9/pytorch-cpu/README.md b/closed/Intel/co
 index 3cc5a69..d180423 100644
 --- a/closed/Intel/code/dlrm-99.9/pytorch-cpu/README.md
 +++ b/closed/Intel/code/dlrm-99.9/pytorch-cpu/README.md
-@@ -48,7 +48,13 @@
- (2) Prepare pre-trained DLRM model
+@@ -45,10 +45,16 @@
+    About how to get the dataset, please refer to
+       https://github.com/facebookresearch/dlrm
+ ```
+-(2) Prepare pre-trained DLRM model
++(2) Prepare pre-trained DLRM model(from [google drive](https://drive.google.com/drive/folders/12uV4hdPVMrzo2WmLAVPbJKICCQJDfkCe))
  ```
     cd dlrm_pytorch/python/model
 -   wget https://dlrm.s3-us-west-1.amazonaws.com/models/tb00_40M.pt -O dlrm_terabyte.pytorch
-+   wget ***sparse_dlrm_model.bin -O dlrm_terabyte.pytorch
++   wget dlrm_terabyte.pytorch.tar.gz.part*; cat dlrm_terabyte.pytorch.tar.gz.part* > dlrm_terabyte.pytorch
 +```
 +
-+(3) Download customize ipex
++(3) Download customize ipex(from [google drive](https://drive.google.com/drive/folders/12uV4hdPVMrzo2WmLAVPbJKICCQJDfkCe))
 +```
 +   wget torch_ipex-1.2.0-cp37-cp37m-linux_x86_64.whl
 +   pip install torch_ipex-1.2.0-cp37-cp37m-linux_x86_64.whl
@@ -574,47 +578,53 @@ diff --git a/closed/Intel/measurements/1-node-2S-ICX-PyTorch-INT8/dlrm-99.9/offl
 index 294355f..2cc8f8b 100644
 --- a/closed/Intel/measurements/1-node-2S-ICX-PyTorch-INT8/dlrm-99.9/offline/README.md
 +++ b/closed/Intel/measurements/1-node-2S-ICX-PyTorch-INT8/dlrm-99.9/offline/README.md
-@@ -48,7 +48,11 @@
- (2) Prepare pre-trained DLRM model
+@@ -45,10 +45,16 @@
+    About how to get the dataset, please refer to
+       https://github.com/facebookresearch/dlrm
+ ```
+-(2) Prepare pre-trained DLRM model
++(2) Prepare pre-trained DLRM model(from [google drive](https://drive.google.com/drive/folders/12uV4hdPVMrzo2WmLAVPbJKICCQJDfkCe))
  ```
     cd dlrm_pytorch/python/model
 -   wget https://dlrm.s3-us-west-1.amazonaws.com/models/tb00_40M.pt -O dlrm_terabyte.pytorch
-+   wget ***sparse_dlrm_model.bin -O dlrm_terabyte.pytorch
++   wget dlrm_terabyte.pytorch.tar.gz.part*; cat dlrm_terabyte.pytorch.tar.gz.part* > dlrm_terabyte.pytorch
 +```
-+(3) Download customize ipex
++
++(3) Download customize ipex(from [google drive](https://drive.google.com/drive/folders/12uV4hdPVMrzo2WmLAVPbJKICCQJDfkCe))
 +```
 +   wget torch_ipex-1.2.0-cp37-cp37m-linux_x86_64.whl
++   pip install torch_ipex-1.2.0-cp37-cp37m-linux_x86_64.whl
  ```
  ### 4. Run command for server and offline mode
- 
-@@ -75,30 +79,22 @@
+
+@@ -75,30 +81,22 @@
     # server-performance-mode
     sudo ./run_clean.sh
     source ./setup_env_server.sh
 -   ./run_main.sh server           #run for DLRM fp32 model
     ./run_main.sh server int8      #run for DLRM int8 model
 -   ./run_main.sh server bf16      #run for DLRM bf16 model
- 
+
     # server-accuracy-mode
     sudo ./run_clean.sh
     source ./setup_env_server.sh
 -   ./run_main.sh server accuracy           #run for DLRM fp32 model
     ./run_main.sh server accuracy int8      #run for DLRM int8 model
 -   ./run_main.sh server accuracy bf16      #run for DLRM bf16 model
- 
+
     # offline-performance-mode
     sudo ./run_clean.sh
     source ./setup_env_offline.sh
 -   ./run_main.sh offline           #run for DLRM fp32 model
     ./run_main.sh offline int8      #run for DLRM int8 model
 -   ./run_main.sh offline bf16      #run for DLRM bf16 model
- 
+
     # offline-accuracy-mode
     sudo ./run_clean.sh
     source ./setup_env_offline.sh
 -   ./run_main.sh offline accuracy           #run for DLRM fp32 model
     ./run_main.sh offline accuracy int8      #run for DLRM int8 model
 -   ./run_main.sh offline accuracy bf16      #run for DLRM bf16 model
- 
+
     for int8 calibration scripts, please look into Intel/calibration/dlrm/pytorch-cpu/ directory.
     for int8 execution, calibration result is in int8_configure.json which is copied from that output.
